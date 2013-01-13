@@ -16,6 +16,39 @@ var Cursor = Backbone.Model.extend({
             this.get('view').render();
         },this);
         
+    },
+    /* Expect
+     * 	[ [ startLine, startChar], [ endLine, endChar ] ]
+     */	
+    highlight: function(range) {
+	    if(vim.get('selection')) {
+		vim.get('selection').forEach(function(char) {
+			$(char.get('el')).removeClass('highlight');
+			$(char.get('el')).removeClass('last');
+			$(char.get('el')).removeClass('first');
+		});
+	    }
+	var startLine = range[0][0],
+	    	startChar = range[0][1],
+		endLine = range[1][0],
+		endChar = range[1][1];
+	var curLine = startLine;
+	var chars = doc.get('lines').at(startLine).get('chars').rest(startChar);
+	if(endLine === startLine) {
+		chars = chars.slice(0,endChar-startChar+1);
+	} else {
+		while(++curLine < endLine) {
+			chars = chars.concat(doc.get('lines').at(curLine).get('chars').toArray());
+		}
+		chars = chars.concat(doc.get('lines').at(curLine).get('chars').first(endChar));
+	}
+	vim.set('selection',chars);
+	chars.forEach(function(char) {
+		$(char.get('el')).addClass('highlight');
+	})
+	$(_(chars).first().get('el')).addClass('first');
+	$(_(chars).last().get('el')).addClass('last');
+
     }
 });
 

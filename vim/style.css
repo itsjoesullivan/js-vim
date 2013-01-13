@@ -5,6 +5,19 @@ body {
     color:#eee
 }
 
+.highlight {
+	background-color:#ccc;
+	color:#111;
+}
+.first {
+	background-color:#eee;
+	color:#111;
+}
+
+.last {
+	background-color:#aaa;
+	color:#111;
+}
 pre {
     display: inline;
     margin:0;
