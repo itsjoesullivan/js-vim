@@ -118,7 +118,8 @@ var test = function() {
         }; 
         mocha.setup({
             'ui':'bdd',
-            'globals':['*']
+            'globals':['*'],
+		"slow":5 
         });
         
         $(".doc").hide();

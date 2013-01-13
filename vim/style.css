@@ -8,6 +8,7 @@ body {
 pre {
     display: inline;
     margin:0;
+	font-family: 'Inconsolata', sans-serif;
 }
 
 p {

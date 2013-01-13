@@ -1,13 +1,14 @@
 var idleObj = {
     'idle': {
         'a': function() {
-            var curChars = vim.get('doc').get('lines').at(cursor.line).get('chars');
-            if(curChars.length > cursor.char) {
+            //var curChars = vim.get('doc').get('lines').at(cursor.line).get('chars');
+		var curChars = doc.get('lines').at(cursor.line).get('chars');
+//            if(curChars.length > cursor.char) {
                 var curVal = vim.get('doc').get('lines').at(cursor.line).get('chars').at(cursor.char).get('val');
                 vim.exec(['x','i',curVal]);
-            } else {
-                vim.exec('i');
-            }
+ //           } else {
+  //              vim.exec('i');
+   //         }
             
         },
         'i': function() {
