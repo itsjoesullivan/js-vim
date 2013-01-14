@@ -14,7 +14,7 @@ var insertObj = {
             }
             
         },
-        '\[\\w\\s\]': function(key,keyCode) {
+        '\[^\\b\]': function(key,keyCode) {
             vim.get('doc').add(key,keyCode);
         }
     },
