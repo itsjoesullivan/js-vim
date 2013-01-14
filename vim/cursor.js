@@ -17,6 +17,16 @@ var Cursor = Backbone.Model.extend({
         },this);
         
     },
+    nextLine: function() {
+	    var lines = doc.get('lines').length;
+	    if(lines-1 > cursor.line) {
+	return	   cursor.set('line',cursor.line+1);
+	    }
+	    if(lines > 1) {
+		return    cursor.set('line',0);
+		}
+    },
+		   
     /* Expect
      * 	[ [ startLine, startChar], [ endLine, endChar ] ]
      */	
