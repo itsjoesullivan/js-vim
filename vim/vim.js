@@ -41,10 +41,21 @@ var Vim = Backbone.Model.extend({
         });
     },
     //lets add all commands via this
-    extend: function(commandObj) {
+    extend: (function() {
+	    return function(commandObj) {
         /* commandObj like
-        
             {
+	   	'idle': {  in idle mode
+	       		'i': function() {  //declare a command on "i"
+		       		vim.set('mode','insert'); //that sets the mode to insert!
+			}
+		},
+	   	'on': {
+	       		//various events to listen for
+			'insert': {
+		       	//we're in insert mode!!!
+			}
+		},
                 'modeName': {
                     'commandPattern': function() {
                     
@@ -56,31 +67,36 @@ var Vim = Backbone.Model.extend({
     
 
         var modeCommandMap = this.get('command').get('modeCommandMap');
-        
+       //for each mode 
         for(var mode in commandObj) {
+		//that isn't "on", which is special (don't make an "on" mode plz")
 		if(mode === 'on') {
 			continue;
 		}
+	
             var commands = commandObj[mode];
             if(! (mode in modeCommandMap) ) {
                 modeCommandMap[mode] = {};
             }
+	    //for each keystroke pattern
             for(var pattern in commands) {
+		    //add that pattern to that mode in the global command map
                 modeCommandMap[mode][pattern] = commands[pattern];
             }
         }
+	//for on, 
 	if('on' in commandObj) {
-		for(var i in commandObj.on) {
-			var fn = commandObj.on[i];
-			var mode = '' + i; 
+		_(commandObj.on).each(function(event,mode) {
+			console.log(event,mode);
 			vim.on('change:mode', function(m,v,o) {
 				if(mode === v) {
-					fn();
+					event();
 				}
-			});	
-		}
+			});
+		})
 	}
-    },
+    }
+    }()),
     exec: function(commandArg,keyCodeArg) {
         /* commandArg like
             ['esc','i','hello','esc'] --> like typing hello, I guess
