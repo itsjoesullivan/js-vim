@@ -67,5 +67,5 @@ I __think__ that the answer is pretty straightforward: create a listener for the
 
 ##Status
 
-In the Learn-Vim-Progressively schedule, we're past "survive" at "feel comfortable". Insert mode and much of Idle mode are done. The three big remaining modes are visual, search, and command (:notation). 
+In the Learn-Vim-Progressively schedule, we're past "survive" at "feel comfortable". Insert mode and much of Idle mode are done. The three big remaining modes are visual, search, and command (:notation). Search is there in basic form: /pattern, 'n' -> repeat. Visual is completely nascent, but not missing. It requires a bit more thought than the other ones did, interacting as it does with other mode/commands.
 
