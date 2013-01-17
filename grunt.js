@@ -13,7 +13,7 @@ var files = [
 	'vim/char.js',
 	'vim/line.js',
 	'vim/doc.js',
-	'vim/vim.js',
+	'vim/core.js',
         'vim/plugins-core/idle.js',
         'vim/plugins-core/insert.js',
 	'vim/plugins-core/search.js',
