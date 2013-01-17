@@ -7,8 +7,10 @@ var insertObj = {
                 var thisLine = vim.get('doc').get('lines').at(cursor.line);
                 var remainder = thisLine.toText();
                 thisLine.delete();
-                vim.exec('escape','k','$','i');
-                vim.exec(remainder.split(''));
+                vim.exec(['escape','k','$','i']);
+		if(remainder.length) {
+	                vim.exec(remainder.split(''));
+		}
                 
                 
             }
