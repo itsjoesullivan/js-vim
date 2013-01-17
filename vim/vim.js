@@ -14,7 +14,8 @@ var Vim = Backbone.Model.extend({
             var key = String.fromCharCode(e.keyCode);
             var handle = {
                 27: 'escape',
-                8: 'backspace'
+                8: 'backspace',
+		9: '\t'
             };
             if(e.keyCode in handle) {
                 e.preventDefault();
