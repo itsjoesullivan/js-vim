@@ -35,6 +35,7 @@
 			'y': function() {
 				vim.exec('escape');
 				vim.exec('yank');
+				cursor.unHighlight();
 			}
 		},
 	};

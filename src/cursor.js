@@ -33,13 +33,8 @@ var Cursor = Backbone.Model.extend({
 	 * 	[ [ startLine, startChar], [ endLine, endChar ] ]
 	 */
 	highlight: function(range) {
-		vim.set('range',range);
 		if (vim.get('selection')) {
-			vim.get('selection').forEach(function(char) {
-				$(char.get('el')).removeClass('highlight');
-				$(char.get('el')).removeClass('last');
-				$(char.get('el')).removeClass('first');
-			});
+			this.unHighlight();
 		}
 		var startLine = range[0][0],
 			startChar = range[0][1],
@@ -62,7 +57,16 @@ var Cursor = Backbone.Model.extend({
 		$(_(chars).first().get('el')).addClass('first');
 		$(_(chars).last().get('el')).addClass('last');
 
-	}
+	},
+	unHighlight: function() {
+		if(vim.get('selection')) {
+			vim.get('selection').forEach(function(char) {
+				$(char.get('el')).removeClass('highlight');
+				$(char.get('el')).removeClass('last');
+				$(char.get('el')).removeClass('first');
+			});
+		}
+		     }
 });
 
 var CursorV = Backbone.View.extend({
