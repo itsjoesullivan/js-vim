@@ -82,19 +82,18 @@ var idleObj = {
 		var text = '';
 		var curLine = false; 
 		_(selection).each(function(char) {
+			console.log(char);
 			text += char.get('val');
-			if(char.collection.indexOf(char) === char.collection.length-1) {
-				text += '\n';
-			}
 		});
-		if(text.substring(text.length-1) === '\n') {
-			text = text.substring(0,text.length-1);
-		}
 		clipboard.copy(text);
 	},
         '([0-9])+(y)': function(val) {
-		console.log('here');
-		vim.exec(['0','v','j','$','y']);
+		var total = parseInt(val);
+		vim.exec(['0','v']);
+		while(total--) {
+			vim.exec('j');
+		}
+		vim.exec(['$','y']);
 	},
         '([0-9])+([hjkl])': function(val) {
            var key = val[2];
@@ -105,6 +104,7 @@ var idleObj = {
         },
         //'[0-9]+[yd]{2}':
         'yy': function() {
+		vim.exec(['1','y']);
             var selection = vim.get('doc').get('lines').at(cursor.line).toText();
             clipboard.copy(selection);
         }
