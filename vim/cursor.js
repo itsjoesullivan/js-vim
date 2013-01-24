@@ -85,9 +85,11 @@ var CursorV = Backbone.View.extend({
         if(line.get('chars').length < position.char) {
             this.model.set('char',line.get('chars').length);
         }
-        if(position.char === 0 && !line.get('chars').length) { //add to the line's el if it is empty
+        if(position.char === 0 || !line.get('chars').length) { //add to the line's el if it is empty
             $(line.get('view').el).append(this.el);
         } else { //otherwise find the last char and 
+		console.log(line);
+		console.log(position);
             $(line.get('chars').at(position.char === 0 ? 0 : position.char-1).get('el')).after(this.el);
         }
       
