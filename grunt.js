@@ -18,6 +18,7 @@ var files = [
         'vim/plugins-core/insert.js',
 	'vim/plugins-core/search.js',
 	'vim/plugins-core/visual.js',
+	'vim/plugins-core/command.js',
         'vim/plugins-core/default.js',
         'vim/init.js',
 	];
