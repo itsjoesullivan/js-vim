@@ -68,10 +68,6 @@ var idleObj = {
         'o': function() {
             vim.exec(['i','escape','$','i','\r']);
         },
-        '[0-9]+y': function() {
-            console.log(arguments);
-            
-        },
         'O': function() {
             vim.exec(['0','i','\r','escape','k','i']);
         },
@@ -79,7 +75,22 @@ var idleObj = {
             var line = doc.at({line:cursor.line});
             clipboard.copy(line.toText());
             line.delete();
+	    cursor.set('line',cursor.line-1);
         },
+	'yank': function() {
+		var selection = vim.get('selection');
+		var text = '';
+		var curLine = false; 
+		_(selection).each(function(char) {
+			console.log(char);
+			text += char.get('val');
+		});
+		clipboard.copy(text);
+	},
+        '([0-9])+(y)': function(val) {
+		console.log('here');
+		vim.exec(['0','v','j','$','y']);
+	},
         '([0-9])+([hjkl])': function(val) {
            var key = val[2];
            var times = val[1];

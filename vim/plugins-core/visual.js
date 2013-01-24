@@ -10,23 +10,35 @@
 		on: {
 			'visual': function() {
 				vim.notify('-- VISUAL --');
-				start = [cursor.line, cursor.char];
+				if(!start) {
+					start = [cursor.line, cursor.char];
+				}
 				console.log(start);
-				end = [cursor.line, cursor.char];
+				if(!end) {
+					end = [cursor.line, cursor.char];
+				}
 			},
 			'visual-resume': function() {
 				end = [cursor.line, cursor.char];
+				vim.set('mode','visual');
+			},
+			'escape': function() {
+				console.log('escaping on my terms');
+				start = end = false;
 			}
 		},
 		visual: {
-			'\[hjkl\]': function(key) {
-				console.log(key);
+			'\[hjkl0$\]': function(key) {
 				vim.exec(['escape', key]);
-				vim.set('mode', 'visual-resume');
-				console.log([start, end]);
+				end = [cursor.line,cursor.char];
+				vim.set('mode', 'visual');
 				cursor.highlight([start, end]);
+			},
+			'y': function() {
+				vim.exec('escape');
+				vim.exec('yank');
 			}
-		}
+		},
 	};
 	vim.extend(visual);
 }());

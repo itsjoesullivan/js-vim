@@ -4,14 +4,30 @@ define(function () {
     //Do setup work here
 
     return function() {
+
         
         vim.exec('escape');
+
+	describe('cursor', function() {
+		it('won\'t barf when it hits an empty line', function() {
+			var err = false;
+			try {
+			var doc = new Doc();
+			vim.open(doc);
+			} catch(e) {
+				err = true;
+			}
+			expect(err).to.be.false;
+		});
+	});
 
         describe('idle', function() {
             
             beforeEach(function(done){
                 var doc = new Doc();
+		console.log(doc);
                 vim.open(doc);
+		console.log(vim);
                 done();
             });
             
@@ -125,19 +141,38 @@ define(function () {
                     expect(vim.get('mode')).equal('insert');
                 });
             });
+
             describe('dd', function() {
                 it('deletes the current line', function() {
                     clipboard._val = false;
                    vim.exec(['i','a','s','d','f','\r','a','s','d','escape']);
                    expect(doc.toText()).equal('asdf\nasd');
                    vim.exec(['d','d']);
-                   expect(doc.toText()).equal('');
+                   expect(doc.toText()).equal('asdf');
                    expect(clipboard._val).equal('asd');
                 });
             });
-            describe('yy', function() {
-                
-            });
+	    describe('yy', function() {
+		    it('copies the current line', function() {
+			    clipboard._val = false;
+                   		vim.exec(['i','a','s','d','f','\r','a','s','d','escape']);
+				expect(doc.toText()).equal('asdf\nasd');
+				vim.exec(['y','y']);
+				expect(doc.toText()).equal('asdf\nasd');
+				expect(clipboard._val).equal('asd');
+		    });
+	    });
+
+	    describe('2y', function() {
+		it('copies two lines', function() {
+			    clipboard._val = false;
+                   		vim.exec(['i','a','s','d','f','\r','a','s','d','f','\r','h','i','escape']);
+//				expect(doc.toText()).equal('asdf\nasdf\nhi');
+				vim.exec('k');
+				vim.exec(['2','y']);
+				expect(clipboard._val).equal('asdf\nhi');
+		});
+	    });
         });
         
     }
