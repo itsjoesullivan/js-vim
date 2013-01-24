@@ -81,10 +81,17 @@ var idleObj = {
 		var selection = vim.get('selection');
 		var text = '';
 		var curLine = false; 
+		var last = false;
 		_(selection).each(function(char) {
-			console.log(char);
-			text += char.get('val');
+			last = char.get('val');
+			text += last;
+			if(char.collection.indexOf(char) === char.collection.length-1) {
+				text += '\n';
+			}
 		});
+		if(last !== '\n') {
+			text = text.substring(0,text.length-1);
+		}
 		clipboard.copy(text);
 	},
         '([0-9])+(y)': function(val) {
