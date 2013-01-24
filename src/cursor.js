@@ -89,7 +89,7 @@ var CursorV = Backbone.View.extend({
 		if (line.get('chars').length < position.char) {
 			this.model.set('char', line.get('chars').length);
 		}
-		if (position.char === 0 || !line.get('chars').length) { //add to the line's el if it is empty
+		if(!line.get('chars').length) {
 			$(line.get('view').el).append(this.el);
 		} else { //otherwise find the last char and 
 			$(line.get('chars').at(position.char === 0 ? 0 : position.char - 1).get('el')).after(this.el);
@@ -103,7 +103,7 @@ var CursorV = Backbone.View.extend({
 		//check if we're on top of a character. grab its value and display that, then hide it under fixThisOne, and switch the cursor colors.
 		var onTopOf = doc.get('lines').at(position.line).get('chars').at(position.char);
 		if (onTopOf) {
-			this.el.style.color = '#eee';
+			this.el.style.color = '#333';
 			this.el.innerHTML = onTopOf.get('val');
 			this.fixThisOne = onTopOf.get('el');
 			this.fixThisOne.style.display = 'none';
