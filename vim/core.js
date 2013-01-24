@@ -26,7 +26,6 @@ var Vim = Backbone.Model.extend({
         window.command = this.get('command');
     },
     open: function(doc) {
-        
         if(this.get('doc')) {
             this.get('doc').destroy();
         }
@@ -40,6 +39,7 @@ var Vim = Backbone.Model.extend({
             line:0,
             char:0
         });
+	console.log('to here');
     },
     //lets add all commands via this
     extend: (function() {
@@ -147,7 +147,7 @@ var test = function() {
         $("body").append(json2html(style));  
         require([
         'http://joesul.li/van/vim/lib/chai.js',
-            'http://joesul.li/van/vim/vim/plugins-core/idle-spec.js' + '?' + Math.random()
+            'vim/plugins-core/idle-spec.js' + '?' + Math.random()
             ], function(chai,idle) {
             window.expect = chai.expect;
             idle();
