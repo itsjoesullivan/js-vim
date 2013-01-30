@@ -1,0 +1,19 @@
+{
+    "w": "Forward by 'word'",
+    "b": "Backward by 'word'",
+    "W": "Forward by 'WORD'",
+    "B": "Backward by 'WORD'",
+    "e": "End of word",
+    "E": "End of WORD",
+    "ge": "End of previous WORD",
+    "gE": "End of previous WORD",
+    ")": "Beginning of next sentence",
+    "(": "Beginning of current sentence",
+    "}": "Beginning of next paragraph",
+    "{": "Beginning of current paragraph",
+    "]]": "Beginning of next section",
+    "[[": "Beginning of current section",
+    "]]": "Beginning of next section",
+    "][": "End of next section",
+    "[ ]": "End of current section"
+}

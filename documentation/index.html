@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+  <style>
+    body,table,tr,td,th {
+        margin:0;
+        padding:0;
+    }
+    tr,td {
+        border-bottom: 1px solid #ccc;
+    }
+    .commands {
+        position:relative;
+        width:80%;
+        margin:auto;
+    }
+    .command-table{
+        position:relative;
+        width:100%;
+    }
+    h1 {
+        font-family: 'Libre Baskerville', serif;
+    }
+    .command {
+        width:5em;
+    }
+    .result {
+        width:20em;
+    }
+    .category {
+    }
+  </style>
+</head>
+<body>
+  <div class="commands">
+    <center>
+      <h1>Commands</h1>
+    </center>
+    <h3 style="font-family: 'Libre Baskerville', serif;" class="category">Movement by character</h3>
+    <table class="command-table">
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">h</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Left</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">j</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Down</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">k</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Up</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">l</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Right</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">spacebar</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Right</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">BACKSPACE</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Left</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">CTRL-H</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Left</td>
+      </tr>
+    </table>
+    <h3 style="font-family: 'Libre Baskerville', serif;" class="category">Movement by text</h3>
+    <table class="command-table">
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">w</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Forward by 'word'</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">b</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Backward by 'word'</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">W</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Forward by 'WORD'</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">B</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Backward by 'WORD'</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">e</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">End of word</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">E</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">End of WORD</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">ge</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">End of previous WORD</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">gE</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">End of previous WORD</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">)</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Beginning of next sentence</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">(</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Beginning of current sentence</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">}</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Beginning of next paragraph</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">{</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Beginning of current paragraph</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">]]</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Beginning of next section</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">[[</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Beginning of current section</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">][</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">End of next section</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">[ ]</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">End of current section</td>
+      </tr>
+    </table>
+    <h3 style="font-family: 'Libre Baskerville', serif;" class="category">Movement by lines</h3>
+    <table class="command-table">
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">0</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">First position of current line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">$</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Last position of current line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">^</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">First nonblank character in current line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">_</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Last nonblank character of current line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">+</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">First nonblank chracter of next line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">-</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">First nonblank character of previous line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">ENTER</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">First nonblank character of next line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">_num_ |</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Column _num_ of current line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">g0</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">First position of screen line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">g$</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Last position of screen line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">g^</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">First nonblank character of screen line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">gm</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Middle of screen line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">gk</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Move up one screen line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">gj</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Move down one screen line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">H</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Top line of screen</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">M</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Middle line of screen</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">L</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">Last line of screen</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">_num_ H</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">_num_ lines after top line</td>
+      </tr>
+      <tr style="border-width:1px solid #ccc;">
+        <td style="font-family:'Inconsolata', sans-serif;" class="command">_num_ L</td>
+        <td style="font-family: 'Libre Baskerville', serif;" class="result">_num lines before last line</td>
+      </tr>
+    </table>
+  </div>
+</body>
