@@ -12,7 +12,7 @@ This project views vim's extensibility as arising from the interchangeability of
 
 So, if we define a few core commands:
 
-```javascript
+```
   v: begin selection
   0: move to beginning of line
   $: move to end of line
@@ -107,7 +107,7 @@ Any key combination can take advantage of the others, but they can do whatever t
 
 ###Rendering
 
-The reason I wanted to do vim as an app is because, from a rendering perspective, it's very simple (it runs on old computers!), so it's a good way to create an "app" feel in the web. However, for that reason, it deviates a lot from the DOM paradigm. For example, semantic html would put the entire application into a <textarea>. Needless to say, that's not helpful. A Backbone-oriented MV system puts each character in its own view (<span class='char'>h</span>), which again is not terrifically helpful. A rendering framework that takes some of the manual rendering work out of, say, changing the 'function' keyword a certain color for the sake of syntax highlighting, would be welcome here.
+The reason I wanted to do vim as an app is because, from a rendering perspective, it's very simple (it runs on old computers!), so it's a good way begin to create an "app" feel in the browser. However, for that reason, it deviates a lot from the DOM paradigm. For example, semantic html would put the entire application into a <textarea>. Needless to say, that's not helpful. A Backbone-oriented MV system puts each character in its own view (<span class='char'>h</span>), which again is not terrifically helpful. A rendering framework that takes some of the manual rendering work out of, say, changing the 'function' keyword a certain color for the sake of syntax highlighting, would be welcome here.
 
 ###Other dimensions
 
