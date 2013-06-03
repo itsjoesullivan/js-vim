@@ -7,7 +7,7 @@ This project views vim's extensibility as arising from the interchangeability of
 ```javascript
 	'2dd' -->		'dd', 'dd'
 
-	'dd' -->		'0','v','$','x','backspace'
+	'dd' -->		'0','v','$','x','del'
 ```
 
 So, if we define a few core commands:
@@ -22,7 +22,7 @@ So, if we define a few core commands:
 Then define a few other commands:
 
 ```
-	'dd': ['0','v','$','x','backspace']
+	'dd': ['0','v','$','x','del']
 	'2dd': ['dd','dd']
 ```
 
