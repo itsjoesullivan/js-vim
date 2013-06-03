@@ -28,6 +28,8 @@ Then define a few other commands:
 
 We start to get some of that extensibility.
 
+###In code
+
 If we implement commands as key/value pairs where keys are regular expressions and values are functions:
 
 ```javascript
@@ -48,6 +50,8 @@ We can be clever:
 		vim.exec('1dd');
 	};
 ```
+
+###Command API
 
 Commands depend on mode, so they are declared like:
 
@@ -72,6 +76,8 @@ Commands depend on mode, so they are declared like:
 	  }
 	});
 ```
+
+###True functionality
 
 Any key combination can take advantage of the others, but they can do whatever they want. Looking down the road a bit:
 
