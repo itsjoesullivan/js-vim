@@ -107,7 +107,7 @@ Any key combination can take advantage of the others, but they can do whatever t
 
 ###Rendering
 
-One reason that vim as a web app is cool is because, from a rendering perspective, it's very simple (it runs on old computers!), so it's a good way begin to create an "app" feel in the browser. However, for that reason, it deviates a lot from the DOM paradigm. For example, semantic html would put the entire application into a \<textarea>. Needless to say, that's not helpful. A Backbone-oriented MV system puts each character in its own view (<span class='char'>h</span>), which again is not terrifically helpful. A rendering framework that takes some of the manual rendering work out of, say, changing the 'function' keyword a certain color for the sake of syntax highlighting, would be welcome in this project.
+One reason that vim as a web app is cool is because, from a rendering perspective, it's very simple (it runs on old computers!), so it's a good way begin to create an "app" feel in the browser. However, for that reason, it deviates a lot from the DOM paradigm. For example, semantic html would put the entire application into a \<textarea>. Needless to say, that's not helpful. A Backbone-oriented MV system puts each character in its own view (\<span class='char'>h\</span>), which again is not terrifically helpful. A rendering framework that takes some of the manual rendering work out of, say, changing the 'function' keyword a certain color for the sake of syntax highlighting, would be welcome in this project.
 
 ###Other dimensions
 
