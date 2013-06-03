@@ -51,7 +51,7 @@ We can be clever:
 	};
 ```
 
-###Command API
+###Command definition API
 
 Commands depend on mode, so they are declared like:
 
