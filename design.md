@@ -99,7 +99,7 @@ Any key combination can take advantage of the others, but they can do whatever t
 	vim.addMode({
 		'github': {
 			/gh push/: function(res) {
-		  	repo.push(); //imagining we've connected to github, the document came from there, whatever.
+				repo.push(); //imagining we've connected to github, the document came from there, whatever.
 			},
 			/gh add (.*)/: function(res) {
 				repo.add(res[1]); //let git handle "index.*" vs "index.html"
