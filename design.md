@@ -4,7 +4,7 @@ This is a slight elaboration of README for the sake of communicating the core of
 
 This project views vim's extensibility as arising from the interchangeability of various key commands:
 
-```javascript
+```
 	'2dd' -->		'dd', 'dd'
 
 	'dd' -->		'0','v','$','x','del'
@@ -30,7 +30,7 @@ We start to get some of that extensibility.
 
 ###In code
 
-If we implement commands as key/value pairs where keys are regular expressions and values are functions:
+If we implement commands as key/value pairs, where keys are regular expressions and values are functions:
 
 ```javascript
 	/([0-9]+)dd/: function(result) { //result is /([0-9]+)dd/.exec(keyBuffer)
@@ -58,10 +58,10 @@ Commands depend on mode, so they are declared like:
 ```javascript
 	vim.addMode({
 		'insert': {
-	    '(.*)': function(res) {
-	    	vim.insert(res[0]);
-	    }
-	  }
+			'(.*)': function(res) {
+				vim.insert(res[0]);
+			}
+		}
 	});
 
 	vim.addMode({
@@ -69,15 +69,15 @@ Commands depend on mode, so they are declared like:
 			'i': function() {
 				vim.mode = 'insert';
 			},
-	    'j': function(res) {
-	    	vim.cursor.line--;
-	    },
+			'j': function(res) {
+				vim.cursor.line--;
+			},
 	    ...
 	  }
 	});
 ```
 
-###True functionality
+###Useful functionality
 
 Any key combination can take advantage of the others, but they can do whatever they want. Looking down the road a bit:
 
@@ -88,7 +88,7 @@ Any key combination can take advantage of the others, but they can do whatever t
 	var git = new Github({username: cred.username, password: cred.password});
 	var repo = git.getRepo('itsjoesullivan/vim');
 
-	vim.fileSystem.addDirectory('itsjoesullivan/van',repo.ls()); //maybe we could add a filesystem here
+	vim.fileSystem.addDirectory('itsjoesullivan/vim',repo.ls()); //maybe we could add a filesystem here
 
 	/*
 		now:
@@ -131,4 +131,4 @@ One reason that vim as a web app is cool is because, from a rendering perspectiv
 
 ###Other stuff
 
-There are other dimensions to vim than text editing: syntax highlighting; formatting; plugins; ... . Those dimensions can largely be implemented alongside the above syntax. The above architecture says nothing about document structure, and it's possible to define such structure in a custom mode, though likely that's better defined at a lower level along with rendering logic. The main point is that the above design allows most development to occur at a relatively high level that's roughly the equivalent of key commands, which only a minimal handful of operations (search, delete, insert, select, move, copy) operating on the application internals / document structure. 
+There are other dimensions to vim than text editing: syntax highlighting; formatting; plugins; ... . Those dimensions can largely be implemented alongside the above syntax. The above architecture says nothing about document structure, and it's possible to define such structure in a custom mode, though likely that's better defined at a lower level along with rendering logic. The main point is that the above design allows most development to occur at a relatively high level that's roughly the equivalent of key commands. Only a handful of operations (search, delete, insert, select, move, copy) need to operate on the application internals / document structure. 
