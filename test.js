@@ -72,6 +72,15 @@ describe('Doc', function() {
 
 		});
 
+		it('fires change event on text change', function() {
+			var fired = false;
+			doc.on('change:text', function() {
+				fired = true;
+			});
+			doc.set({text: 'hello'});
+			expect(fired).equal(true);
+		})
+
 		it('can remove a character', function() {
 			doc.remove(range);
 			expect(doc._text).equal('i');
@@ -123,6 +132,24 @@ describe('Cursor', function() {
 
 	it('exists', function() {
 		expect(typeof Cursor).equal('function');
+	});
+
+	it('fires change event on line change', function() {
+		var fired = false;
+		cursor.on('change:line', function() {
+			fired = true;
+		});
+		cursor.line(10);
+		expect(fired).equal(true);
+	});
+
+	it('fires change event on char change', function() {
+		var fired = false;
+		cursor.on('change:char', function() {
+			fired = true;
+		});
+		cursor.char(10);
+		expect(fired).equal(true);
 	});
 
 	it('has _line and _char', function() {
