@@ -20,6 +20,57 @@ describe('vim', function() {
 
 });
 
+
+describe('Cursor', function() {
+	var cursor;
+
+	beforeEach(function() {
+		cursor = new Cursor();
+	});
+
+	it('exists', function() {
+		expect(typeof Cursor).equal('function');
+	});
+
+	it('fires change event on line change', function() {
+		var fired = false;
+		cursor.on('change:line', function() {
+			fired = true;
+		});
+		cursor.line(10);
+		expect(fired).equal(true);
+	});
+
+	it('fires change event on char change', function() {
+		var fired = false;
+		cursor.on('change:char', function() {
+			fired = true;
+		});
+		cursor.char(10);
+		expect(fired).equal(true);
+	});
+
+	it('has _line and _char', function() {
+		expect('_line' in cursor).equal(true);
+		expect('_char' in cursor).equal(true);
+	});
+
+	describe('Cursor.line', function() {
+		it('sets and gets line', function() {
+			cursor.line(10);
+			expect(cursor.line()).equal(10);
+		});
+	});
+
+	describe('Cursor.char', function() {
+		it('sets and gets char', function() {
+			cursor.char(10);
+			expect(cursor.char()).equal(10);
+		});
+	});
+
+});
+
 describe('Doc', function() {
 	var doc;
 
@@ -121,54 +172,198 @@ describe('Doc', function() {
 		});
 
 	});
+
+	describe('doc.find', function() {
+		it('finds things', function() {
+			doc = new Doc({text:' hi'});
+			var res = doc.find(/(hi)/);
+			expect(res.line).equal(0);
+			expect(res.char).equal(1);
+		})
+	})
 });
 
-describe('Cursor', function() {
-	var cursor;
+describe('vim.exec', function() {
+	it('exists', function() {
+		expect('exec' in vim).equal(true);
+	})
+
+	it('executes basic', function() {
+		vim.exec('i');
+		expect(vim.modeName).equal('insert');
+	});
+});
+
+describe('modes', function() {
 
 	beforeEach(function() {
-		cursor = new Cursor();
+		vim.mode('command');
+		var doc = new Doc({text: "oh hello\nthere"});
+		vim.docs.push(doc);
+		vim.curDoc = doc;
+
 	});
 
-	it('exists', function() {
-		expect(typeof Cursor).equal('function');
-	});
+	describe('command', function() {
 
-	it('fires change event on line change', function() {
-		var fired = false;
-		cursor.on('change:line', function() {
-			fired = true;
+		describe('i', function() {
+			it('moves to insert mode', function() {
+				vim.exec('i');
+				expect(vim.modeName).equal('insert');
+			})
+		})
+
+		describe('s', function() {
+			it('moves to insert mode', function() {
+				vim.exec('s');
+				expect(vim.modeName).equal('insert');
+			})
+		})
+
+		describe('S', function() {
+			it('moves to insert mode', function() {
+				vim.exec('S');
+				expect(vim.modeName).equal('insert');
+			})
+		})
+
+		describe('h', function() {
+			it('moves the cursor left', function() {
+				vim.cursor().char(4);
+				vim.exec('h');
+				expect(vim.cursor().char()).equal(3);
+			});
+
+			it('stays at zero if already at zero', function() {
+				vim.cursor().char(0);
+				vim.exec('h');
+				expect(vim.cursor().char()).equal(0);
+			});
 		});
-		cursor.line(10);
-		expect(fired).equal(true);
-	});
 
-	it('fires change event on char change', function() {
-		var fired = false;
-		cursor.on('change:char', function() {
-			fired = true;
+		describe('l', function() {
+			it('moves the cursor right', function() {
+				vim.cursor().char(2);
+				vim.exec('l');
+				expect(vim.cursor().char()).equal(3);
+			});
+
+			it('stays at end of line if already there', function() {
+				vim.cursor().char(7);
+				vim.exec('l');
+				expect(vim.cursor().char()).equal(7);
+			});
 		});
-		cursor.char(10);
-		expect(fired).equal(true);
+
+		describe('j', function() {
+			it('moves the cursor down', function() {
+				vim.cursor().line(0);
+				vim.exec('j');
+				expect(vim.cursor().line()).equal(1);
+			});
+
+			it('stays at last line if already there', function() {
+				vim.cursor().line(1);
+				vim.exec('j');
+				expect(vim.cursor().line()).equal(1);
+			});
+		});
+
+		describe('k', function() {
+			it('moves the cursor up', function() {
+				vim.cursor().line(1);
+				vim.exec('k');
+				expect(vim.cursor().line()).equal(0);
+			});
+
+			it('stays at zero if already there', function() {
+				vim.cursor().line(0);
+				vim.exec('k');
+				expect(vim.cursor().line()).equal(0);
+			});
+		});
+
+		describe('{n}(h|j|k|l)', function() {
+
+			beforeEach(function() {
+				vim.mode('command');
+				var doc = new Doc({text: "oh hello\nthere\nthird\nfourth"});
+				vim.docs.push(doc);
+				vim.curDoc = doc;
+				vim.cursor().line(0);
+				vim.cursor().char(0);
+			});
+
+			it('does j multiple times', function() {
+				expect(vim.cursor().line()).equal(0);
+				vim.exec('2j');
+				expect(vim.cursor().line()).equal(2);
+			});
+
+			it('does l multiple times', function() {
+				vim.exec('2l');
+				expect(vim.cursor().char()).equal(2);
+			});
+		});
+
+		describe('$', function() {
+			it('moves to the end of the line', function() {
+				vim.new();
+				vim.curDoc.text('hello');
+				vim.exec('$');
+				expect(vim.cursor().char()).equal(4);
+			});
+			
+		});
+
+		describe('w', function() {
+			it('moves to the next word', function() {
+				vim.new();
+				vim.curDoc.text('hello there');
+				vim.exec('w');
+				expect(vim.cursor().char()).equal(6);
+			});
+		});
+
+		describe('W', function() {
+			it('moves to the next word', function() {
+				vim.new();
+				vim.curDoc.text('hello there');
+				vim.exec('W');
+				expect(vim.cursor().char()).equal(6);
+			});
+		});
+
+		describe('b', function() {
+			it('moves to the previous word', function() {
+				vim.new();
+				vim.curDoc.text('hello there');
+				vim.cursor().char(8);
+				vim.exec('b');
+				expect(vim.cursor().char()).equal(0);
+			});
+		});
+
+		describe('B', function() {
+			it('moves to the previous word', function() {
+				vim.new();
+				vim.curDoc.text('hello there');
+				vim.cursor().char(8);
+				vim.exec('B');
+				expect(vim.cursor().char()).equal(0);
+			});
+		});
+
 	});
 
-	it('has _line and _char', function() {
-		expect('_line' in cursor).equal(true);
-		expect('_char' in cursor).equal(true);
-	});
+	describe('insert', function() {
+		it('inserts text', function() {
 
-	describe('Cursor.line', function() {
-		it('sets and gets line', function() {
-			cursor.line(10);
-			expect(cursor.line()).equal(10);
+			vim.exec('i');
+
+			vim.exec('asdf');
+			expect(vim.text()).equal('asdfoh hello\nthere');
 		});
 	});
-
-	describe('Cursor.char', function() {
-		it('sets and gets char', function() {
-			cursor.char(10);
-			expect(cursor.char()).equal(10);
-		});
-	});
-
 });
+
