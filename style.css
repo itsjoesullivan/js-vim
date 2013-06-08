@@ -8,6 +8,10 @@
   background-color: #222;
   color: #eee;
 
+  padding:13px;
+  border-radius:3px;
+  overflow:auto;
+
 }
 
 .vim .cursor {
