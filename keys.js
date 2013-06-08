@@ -19,13 +19,18 @@ module.exports = keys = function(fn) {
 		case 13: 
 			e.preventDefault();
 			fn('\n');
+			break;
+		case 9:
+			e.preventDefault();
+			fn('\t');
+			break;
 	}
   }); 
 
   document.addEventListener('keypress', function(e) {
-	console.log(e);
-	var key = String.fromCharCode(e.keyCode);
-	fn(key);
-  }); 
+		console.log(e);
+		var key = String.fromCharCode(e.keyCode);
+			fn(key);
+  	}); 
 
 };
