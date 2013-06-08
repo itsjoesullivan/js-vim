@@ -6,7 +6,7 @@
 module.exports = keys = function(fn) {
 
   document.addEventListener('keydown', function(e) {
-	console.log(e);
+	//console.log(e);
 	switch(e.keyCode) {
 		case 27:
 			e.preventDefault();
@@ -28,7 +28,7 @@ module.exports = keys = function(fn) {
   }); 
 
   document.addEventListener('keypress', function(e) {
-		console.log(e);
+		//console.log(e);
 		var key = String.fromCharCode(e.keyCode);
 			fn(key);
   	}); 

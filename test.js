@@ -371,6 +371,10 @@ describe('modes', function() {
 				vim.exec('x');
 				expect(vim.text()).equal('hell there');
 			});
+
+			it('doesn\'t have a problem if the line is empty', function() {
+				throw '';
+			})
 		});
 
 		describe('^', function() {
@@ -509,7 +513,7 @@ describe('motion, general', function() {
 		
 		expect(vim.curDoc._lines[0]).equal('');
 		expect(vim.curDoc._lines[1]).equal('');
-	})
+	});
 
 });
 
