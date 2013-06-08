@@ -7,17 +7,27 @@
   left: 10%;
   background-color: #222;
   color: #eee;
-
   padding:13px;
   border-radius:3px;
   overflow:auto;
 
 }
 
-.vim .cursor {
+.vim .content {
+
+
+
+}
+
+.vim .content .cursor {
   background-color: #777;
 }
 
-.vim .cursor.blank {
+.vim .content .cursor.blank {
 	color: #777;
+}
+
+.vim .status {
+  position:absolute;
+  bottom: 0px;
 }
