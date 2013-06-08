@@ -421,11 +421,38 @@ describe('search', function() {
 		expect(vim.cursor().char()).equal(4);
 	});
 
-	it('moves to the next instance', function() {
+	/*it('moves to the next instance', function() {
 		vim.exec('o\n');
 		expect(vim.cursor().char()).equal(4);
 		vim.exec('n');
 		expect(vim.cursor().char()).equal(2);
+	});*/
+});
+
+
+describe('motion, general', function() {
+	var doc;
+	beforeEach(function(){ 
+		vim.exec('esc');
+		var doc = new Doc();
+		vim.curDoc = doc;
 	});
+
+	it('accepts return on empty file', function() {
+		vim.exec('i');
+		console.log(vim.modeName);
+		var err = false
+		try {
+			vim.exec('\n');
+		} catch(e) {
+			console.log(e);
+			err = true;
+		}
+		
+		console.log(vim.curDoc._lines);
+		expect(vim.curDoc._lines[0]).equal('');
+		expect(vim.curDoc._lines[1]).equal('');
+	})
+
 });
 
