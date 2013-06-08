@@ -213,6 +213,8 @@ describe('modes', function() {
 			})
 		})
 
+
+
 		describe('s', function() {
 			it('moves to insert mode', function() {
 				vim.exec('s');
@@ -226,6 +228,13 @@ describe('modes', function() {
 				expect(vim.modeName).equal('insert');
 			})
 		})
+
+		describe('/', function() {
+			it('moves to search mode', function() {
+				vim.exec('/');
+				expect(vim.modeName).equal('search');
+			})
+		});
 
 		describe('h', function() {
 			it('moves the cursor left', function() {
@@ -354,6 +363,34 @@ describe('modes', function() {
 			});
 		});
 
+		describe('x', function() {
+			it('deletes the character', function() {
+				vim.new();
+				vim.curDoc.text('hello there');
+				vim.cursor().char(4);
+				vim.exec('x');
+				expect(vim.text()).equal('hell there');
+			});
+		});
+
+		describe('^', function() {
+			it('moves to the first non-blank character in the line', function() {
+				vim.new();
+				vim.curDoc.text(' hey');
+				vim.exec('^');
+				expect(vim.cursor().char()).equal(1);
+			});
+		})
+
+		describe('g_', function() {
+			it('moves to the last non-blank character in the line', function() {
+				vim.new();
+				vim.curDoc.text(' hey  ');
+				vim.exec('g_');
+				expect(vim.cursor().char()).equal(3);
+			});
+		})
+
 	});
 
 	describe('insert', function() {
@@ -364,6 +401,31 @@ describe('modes', function() {
 			vim.exec('asdf');
 			expect(vim.text()).equal('asdfoh hello\nthere');
 		});
+	});
+});
+
+describe('search', function() {
+	beforeEach(function() {
+		vim.exec('esc');
+		var doc = new Doc({text: 'hello\nthere\nabcdefo'});
+		vim.curDoc = doc;
+		vim.exec('/');
+	});
+
+	it('exists', function() {
+		expect(vim.modeName).equal('search');
+	});
+
+	it('looks for the phrase', function() {
+		vim.exec('o\n');
+		expect(vim.cursor().char()).equal(4);
+	});
+
+	it('moves to the next instance', function() {
+		vim.exec('o\n');
+		expect(vim.cursor().char()).equal(4);
+		vim.exec('n');
+		expect(vim.cursor().char()).equal(2);
 	});
 });
 
