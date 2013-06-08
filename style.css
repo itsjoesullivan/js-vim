@@ -1,5 +1,19 @@
 .vim {
 
   font-family:courier;
+  width: 80%;
+  height: 80%;
+  position:absolute;
+  left: 10%;
+  background-color: #222;
+  color: #eee;
 
+}
+
+.vim .cursor {
+  background-color: #777;
+}
+
+.vim .cursor.blank {
+	color: #777;
 }
