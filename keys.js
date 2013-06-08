@@ -16,6 +16,9 @@ module.exports = keys = function(fn) {
 			e.preventDefault();
 			fn('backspace');	
 			break;
+		case 13: 
+			e.preventDefault();
+			fn('\n');
 	}
   }); 
 
