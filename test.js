@@ -429,6 +429,65 @@ describe('search', function() {
 	});*/
 });
 
+describe('mode:visual', function() {
+
+	var doc;
+	beforeEach(function(){ 
+		vim.exec('esc');
+		doc = new Doc({text: 'here\nthere\neverywhere'});
+		vim.curDoc = doc;
+	});
+
+	it('is entered from command by pressing v', function() {
+		vim.exec('v');
+		expect(vim.modeName).equal('visual');
+	});
+
+	it('sets selection', function() {
+		var sel = vim.curDoc.selection();
+		expect(sel[0].line).equal(0);
+		expect(sel[1].line).equal(0);
+		vim.exec('v');
+		vim.exec('j');
+		var sel = vim.curDoc.selection();
+		expect(sel[0].line).equal(0);
+		expect(sel[1].line).equal(1);
+	});
+
+
+	it('accepts multiple motions without resetting', function() {
+
+		vim.exec('v');
+		vim.exec('j');
+		var sel = vim.curDoc.selection();
+		expect(sel[0].line).equal(0);
+		expect(sel[1].line).equal(1);
+
+		vim.exec('l');
+		var sel = vim.curDoc.selection();
+		expect(sel[1].char).equal(1);
+		expect(sel[1].line).equal(1);
+		
+	});
+
+	it('clears selection to cursor on esc', function() {
+
+		vim.exec('v');
+		vim.exec('j');
+		var sel = vim.curDoc.selection();
+
+		vim.exec('l');
+		var sel = vim.curDoc.selection();
+
+		vim.exec('esc');
+
+		var sel = vim.curDoc.selection();
+		
+	});
+
+
+});
+
 
 describe('motion, general', function() {
 	var doc;
@@ -440,16 +499,14 @@ describe('motion, general', function() {
 
 	it('accepts return on empty file', function() {
 		vim.exec('i');
-		console.log(vim.modeName);
 		var err = false
 		try {
 			vim.exec('\n');
 		} catch(e) {
-			console.log(e);
+			//console.log(e);
 			err = true;
 		}
 		
-		console.log(vim.curDoc._lines);
 		expect(vim.curDoc._lines[0]).equal('');
 		expect(vim.curDoc._lines[1]).equal('');
 	})
