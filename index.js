@@ -11,7 +11,9 @@ if(typeof window !== 'undefined') {
   })
   mousetrap.addEvent(document,'keydown', function(e) { 
   	var key = mousetrap.characterFromEvent(e)
-  	if('esc,backspace'.split(',').indexOf(key) !== -1) {
+  	console.log(key);
+  	if(key === 'enter') key = '\n';
+  	if('esc,backspace,return,\n'.split(',').indexOf(key) !== -1) {
   		e.preventDefault();
   		vim.exec(key);
   	} 
