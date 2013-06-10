@@ -68,6 +68,6 @@ Maybe the question is: how does this structure allow for syntax formatting and h
 
 I __think__ that the answer is pretty straightforward : create a listener for the "stroke" event(doesn 't exist), which will get passed the actual line that changed. Check the line for your keywords, then when you find them draw out the __element__ associated with each character and add a class ('function ') if the keyword is 'function ' for later handling by a stylesheet. That seems about as easy/efficient as it _could_ be, though obviously that would then be exposed in a more friendly way.
 
-##Status 
+##Status
 
 Just revisiting this (spring 2013) since starting it last winter. Need to evaluate whether (1) the architecture will actually scale to the needs of vim (hunch: yes) and (2) need to find a better solution for rendering. The backbone paradigm, I think, breaks down with this. We end up with a trillion 'models' for characters when fundamentally we're just trying to map a string of text to the screen with some extra meta information. So that needs some thought, and a rewrite based on those conclusions.
