@@ -1,6 +1,6 @@
-var vim = require('./index');
+var vim = require('../index');
 
-var Cursor = require('./lib/Cursor');
+var Cursor = require('../lib/Cursor');
 
 var expect = function(assertion) {
 
@@ -13,11 +13,9 @@ var expect = function(assertion) {
 };
 
 describe('vim', function() {
-
 	it('has Doc property', function() {
 		expect('Doc' in vim).equal(true);
 	});
-
 });
 
 
@@ -156,11 +154,11 @@ describe('Doc', function() {
 
 		it('can delete a line', function() {
 			doc = new Doc({text: 'line one\nline two'});
-			range[0] = { line: 1, char: 0 };
-			range[1] = { line: 1, char: doc._lines[1].length };
+			range[0] = { line: 0, char: 0 };
+			range[1] = { line: 0, char: doc._lines[1].length };
 			doc.remove(range);
 			expect(doc._lines.length).equal(1);
-			expect(doc._text).equal('line one');
+			expect(doc._text).equal('line two');
 		});
 
 		it('can remove, delete a line, and remove', function() {
@@ -469,7 +467,7 @@ describe('mode:visual', function() {
 
 		vim.exec('l');
 		var sel = vim.curDoc.selection();
-		expect(sel[1].char).equal(1);
+		expect(sel[1].char).equal(2);
 		expect(sel[1].line).equal(1);
 		
 	});
