@@ -1,5 +1,3 @@
-
-
 describe('buffers', function() {
 
 	var doc;
@@ -26,6 +24,8 @@ describe('buffers', function() {
 			vim.buffer(1,'yo');
 			expect(vim.buffer(1)).equal('yo');
 		});
+
+		it('sequential yanks shift the numerical buffers') //todo
 	});
 
 	describe('yy', function() {
