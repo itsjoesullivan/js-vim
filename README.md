@@ -23,7 +23,7 @@ might be defined like:
 	vim.exec(['k', 'o']);
 
 
-##Extensibility
+##Extensibility 
 
 The actual extension API is like:
 
