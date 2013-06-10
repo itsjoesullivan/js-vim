@@ -18,8 +18,8 @@ var CSI = function(arg) {
 	process.stdout.write('\u001B[' + arg);
 }
 
-CSI('0;0f'); //move cursor to zero
-		CSI('J'); //clear screen
+CSI('1;1f'); //move cursor to zero
+CSI('J'); //clear screen
 
 
 
@@ -29,8 +29,14 @@ stdin.on( 'data', function( key ){
     process.exit();
   }
   // write the key to stdout all normal like
-  vim.exec(key);
-
+  switch(key) {
+    case '`':
+      vim.exec('esc');
+      break;
+    default:
+      vim.exec(key);
+      break;
+  }
   _text = '';
 
   var reset = function() {
