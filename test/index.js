@@ -178,7 +178,45 @@ describe('Doc', function() {
 			expect(res.line).equal(0);
 			expect(res.char).equal(1);
 		})
-	})
+	});
+
+	describe('doc.checkString', function() {
+
+		var doc;
+		beforeEach(function() {
+			doc = new vim.Doc();
+		})
+
+		it('exists', function() {
+			expect('checkString' in doc).equal(true);
+		});
+
+		it('returns -1 when no match', function() {
+			expect(doc.checkString(/(h)/,'abcd')).equal(-1);
+		});
+
+		it('returns 0 when found at zero', function() {
+			expect(doc.checkString(/(h)/,'h')).equal(0);
+		});
+
+		it('returns 1 when found at 1', function() {
+			expect(doc.checkString(/(h)/,' h')).equal(1);
+		});
+
+		it('returns null when present in line but not after offset', function() {
+			expect(doc.checkString(/(h)/,'hello',1)).equal(-1);
+		});
+
+		it('returns correct line when present in line before and after the offset', function() {
+			expect(doc.checkString(/(h)/,'hello there',1)).equal(7);
+		});
+
+		it('correctly does not treat the beginning of the offset string as the beginning of the line', function() {
+			expect(doc.checkString(/^ello/,'hello there',1)).equal(-1);
+		});
+
+
+	});
 });
 
 describe('vim.exec', function() {
@@ -326,9 +364,27 @@ describe('modes', function() {
 		describe('w', function() {
 			it('moves to the next word', function() {
 				vim.new();
-				vim.curDoc.text('hello there');
+				vim.curDoc.text('hello there thar');
 				vim.exec('w');
 				expect(vim.cursor().char()).equal(6);
+			});
+
+			it('moves thence to the third', function() {
+				vim.new();
+				vim.curDoc.text('hello there thar\nhey what');
+				vim.exec('w');
+				vim.exec('w');
+				expect(vim.cursor().char()).equal(12);
+			});
+
+			it('moves to line two when necessary', function() {
+				vim.new();
+				vim.curDoc.text('hello there thar\nhey what');
+				vim.exec('w');
+				vim.exec('w');
+				vim.exec('w');
+				expect(vim.cursor().line()).equal(1);
+				expect(vim.cursor().char()).equal(0);
 			});
 		});
 
@@ -406,6 +462,34 @@ describe('modes', function() {
 	});
 });
 
+describe('f{m}', function() {
+	beforeEach(function() {
+		vim.exec('esc');
+		var doc = new Doc({text: 'hello\nthere\nabcdefo'});
+		vim.curDoc = doc;
+	});
+
+	it('finds the next m', function() {
+		vim.exec('fe');
+		expect(vim.cursor().char()).equal(1);
+	});
+
+});
+
+describe('{n}f{m}', function() {
+	beforeEach(function() {
+		vim.exec('esc');
+		var doc = new Doc({text: 'hello\nthere\nabcdefo'});
+		vim.curDoc = doc;
+	});
+
+	it('searches for the nth occurence of m', function() {
+		vim.exec('3fe');
+		expect(vim.cursor().char()).equal(4);
+	});
+
+});
+
 describe('search', function() {
 	beforeEach(function() {
 		vim.exec('esc');
@@ -423,12 +507,12 @@ describe('search', function() {
 		expect(vim.cursor().char()).equal(4);
 	});
 
-	/*it('moves to the next instance', function() {
+	it('moves to the next instance', function() {
 		vim.exec('o\n');
 		expect(vim.cursor().char()).equal(4);
 		vim.exec('n');
-		expect(vim.cursor().char()).equal(2);
-	});*/
+		expect(vim.cursor().char()).equal(6);
+	});
 });
 
 describe('mode:visual', function() {
