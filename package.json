@@ -1,0 +1,27 @@
+{
+  "name": "js-vim",
+  "version": "0.0.1",
+  "description": "A JavaScript implementation of the vim text editor",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "commander": "~1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsjoesullivan/vim.git"
+  },
+  "keywords": [
+    "vim"
+  ],
+  "author": "Joe Sullivan <itsjoesullivan@gmail.com>",
+  "license": "MIT",
+  "gitHead": "7250b5b4cbcc584454811012bcad5254162f7f0a",
+  "readmeFilename": "README.md"
+}
