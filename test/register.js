@@ -18,26 +18,26 @@ describe('buffers', function() {
 		vim.curDoc = doc;
 	});
 
-	describe('vim.buffer', function() {
+	describe('vim.register', function() {
 		it('exists', function() {
-			expect('buffer' in vim);
+			expect('register' in vim);
 		});
 
-		it('sets a buffer if given two args', function() {
-			vim.buffer('a','hi');
-			expect(vim.buffer('a')).equal('hi');
+		it('sets a val if given two args', function() {
+			vim.register('a','hi');
+			expect(vim.register('a')).equal('hi');
 		});
 
 		it('returns an empty string for an empty buffer', function() {
-			expect(vim.buffer('b')).equal('');
+			expect(vim.register('b')).equal('');
 		});
 		
 		it('returns the buffer for a nonempty buffer', function() {
 			//vim.exec('yy');
-			vim.buffer(0,'hello\n');
-			expect(vim.buffer(0)).equal('hello\n');
+			vim.register(0,'hello\n');
+			expect(vim.register(0)).equal('hello\n');
 		});
-		
+
 	});
 
 	/*describe('yy', function() {
