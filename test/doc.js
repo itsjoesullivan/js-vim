@@ -98,7 +98,7 @@ describe('Doc', function() {
 		it('can delete a line', function() {
 			doc = new Doc({text: 'line one\nline two'});
 			range[0] = { line: 0, char: 0 };
-			range[1] = { line: 0, char: doc._lines[1].length };
+			range[1] = { line: 0, char: doc._lines[1].length+1 };
 			doc.remove(range);
 			expect(doc._lines.length).equal(1);
 			expect(doc._text).equal('line two');
@@ -191,7 +191,7 @@ describe('Doc', function() {
 		});
 
 		it('returns a string value for the range if it is one line', function() {
-			var range = [{line: 0, char: 0}, { line:0, char: 3}];
+			var range = [{line: 0, char: 0}, { line:0, char: 4}];
 			var text = doc.getRange(range);
 			expect(text).equal('qwer');
 		})
