@@ -1,4 +1,4 @@
-describe('buffers', function() {
+describe('registers', function() {
 
 	var vim = require('../index');
 
