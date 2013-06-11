@@ -216,7 +216,29 @@ describe('Doc', function() {
 		});
 
 
+
 	});
+
+	describe('doc.getRange', function() {
+		var doc;
+		beforeEach(function() {
+			doc = new Doc({text: 'qwer\nasdf\nzxcv'});
+		});
+
+		it('returns a string value for the range if it is one line', function() {
+			var range = [{line: 0, char: 0}, { line:0, char: 3}];
+			var text = doc.getRange(range);
+			expect(text).equal('qwer');
+		})
+
+		it('includes a carriage return if it is multiline', function() {
+			var range = [{line: 0, char: 0}, { line:1, char: 2}];
+			var text = doc.getRange(range);
+			expect(text).equal('qwer\nas');
+		})
+
+	})
+
 });
 
 describe('vim.exec', function() {
@@ -571,6 +593,18 @@ describe('mode:visual', function() {
 		
 	});
 
+
+	it('performs yank when y hit in visual mode', function() {
+		vim.exec('v');
+		vim.exec('$');
+		vim.exec('y');
+		expect(false).equal(true);
+	});
+
+
+});
+
+describe('yank', function() {
 
 });
 
