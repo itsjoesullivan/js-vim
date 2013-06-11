@@ -416,14 +416,16 @@ describe('modes', function() {
 			});
 		});
 
-		describe('W', function() {
+		/*describe('W', function() {
 			it('moves to the next word', function() {
 				vim.new();
 				vim.curDoc.text('hello there');
 				vim.exec('W');
 				expect(vim.cursor().char()).equal(6);
 			});
-		});
+		});*/
+
+	
 
 		describe('o', function() {
 			it('creates a new line under current line and moves to insert mode', function() {
