@@ -1,5 +1,17 @@
 describe('buffers', function() {
 
+	var vim = require('../index');
+
+	var expect = function(assertion) {
+
+	return {
+		equal: function(obj) {
+			if(assertion == obj) return true;
+			throw "expected " + assertion + " to equal " + obj;
+		}
+	}
+};
+
 	var doc;
 	beforeEach(function() {
 		doc = vim.new({text: 'hello\nis it me\nyou\'re looking for?'});
@@ -11,21 +23,21 @@ describe('buffers', function() {
 			expect('buffer' in vim);
 		});
 
-		it('returns an empty string for an empty buffer', function() {
-			expect(vim.buffer(1)).equal('');
-		});
-
-		it('returns the buffer for a nonempty buffer', function() {
-			vim.exec('yy');
-			expect(vim.buffer(1)).equal('hello\n');
-		});
-
 		it('sets a buffer if given two args', function() {
-			vim.buffer(1,'yo');
-			expect(vim.buffer(1)).equal('yo');
+			vim.buffer('a','hi');
+			expect(vim.buffer('a')).equal('hi');
 		});
 
-		it('sequential yanks shift the numerical buffers') //todo
+		it('returns an empty string for an empty buffer', function() {
+			expect(vim.buffer('b')).equal('');
+		});
+		
+		it('returns the buffer for a nonempty buffer', function() {
+			//vim.exec('yy');
+			vim.buffer(0,'hello\n');
+			expect(vim.buffer(0)).equal('hello\n');
+		});
+		
 	});
 
 	/*describe('yy', function() {
