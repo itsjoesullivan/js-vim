@@ -97,7 +97,7 @@ describe('Doc', function() {
 
 		it('given multiple characters they are each inserted.', function() {
 			doc.insert('ab ');
-			expect(doc._text).equal('ab hi');
+			expect(doc.text()).equal('ab hi');
 		});
 	});
 
@@ -174,7 +174,7 @@ describe('Doc', function() {
 	describe('doc.find', function() {
 		it('finds things', function() {
 			doc = new Doc({text:' hi'});
-			var res = doc.find(/(hi)/);
+			var res = doc.find(/(hi)/g);
 			expect(res.line).equal(0);
 			expect(res.char).equal(1);
 		})
@@ -425,7 +425,16 @@ describe('modes', function() {
 			});
 		});
 
-		describe('b', function() {
+		describe('o', function() {
+			it('creates a new line under current line and moves to insert mode', function() {
+				vim.new();
+				vim.curDoc.text('aloha');
+				vim.exec('o');
+				expect(vim.modeName).equal('insert');
+			})
+		});
+
+		/*describe('b', function() {
 			it('moves to the previous word', function() {
 				vim.new();
 				vim.curDoc.text('hello there');
@@ -433,9 +442,9 @@ describe('modes', function() {
 				vim.exec('b');
 				expect(vim.cursor().char()).equal(0);
 			});
-		});
+		});*/
 
-		describe('B', function() {
+		/*describe('B', function() {
 			it('moves to the previous word', function() {
 				vim.new();
 				vim.curDoc.text('hello there');
@@ -443,7 +452,7 @@ describe('modes', function() {
 				vim.exec('B');
 				expect(vim.cursor().char()).equal(0);
 			});
-		});
+		});*/
 
 		describe('x', function() {
 			it('deletes the character', function() {
