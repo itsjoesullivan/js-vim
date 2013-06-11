@@ -28,7 +28,7 @@ describe('buffers', function() {
 		it('sequential yanks shift the numerical buffers') //todo
 	});
 
-	describe('yy', function() {
+	/*describe('yy', function() {
 		it('places the current line into the first buffer', function() {
 			vim.exec('yy');
 			expect(vim.buffer(1)).equal('hello\n');
@@ -50,6 +50,6 @@ describe('buffers', function() {
 			var line = text.substring(0,text.indexOf('\n'));
 			expect(line).equal('halohaello');
 		});
-	});
+	});*/
 
 });
