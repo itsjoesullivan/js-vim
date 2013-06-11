@@ -45,5 +45,13 @@ describe('yank', function() {
 		});
 	});
 
+	describe('yy', function() {
+		it('grabs the entire line including an \\n before', function() {
+			vim.exec('yy');
+			var reg = vim.register(0);
+			expect(reg).equal('\nasdf')
+		});
+	});
+
 
 });
