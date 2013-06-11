@@ -1,4 +1,5 @@
 .*.swp
+.swp
 bundle.js
 .DS_STORE
 
