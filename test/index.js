@@ -178,6 +178,8 @@ describe('Doc', function() {
 			expect(res.line).equal(0);
 			expect(res.char).equal(1);
 		})
+
+
 	});
 
 	describe('doc.checkString', function() {
@@ -192,27 +194,31 @@ describe('Doc', function() {
 		});
 
 		it('returns -1 when no match', function() {
-			expect(doc.checkString(/(h)/,'abcd')).equal(-1);
+			expect(doc.checkString(/(h)/g,'abcd')).equal(-1);
 		});
 
 		it('returns 0 when found at zero', function() {
-			expect(doc.checkString(/(h)/,'h')).equal(0);
+			expect(doc.checkString(/(h)/g,'h')).equal(0);
 		});
 
 		it('returns 1 when found at 1', function() {
-			expect(doc.checkString(/(h)/,' h')).equal(1);
+			expect(doc.checkString(/(h)/g,' h')).equal(1);
 		});
 
 		it('returns null when present in line but not after offset', function() {
-			expect(doc.checkString(/(h)/,'hello',1)).equal(-1);
+			expect(doc.checkString(/(h)/g,'hello',1)).equal(-1);
 		});
 
 		it('returns correct line when present in line before and after the offset', function() {
-			expect(doc.checkString(/(h)/,'hello there',1)).equal(7);
+			expect(doc.checkString(/(h)/g,'hello there',1)).equal(7);
+		});
+
+		it('returns correct line when present in line before and after the offset', function() {
+			expect(doc.checkString(/(h)/g,'hello there',1)).equal(7);
 		});
 
 		it('correctly does not treat the beginning of the offset string as the beginning of the line', function() {
-			expect(doc.checkString(/^ello/,'hello there',1)).equal(-1);
+			expect(doc.checkString(/^ello/g,'hello there',1)).equal(-1);
 		});
 
 
