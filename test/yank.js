@@ -27,7 +27,7 @@ describe('yank', function() {
 			vim.exec('$');
 			vim.exec('y');
 			var reg = vim.register(0);
-			expect(reg).equal('asdf');
+			expect(reg).equal('asdf\n');
 		});
 	});
 
@@ -37,11 +37,9 @@ describe('yank', function() {
 			vim.exec('v');
 			vim.exec('j');
 			vim.exec('$');
-			console.log(vim.modeName);
 			vim.exec('y');
 			var reg = vim.register(0);
-			console.log(reg);
-			expect(reg).equal('asdf\nzxcv');
+			expect(reg).equal('asdf\nzxcv\n');
 		});
 	});
 
@@ -49,7 +47,7 @@ describe('yank', function() {
 		it('grabs the entire line including an \\n before', function() {
 			vim.exec('yy');
 			var reg = vim.register(0);
-			expect(reg).equal('\nasdf')
+			expect(reg).equal('\nasdf\n')
 		});
 	});
 

@@ -477,14 +477,14 @@ describe('modes', function() {
 			});
 		})
 
-		describe('g_', function() {
+		/*describe('g_', function() {
 			it('moves to the last non-blank character in the line', function() {
 				vim.new();
 				vim.curDoc.text(' hey  ');
 				vim.exec('g_');
 				expect(vim.cursor().char()).equal(3);
 			});
-		})
+		})*/
 
 	});
 
@@ -613,7 +613,8 @@ describe('mode:visual', function() {
 		vim.exec('v');
 		vim.exec('$');
 		vim.exec('y');
-		expect(false).equal(true);
+		console.log(vim.register(0));
+		expect(vim.register(0).indexOf('here')).equal(0);
 	});
 
 
