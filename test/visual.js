@@ -37,6 +37,5 @@ describe('visual', function() {
 			var line = vim.text().split('\n')[0];
 			expect(vim.register(0)).equal('asdf aloha what');
 		});
-
 	})
 });
