@@ -37,5 +37,17 @@ describe('visual', function() {
 			var line = vim.text().split('\n')[0];
 			expect(vim.register(0)).equal('asdf aloha what');
 		});
+
+		it('selects text correctly when moving backwards', function() {
+			vim.exec('$');
+			vim.exec('v');
+			vim.exec('0');
+			var range = vim.curDoc.selection();
+			console.log(range);
+			expect(range[0].char).equal(0);
+			var text = vim.curDoc.getRange(range);
+			expect(text).equal('asdf aloha what');
+		});
+
 	})
 });
