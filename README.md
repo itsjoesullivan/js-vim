@@ -9,7 +9,7 @@ The crucial bit, at least with respect to central functionality, is how commands
 
 To move to insert mode:
 
-	vim.exec('i');
+  vim.exec('i');
 
 To type hello:
 
