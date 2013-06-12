@@ -31,11 +31,8 @@ describe('survive', function(){
 		vim.exec('i');
 		vim.exec('h');
 		var text = vim.curDoc.text();
-		console.log(text);
-		console.log(vim.curDoc._lines);
 		expect(vim.curDoc.text().indexOf('h')).equal(0);
 		vim.exec('esc');
-		console.log(vim.curDoc._lines);
 		vim.exec('x');
 		//expect(vim.curDoc.text().indexOf('h')).equal(-1);
 	});
@@ -54,4 +51,22 @@ describe('survive', function(){
 		expect(vim.text()).equal('hello');
 		//console.log(vim.text());
 	});
+});
+
+
+describe('vi"', function() {
+	it('changes the selection to what is inside the nearest two quotation marks', function() {
+		vim.new();
+		vim.exec('i');
+		vim.exec('well "hello" there');
+		vim.exec('esc');
+		vim.exec('?ello\n');
+		vim.curDoc.cursor.char(10);
+		vim.exec('v');
+		vim.exec('i');
+		vim.exec('"');
+		var range = vim.curDoc.getRange(vim.curDoc.selection());
+		expect(range).equal('"hello"');
+		console.log(range);
+	})
 });
