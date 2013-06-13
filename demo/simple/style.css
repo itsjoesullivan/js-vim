@@ -1,0 +1,35 @@
+body {
+  margin: 0; padding: 0;
+}
+
+.vim {
+
+  font-family:courier;
+  width: 80%;
+  height: 80%;
+  position:absolute;
+  left: 10%;
+  background-color: #222;
+  color: #eee;
+  padding:13px;
+  border-radius:3px;
+  overflow:auto;
+
+}
+
+.vim .content {
+
+}
+
+.vim .content .cursor {
+  background-color: #777;
+}
+
+.vim .content .cursor.blank {
+	color: #777;
+}
+
+.vim .status {
+  position:absolute;
+  bottom: 0px;
+}
