@@ -1,10 +1,15 @@
-var vim = require('./lib/Vim');
+var Vim = require('./lib/Vim');
+	console.log('here',Vim);
 
-if(typeof window !== 'undefined') {
-  window.vim = vim;
-  var mousetrap = require('./lib/3rd/mousetrap.js');
-  mousetrap.addEvent(document,'keypress', function(e) {
-  	var key = mousetrap.characterFromEvent(e);
+	
+	var vim = new Vim();	
+	console.log('vim is:',vim)
+
+
+	//Keys
+	var mousetrap = require('./lib/3rd/mousetrap.js');
+ 	 mousetrap.addEvent(document,'keypress', function(e) {
+ 	 	var key = mousetrap.characterFromEvent(e);
   	vim.exec(key);
   })
   mousetrap.addEvent(document,'keydown', function(e) { 
@@ -14,10 +19,12 @@ if(typeof window !== 'undefined') {
   		e.preventDefault();
   		vim.exec(key);
   	} 
-  	
-  });
+	})	
+
+	//Instanciate view
   var view = require('./lib/browserView.js')(vim);
-} else {
-	var view = require('./lib/terminalView.js')(vim);
-  module.exports = vim;
-}
+	if(typeof window === 'undefined') {
+		var view = require('./lib/terminalView.js')(vim);
+	}
+
+module.exports = vim;
