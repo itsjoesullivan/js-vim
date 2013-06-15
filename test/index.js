@@ -439,7 +439,6 @@ describe('mode:visual', function() {
 		vim.exec('v');
 		vim.exec('$');
 		vim.exec('y');
-		console.log(vim.register(0));
 		expect(vim.register(0).indexOf('here')).equal(0);
 	});
 
@@ -465,7 +464,6 @@ describe('motion, general', function() {
 		try {
 			vim.exec('\n');
 		} catch(e) {
-			//console.log(e);
 			err = true;
 		}
 		

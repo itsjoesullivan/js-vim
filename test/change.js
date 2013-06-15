@@ -1,4 +1,4 @@
-describe('visual', function() {
+describe('change', function() {
 
 	var vim = require('../index');
 
@@ -16,54 +16,9 @@ describe('visual', function() {
 	var doc;
 
 	beforeEach(function() {
-		doc = new Doc({text:'asdf\nzxcv\nqwer\nfourth'});
+		doc = new Doc({text:'asdf aloha what\nzxcv\nqwer'});
 		vim.curDoc = doc;
-		vim.exec('esc');
-		vim.exec('gg');
-		vim.exec('0');
-		vim.exec('j');
-		vim.exec('v');
-		vim.exec('j');
 	});
-
-	describe('operators', function() {
-		it('starts in visual', function() {
-			expect(vim.modeName).equal('visual');
-		});
-
-		describe('y', function() {
-			it('stores the selection in register 0', function() {
-				vim.exec('y');
-				expect(vim.register(0)).equal('zxcv\nq');
-			});
-		});
-
-		describe('d', function() {
-			it('deletes the selection', function() {
-				vim.exec('d');
-				expect(vim.curDoc.text()).equal('asdf\nwer\nfourth');
-			});
-		});
-
-		describe('c', function() {
-			it('ends up in insert mode', function() {
-				vim.exec('c');
-				expect(vim.modeName).equal('insert');
-			});
-		});
-
-		describe('>', function() {
-			it('indents all the selected lines', function() {
-				vim.exec('>');
-			});
-		});
-
-
-
-
-
-	});
-/*
 	describe('x', function() {
 		it('erases the word', function() {
 			vim.exec('v');
@@ -94,6 +49,5 @@ describe('visual', function() {
 		});
 
 	});
-*/
 
 });

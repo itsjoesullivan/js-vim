@@ -49,7 +49,6 @@ describe('survive', function(){
 		vim.exec('esc');
 		vim.exec('dd');
 		expect(vim.text()).equal('hello');
-		//console.log(vim.text());
 	});
 });
 
@@ -67,6 +66,5 @@ describe('vi"', function() {
 		vim.exec('"');
 		var range = vim.curDoc.getRange(vim.curDoc.selection());
 		expect(range).equal('"hello"');
-		console.log(range);
 	})
 });
