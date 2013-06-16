@@ -1,5 +1,6 @@
 var Vim = require('./lib/Vim');
 
+
 	
 	var vim = new Vim();	
 if(typeof window !== 'undefined') {
@@ -8,7 +9,7 @@ if(typeof window !== 'undefined') {
 	var mousetrap = require('./lib/3rd/mousetrap.js');
  	 mousetrap.addEvent(document,'keypress', function(e) {
  	 	var key = mousetrap.characterFromEvent(e);
-    if(key === 'tab') {
+    if(key === 'tab' || key === 'backspace') {
       e.preventDefault();
     }
   	vim.exec(key);
@@ -17,12 +18,17 @@ if(typeof window !== 'undefined') {
   	var key = mousetrap.characterFromEvent(e)
     console.log(key);
   	if(key === 'enter') key = '\n';
+		if(key === 'backspace') {
+			e.preventDefault();
+			key = '\b';
+		}
     if(key === 'tab') {
       console.log('got here');
       e.preventDefault();
       key = '\t';
     } 
-  	if('esc,backspace,return,\n,\t'.split(',').indexOf(key) !== -1) {
+	console.log('key:' + key);
+  	if('esc,backspace,return,\n,\t,\b'.split(',').indexOf(key) !== -1) {
   		e.preventDefault();
   		vim.exec(key);
   	} 
