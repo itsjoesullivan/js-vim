@@ -7,7 +7,8 @@
     "test": "test"
   },
   "dependencies": {
-    "commander": "~1.1.1"
+    "commander": "~1.1.1",
+    "diff_match_patch": "*"
   },
   "devDependencies": {},
   "scripts": {
