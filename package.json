@@ -7,10 +7,12 @@
     "test": "test"
   },
   "dependencies": {
-    "commander": "~1.1.1",
-    "diff_match_patch": "*"
+    "commander": "1.1.1",
+    "diff_match_patch": "0.1.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+		"chai": "1.6.1"
+	},
   "scripts": {
     "test": "mocha"
   },
