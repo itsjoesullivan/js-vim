@@ -6,7 +6,6 @@ var vim = require('./lib/Vim');
 
 var render = require('../term-render');
 
-// without this, we would only get streams once enter is pressed
 stdin.setRawMode( true );
 
 stdin.resume();
@@ -105,30 +104,8 @@ CSI('?25l');
   	var text = vim.text();
 
   	write(text);
-
-  	//CSI('0;0f'); //move cursor to zero
-		//CSI('J'); //clear screen
-
-		//CSI('0;0f'); //move cursor to zero
-		//CSI('0K') //clear from cursor to end of line
-
-		//process.stdout.write(text);
   })
-  //process.stdout.write( key );
 });
-//   \033[0m
-
-//new line?
-//process.stdout.write('\u001B[2J');
-//process.stdout.write('\u001B[2J');
-//process.stdout.write('\u001B[2J');
-
-//move cursor to top...
-
-
-//process.stdout.write('\u001B[0;0f');
-
-
 
   setTimeout(function() {
   	//process.stdout.write('\u001B[2J\u001B[0;0f');

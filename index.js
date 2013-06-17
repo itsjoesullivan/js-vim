@@ -4,6 +4,7 @@ var Vim = require('./lib/Vim');
 	
 	var vim = new Vim();	
 if(typeof window !== 'undefined') {
+	window.vim = vim;
 
 	//Keys
 	var mousetrap = require('./lib/3rd/mousetrap.js');
