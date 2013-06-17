@@ -1,16 +1,10 @@
-var vim = require('../index');
+var Vim = require('../index');
+var vim = new Vim();
 
 var Cursor = require('../lib/Cursor');
 
-var expect = function(assertion) {
+var expect = require('chai').expect;
 
-	return {
-		equal: function(obj) {
-			if(assertion == obj) return true;
-			throw "expected " + assertion + " to equal " + obj;
-		}
-	}
-};
 
 describe('vim', function() {
 	it('has Doc property', function() {
@@ -98,10 +92,8 @@ describe('modes', function() {
 			it('moves to insert mode', function() {
 				vim.exec('i');
 				expect(vim.modeName).equal('insert');
-			})
-		})
-
-
+			});
+		});
 
 		describe('s', function() {
 			it('moves to insert mode', function() {
@@ -116,13 +108,6 @@ describe('modes', function() {
 				expect(vim.modeName).equal('insert');
 			})
 		})
-
-		describe('/', function() {
-			it('moves to search mode', function() {
-				vim.exec('/');
-				expect(vim.modeName).equal('search');
-			})
-		});
 
 		describe('h', function() {
 			it('moves the cursor left', function() {
@@ -361,9 +346,6 @@ describe('search', function() {
 		vim.exec('/');
 	});
 
-	it('exists', function() {
-		expect(vim.modeName).equal('search');
-	});
 
 	it('looks for the phrase', function() {
 		vim.exec('o\n');

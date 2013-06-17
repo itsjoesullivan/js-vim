@@ -2,7 +2,8 @@ describe('delete', function() {
 
 	var expect = require('chai').expect;
 
-	var vim = require('../index');
+	var Vim = require('../index');
+	var vim = new Vim();
 
 	var textA = 'qwer\nasdf\nzxcv';
 
