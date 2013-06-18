@@ -1,21 +1,14 @@
-var vim = require('../index');
+var Vim = require('../index');
+var vim = new Vim();
 
 var Cursor = require('../lib/Cursor');
 
-var expect = function(assertion) {
-
-	return {
-		equal: function(obj) {
-			if(assertion == obj) return true;
-			throw "expected " + assertion + " to equal " + obj;
-		}
-	}
-};
-
+var expect = require('chai').expect;
 describe('Doc', function() {
 	var doc;
 
 	beforeEach(function() {
+
 			doc = new Doc({
 				text: 'hi'
 			});

@@ -1,6 +1,7 @@
 describe('paste', function() {
 
-	var vim = require('../index');
+	var Vim = require('../index');
+	var vim = new Vim();
 
 	var expect = function(assertion) {
 

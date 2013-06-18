@@ -55,7 +55,6 @@ describe('visual', function() {
 			vim.exec('v');
 			vim.exec('0');
 			var range = vim.curDoc.selection();
-			console.log(range);
 			expect(range[0].char).equal(0);
 		});
 

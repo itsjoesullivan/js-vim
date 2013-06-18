@@ -1,7 +1,8 @@
 //Test to ensure that learn vim progressively is an effective tutorial for this implementation:
 //http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
 
-var vim = require('../index');
+var Vim = require('../index');
+var vim = new Vim();
 
 var expect = function(assertion) {
 
@@ -65,6 +66,6 @@ describe('vi"', function() {
 		vim.exec('i');
 		vim.exec('"');
 		var range = vim.curDoc.getRange(vim.curDoc.selection());
-		expect(range).equal('"hello"');
+		expect(range).equal('hello');
 	})
 });

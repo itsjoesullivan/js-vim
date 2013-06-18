@@ -1,18 +1,9 @@
 describe('yank', function() {
 
-	var vim = require('../index');
+	var Vim = require('../index');
+	var vim = new Vim();
 
-	var expect = function(assertion) {
-
-	return {
-		equal: function(obj) {
-			if(assertion == obj) return true;
-			throw "expected " + assertion + " to equal " + obj;
-		}
-	}
-
-};
-
+	var expect = require('chai').expect
 	var doc;
 
 	beforeEach(function() {
@@ -47,7 +38,7 @@ describe('yank', function() {
 		it('grabs the entire line including an \\n before', function() {
 			vim.exec('yy');
 			var reg = vim.register(0);
-			expect(reg).equal('\nasdf\n')
+			expect(reg).equal('asdf\nzxcv\n')
 		});
 	});
 
