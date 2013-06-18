@@ -38,4 +38,34 @@ describe('basic', function() {
 		});
 	});
 
+	describe('dd', function() {
+		it('removes the line', function() {
+			vim.exec('i');
+			vim.exec('asdf');
+			vim.exec('esc');
+			vim.exec('o')
+			vim.exec('asdf');
+			vim.exec('esc');
+			vim.exec('o')
+			vim.exec('asdf');
+			vim.exec('esc');
+			vim.exec('k');
+			vim.exec('dd');
+			expect(vim.text()).equal('asdf\nasdf');
+		});
+		it('removes an empty line', function() {
+			vim.exec('i');
+			vim.exec('a');
+			vim.exec('esc');
+			vim.exec('o');
+			vim.exec('\n');
+			vim.exec('b')	
+			vim.exec('esc');
+			vim.exec('k');
+			vim.exec('dd');
+			expect(vim.text()).equal('a\nb')
+			
+		});
+	});
+
 });
