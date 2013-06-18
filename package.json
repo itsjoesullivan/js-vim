@@ -1,6 +1,6 @@
 {
   "name": "js-vim",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A JavaScript implementation of the vim text editor",
   "main": "index.js",
   "directories": {
