@@ -1,18 +1,9 @@
 describe('change', function() {
 
-	var vim = require('../index');
+	var Vim = require('../index');
+	var vim = new Vim();
 
-	var expect = function(assertion) {
-
-	return {
-		equal: function(obj) {
-			if(assertion == obj) return true;
-			throw "expected " + assertion + " to equal " + obj;
-		}
-	}
-
-};
-
+	var expect = require('chai').expect
 	var doc;
 
 	beforeEach(function() {
@@ -37,17 +28,8 @@ describe('change', function() {
 			var line = vim.text().split('\n')[0];
 			expect(vim.register(0)).equal('asdf aloha what');
 		});
-
-		it('selects text correctly when moving backwards', function() {
-			vim.exec('$');
-			vim.exec('v');
-			vim.exec('0');
-			var range = vim.curDoc.selection();
-			expect(range[0].char).equal(0);
-			var text = vim.curDoc.getRange(range);
-			expect(text).equal('asdf aloha what');
-		});
-
 	});
 
 });
+
+

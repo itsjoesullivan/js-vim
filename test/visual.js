@@ -2,18 +2,7 @@ describe('visual', function() {
 
 	var Vim = require('../index');
 	var vim = new Vim();
-
-	var expect = function(assertion) {
-
-	return {
-		equal: function(obj) {
-			if(assertion == obj) return true;
-			throw "expected " + assertion + " to equal " + obj;
-		}
-	}
-
-};
-
+	var expect = require('chai').expect
 	var doc;
 
 	beforeEach(function() {
@@ -57,6 +46,17 @@ describe('visual', function() {
 			it('indents all the selected lines', function() {
 				vim.exec('>');
 			});
+		});
+
+
+		it('selects text correctly when moving backwards', function() {
+			vim.exec('esc');
+			vim.exec('$');
+			vim.exec('v');
+			vim.exec('0');
+			var range = vim.curDoc.selection();
+			console.log(range);
+			expect(range[0].char).equal(0);
 		});
 
 
