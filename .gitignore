@@ -2,4 +2,4 @@
 .swp
 bundle.js
 .DS_STORE
-
+node_modules
