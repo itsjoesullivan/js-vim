@@ -118,5 +118,24 @@ describe('view', function() {
 		});
 	});
 
+	describe('getPatch', function() {
+		function isDiff(candidate) {
+			return (typeof candidate === 'object' && 'from' in candidate && 'to' in candidate && 'content' in candidate);
+		}
+		it('returns an array of diffs', function() {
+			vim.exec('i');
+			vim.exec('asdf');
+			var patch = view.getPatch(' s f');
+			expect(isDiff(patch[0])).equal(true);
+			expect(isDiff(patch[1])).equal(true);
+		});
+		it('can span multiple lines', function() {
+			vim.exec('i');
+			vim.exec('asdf\nfdsa');
+			var patch = view.getPatch(' s f\nf s ');
+			expect(patch.length).equal(4);
+		});
+	});
+
 
 });
