@@ -81,10 +81,41 @@ describe('view', function() {
 		it('returns a string with view.lines lines', function() {
 			vim.exec('i');
 			var text = view.getText();
-			console.log(text);
 			expect(text.split('\n').length).equal(view.lines);
 		});
+		it('Runs a gutter with 7 characters by default', function() {
+			vim.exec('i');
+			vim.exec('asdf');
+			var text = view.getText();
+			var line = text.split('\n')[0]
+			expect(line).equal('     1 asdf')
+		});
+	});
+	describe('getArray', function() {
+		it('returns an array of view.lines length', function() {
+			var text = view.getArray();
+			expect(text.length).equal(view.lines);
+		});
+	});
 
+	describe('diffLine', function() {
+		it('returns an empty array if identical', function() {
+			var diffs = view.diffLine('asdf','asdf');
+			expect(diffs.length).equal(0);
+		});
+
+		it('returns an array with length > 0 if not', function() {
+			var diffs = view.diffLine('asdf','asdf ');
+			expect(diffs.length).equal(1);
+		});
+		it('an individual diff has contents that equal what the new characters should be', function() {
+			var diffs = view.diffLine('asdf',' sdf');
+			expect(diffs[0].content).equal(' ');
+		});
+		it('There can be multiple diffs within one line', function() {
+			var diffs = view.diffLine('asdf',' s f');
+			expect(diffs.length).equal(2)
+		});
 	});
 
 
