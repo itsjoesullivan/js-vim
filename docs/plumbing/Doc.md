@@ -4,7 +4,7 @@ Text documents, generally referred to as "buffers"
 
 ##API
 
-###Instanciation
+###Instantiation
 
 ```javascript
 var doc = new Vim.Doc();
