@@ -12,9 +12,9 @@ var doc = new Vim.Doc();
 
 ###Methods
 
-####doc.text
+####doc.text([range])
 
-
+Return the text of the document. Optional range value determines boundaries.
 
 ####doc.getRange(range)
 
