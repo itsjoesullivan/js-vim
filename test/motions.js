@@ -37,4 +37,18 @@ describe('parser', function() {
 
 	});
 
+	describe('W', function() {
+		it('moves to next Word', function() {
+			vim.curDoc.text('hello there');
+			vim.exec('W');
+			vim.curDoc.cursor.char().should.equal(6);
+		});
+		it('checks for first word on the line', function() {
+			vim.curDoc.text('hello\nthere');
+			vim.exec('W');
+			vim.curDoc.cursor.char().should.equal(0);
+			vim.curDoc.cursor.line().should.equal(1);
+		});
+	});
+
 });
