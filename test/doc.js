@@ -20,6 +20,29 @@ describe('Doc', function() {
 		});
 	});
 
+	describe('doc.text', function() {
+		it('returns the text of the doc', function() {
+			var doc = new vim.Doc();
+			doc.text("Hello");
+			var text = doc.text();
+			text.should.equal("Hello");
+		});
+
+		it('Sets the value if handed a string', function() {
+			var doc = new vim.Doc();
+			doc.text("Hello");
+			var text = doc.text();
+			text.should.equal("Hello");
+		});
+		it('Handed an array of two numbers. returns the contents bounded by those lines', function() {
+			var doc = new vim.Doc();
+			doc.text("Line 1\nLine 2\nLine 3\nLine 4");
+			var text = doc.text([1,3]);
+			text.should.equal("Line 2\nLine 3")
+		});
+	});
+
+
 	describe('doc.insert', function() {
 
 		it('exists', function() {
