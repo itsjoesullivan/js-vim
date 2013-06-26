@@ -19,3 +19,18 @@ Represents a range of text by supplying a start and end [location](#location):
 [start, end]
 ```
 
+##mode
+
+##commandObj
+
+The argument passed to <code>vim.addCommand</code>
+
+Takes the form:
+
+```javascript
+{
+	mode: {String}
+	match: {String} | {RegExp}
+	fn: {Function}
+}
+```
