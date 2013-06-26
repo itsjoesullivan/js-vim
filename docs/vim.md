@@ -43,5 +43,5 @@ vim.addMode('insert', {
 
 ###addCommand(commandObj)
 
-Add a specific command, defined as a [commandObj](https://github.com/itsjoesullivan/js-vim/blob/master/docs/plumbing/Types.md#commandObj)
+Add a specific command, defined as a [commandObj](https://github.com/itsjoesullivan/js-vim/blob/master/docs/plumbing/Types.md#commandobj)
 
