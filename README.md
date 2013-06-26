@@ -1,7 +1,20 @@
-#Vim(for Chrome)
+#js-vim
 
-Vim
-for Chrome is a project to bring the vim editor to Google Chrome as an app.
+A javascript implementation of the popular vi clone.
+
+##Why bother?
+
+We already edit a lot of code online. Bringing our editor of choice to the web makes that a more enjoyable process!
+
+##API
+
+###Porcelain
+
+All [porcelain](http://git-scm.com/book/ch9-1.html) commands are accessible via <code>vim.exec</code>
+
+##Usage
+
+
 
 ##Commands
 
