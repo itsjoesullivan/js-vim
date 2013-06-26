@@ -34,12 +34,12 @@ vim.addCommand({
 	match: /:o (.*)\n/,
 	fn: function(path) {
 		dropboxClient.readFile(path, function(err,data) {
-			if(err) return vim.notify("Error reading file");
-			var doc = new Vim.Doc({
+			if(err) return this.notify("Error reading file");
+			var doc = new this.Doc({
 				text: data,
 				path: path
 			});
-			vim.add(doc);
+			this.add(doc);
 		});
 	}
 });
@@ -49,11 +49,11 @@ vim.addCommand({
 	mode: 'command',
 	match: /:w(?: (.*))?\n/,
 	fn: function(path) {
-		var doc = vim.curDoc,
+		var doc = this.curDoc,
 			path = path || doc.path;
 		dropboxClient.writeFile(path, doc.text(), function(err) {
-			if(err) return vim.notify(err);
-			vim.notify('"' + path + '" written.');		
+			if(err) return this.notify(err);
+			this.notify('"' + path + '" written.');		
 		});
 	}
 });
