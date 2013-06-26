@@ -6,11 +6,25 @@ A javascript implementation of the popular vi clone.
 
 We already edit a lot of code online. Bringing our editor of choice to the web makes that a more enjoyable process!
 
-##API
+##Implementations
 
-###Porcelain
+This repo contains the vim "model", which is currently implemented in [web-embeddable](https://github.com/itsjoesullivan/js-vim-embed/) and [terminal](https://github.com/itsjoesullivan/js-vim-node/) versions.
 
-All [porcelain](http://git-scm.com/book/ch9-1.html) commands are accessible via <code>vim.exec</code>
+##Usage
+
+What makes this project palatable is an extensible API:
+
+```javascript
+vim.addCommand({
+	mode: 'command',
+	match: 'o',
+	fn: function() {
+		this.exec(['$','a','\n']);
+	}
+});
+```
+
+
 
 ##Usage
 
