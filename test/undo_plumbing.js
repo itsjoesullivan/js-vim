@@ -53,6 +53,16 @@ describe('undo', function() {
 			undo.position.should.equal(3);
 		});
 	});
+	describe('next', function() {
+		it('retrieves the next state', function() {
+			undo.add('asdf');
+			undo.add('qwer');
+			undo.add('zxcv');
+			undo.add('dfgh');
+			undo.last();
+			undo.next().should.equal('dfgh');
+		});
+	});
 			
 
 });
