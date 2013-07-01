@@ -1,13 +1,12 @@
 {
   "name": "js-vim",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A JavaScript implementation of the vim text editor",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "commander": "1.1.1",
     "diff_match_patch": "0.1.1",
 	"js-vim-command": "*",
 	"mauve": "*",
@@ -17,7 +16,7 @@
 		"chai": "1.6.1"
 	},
   "scripts": {
-    "test": "mocha"
+    "test": "mocha -r should"
   },
   "repository": {
     "type": "git",
