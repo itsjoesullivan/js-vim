@@ -51,4 +51,20 @@ describe('parser', function() {
 		});
 	});
 
+	describe('^', function() {
+		it('moves to the first non-whitespace character on a line', function() {
+			vim.text('     hi');		
+			vim.exec('^');
+			vim.curChar.should.equal('h');
+		});
+
+		it('lands on the first character if the first character is not whitespace', function() {
+			vim.text('hi');
+			vim.curDoc.cursor.line(0);
+			vim.curDoc.cursor.char(0);
+			vim.exec('^');
+			vim.curChar.should.equal('h');
+		});
+
+	});
 });
