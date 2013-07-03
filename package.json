@@ -1,6 +1,6 @@
 {
   "name": "js-vim",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "A JavaScript implementation of the vim text editor",
   "main": "index.js",
   "directories": {
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/itsjoesullivan/vim.git"
+    "url": "https://github.com/itsjoesullivan/js-vim.git"
   },
   "keywords": [
     "vim"
