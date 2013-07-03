@@ -3,7 +3,6 @@ describe('cursor', function() {
 	var Vim = require('../index');
 	var vim = new Vim();
 
-	var expect = require('chai').expect;	
 
 
 	beforeEach(function() {
@@ -19,22 +18,22 @@ describe('cursor', function() {
 			vim.exec('3G');
 			vim.exec('$');
 			vim.exec('k');
-			expect(vim.curDoc.cursor.char()).equal(4);
+			vim.curDoc.cursor.char().should.equal(4);
 		});
 		it('remembers the furthest character it wants to be on', function() {
 			vim.exec('3G');
 			vim.exec('$');
 			vim.exec('k');
 			vim.exec('j');
-			expect(vim.curDoc.cursor.char()).equal(9);
+			vim.curDoc.cursor.char().should.equal(9);
 		});
 	});
 
 	describe('position', function() {
 		it('returns an object with line, char', function() {
 			var pos = vim.curDoc.cursor.position();
-			expect('line' in pos).equal(true);
-			expect('char' in pos).equal(true);
+			('line' in pos).should.equal(true);
+			('char' in pos).should.equal(true);
 		});
 	});
 });

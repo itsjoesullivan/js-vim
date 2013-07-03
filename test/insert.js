@@ -2,7 +2,6 @@ describe('insert', function() {
 
 	var Vim = require('../index');
 	var vim = new Vim();
-
 	var expect = require('chai').expect;	
 
 

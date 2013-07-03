@@ -1,6 +1,5 @@
 describe('delete', function() {
 
-	var expect = require('chai').expect;
 
 	var Vim = require('../index');
 	var vim = new Vim();
@@ -16,14 +15,15 @@ describe('delete', function() {
 		it('erases character it is on', function() {
 			vim.exec('x');
 			var firstLine = vim.text().split('\n')[0];
-			expect(firstLine).equal('wer');
+			firstLine.should.equal('wer');
+			
 		});
 		it('erases two characters if selection is first two', function() {
 			vim.exec('v');
 			vim.exec('l');
 			vim.exec('x');
 			var firstLine = vim.text().split('\n')[0];
-			expect(firstLine).equal('er');
+			firstLine.should.equal('er');
 		});
 		it('erases every char if $h used', function() {
 			vim.exec('0');
@@ -32,7 +32,7 @@ describe('delete', function() {
 			vim.exec('h');
 			vim.exec('x');
 			var firstLine = vim.text().split('\n')[0];
-			expect(firstLine).equal('');
+			firstLine.should.equal('');
 		});
 		it('erases entire line if 0$ used', function() {
 			vim.exec('0');
@@ -40,13 +40,13 @@ describe('delete', function() {
 			vim.exec('$');
 			vim.exec('x');
 			var firstLine = vim.text().split('\n')[0];
-			expect(firstLine).equal('asdf');
+			firstLine.should.equal('asdf');
 		});
 		it('accepts {n}x format', function() {
 			vim.exec('0');
 			vim.exec('2x');
 			var firstLine = vim.text().split('\n')[0];
-			expect(firstLine).equal('er');
+			firstLine.should.equal('er');
 		});
 		it('can erase multiple lines', function() {
 			vim.exec('0');
@@ -57,7 +57,7 @@ describe('delete', function() {
 			vim.exec('$');
 			vim.exec('x');
 			var firstLine = vim.text().split('\n')[0];
-			expect(firstLine).equal('zxcv');
+			firstLine.should.equal('zxcv');
 		});
 	});
 	describe('d', function() {
@@ -66,7 +66,7 @@ describe('delete', function() {
 			vim.exec('l');
 			vim.exec('d');
 			var firstLine = vim.text().split('\n')[0];
-			expect(firstLine).equal('er');
+			firstLine.should.equal('er');
 		});
 		it('erases every char if $h used', function() {
 			vim.exec('0');
@@ -75,7 +75,7 @@ describe('delete', function() {
 			vim.exec('h');
 			vim.exec('d');
 			var firstLine = vim.text().split('\n')[0];
-			expect(firstLine).equal('');
+			firstLine.should.equal('');
 		});
 		it('erases entire line if 0$ used', function() {
 			vim.exec('0');
@@ -83,7 +83,7 @@ describe('delete', function() {
 			vim.exec('$');
 			vim.exec('d');
 			var firstLine = vim.text().split('\n')[0];
-			expect(firstLine).equal('asdf');
+			firstLine.should.equal('asdf');
 		});
 		it('can erase multiple lines', function() {
 			vim.exec('0');
@@ -94,7 +94,18 @@ describe('delete', function() {
 			vim.exec('$');
 			vim.exec('d');
 			var firstLine = vim.text().split('\n')[0];
-			expect(firstLine).equal('zxcv');
+			firstLine.should.equal('zxcv');
+		});
+	});
+
+	describe('dd', function() {
+		it('erases an empty line', function() {
+			vim.text('hello\n\nthere');
+			vim.exec('j');
+			vim.text().should.equal('hello\n\nthere');
+			vim.exec('d');	
+			vim.exec('d');	
+			vim.text().should.equal('hello\nthere');
 		});
 	});
 

@@ -3,7 +3,6 @@ var vim = new Vim();
 
 var Cursor = require('../lib/Cursor');
 
-var expect = require('chai').expect;
 describe('Doc', function() {
 	var doc;
 
@@ -16,7 +15,7 @@ describe('Doc', function() {
 
 	describe('doc', function() {
 		it('has cursor', function() {
-			expect('cursor' in doc).equal(true);
+			('cursor' in doc).should.equal(true);
 		});
 	});
 
@@ -46,17 +45,18 @@ describe('Doc', function() {
 	describe('doc.insert', function() {
 
 		it('exists', function() {
-			expect('insert' in doc).equal(true);
+			('insert' in doc).should.equal(true);
+			
 		});
 
 		it('can insert a character', function() {
 			doc.insert('a');
-			expect(doc._text).equal('ahi');
+			doc._text.should.equal('ahi');
 		});
 
 		it('given multiple characters they are each inserted.', function() {
 			doc.insert('ab ');
-			expect(doc.text()).equal('ab hi');
+			doc.text().should.equal('ab hi');
 		});
 	});
 
@@ -76,7 +76,7 @@ describe('Doc', function() {
 			} catch(e) {
 				threw = true;
 			}
-			expect(threw).equal(true);
+			threw.should.equal(true);
 
 		});
 
@@ -86,12 +86,12 @@ describe('Doc', function() {
 				fired = true;
 			});
 			doc.set({text: 'hello'});
-			expect(fired).equal(true);
+			fired.should.equal(true);
 		})
 
 		it('can remove a character', function() {
 			doc.remove(range);
-			expect(doc._text).equal('i');
+			doc._text.should.equal('i');
 		});
 
 
@@ -100,7 +100,7 @@ describe('Doc', function() {
 			range[0].char = 3;
 			range[1].char = 9;
 			doc.remove(range)
-			expect(doc._text).equal('oh there');
+			doc._text.should.equal('oh there');
 		});
 
 		it('can remove across lines', function() {
@@ -108,7 +108,7 @@ describe('Doc', function() {
 			range[0].char = 5;
 			range[1] = { line: 1, char: 4 };
 			doc.remove(range);
-			expect(doc._text).equal('line another');
+			doc._text.should.equal('line another');
 		});
 
 		it('can delete a line', function() {
@@ -116,8 +116,8 @@ describe('Doc', function() {
 			range[0] = { line: 0, char: 0 };
 			range[1] = { line: 0, char: doc._lines[1].length+1 };
 			doc.remove(range);
-			expect(doc._lines.length).equal(1);
-			expect(doc._text).equal('line two');
+			doc._lines.length.should.equal(1);
+			doc._text.should.equal('line two');
 		});
 
 		it('can remove, delete a line, and remove', function() {
@@ -125,7 +125,7 @@ describe('Doc', function() {
 			range[0] = { line: 0, char: 1 };
 			range[1] = { line: 2, char: 2 };
 			doc.remove(range);
-			expect(doc._text).equal('oree');
+			doc._text.should.equal('oree');
 		});
 
 	});
@@ -134,8 +134,8 @@ describe('Doc', function() {
 		it('finds things', function() {
 			doc = new Doc({text:' hi'});
 			var res = doc.find(/(hi)/g);
-			expect(res.line).equal(0);
-			expect(res.char).equal(1);
+			res.line.should.equal(0);
+			res.char.should.equal(1);
 		})
 
 
@@ -149,45 +149,45 @@ describe('Doc', function() {
 		})
 
 		it('exists', function() {
-			expect('checkString' in doc).equal(true);
+			('checkString' in doc).should.equal(true);
 		});
 
 		it('returns -1 when no match', function() {
-			expect(doc.checkString(/(h)/g,'abcd')).equal(-1);
+			(doc.checkString(/(h)/g,'abcd')).should.equal(-1);
 		});
 
 		it('returns 0 when found at zero', function() {
-			expect(doc.checkString(/(h)/g,'h')).equal(0);
+			(doc.checkString(/(h)/g,'h')).should.equal(0);
 		});
 
 		it('returns 1 when found at 1', function() {
-			expect(doc.checkString(/(h)/g,' h')).equal(1);
+			(doc.checkString(/(h)/g,' h')).should.equal(1);
 		});
 
 		it('returns null when present in line but not after offset', function() {
-			expect(doc.checkString(/(h)/g,'hello',1)).equal(-1);
+			(doc.checkString(/(h)/g,'hello',1)).should.equal(-1);
 		});
 
 		it('returns correct line when present in line before and after the offset', function() {
-			expect(doc.checkString(/(h)/g,'hello there',1)).equal(7);
+			(doc.checkString(/(h)/g,'hello there',1)).should.equal(7);
 		});
 
 		it('returns correct line when present in line before and after the offset', function() {
-			expect(doc.checkString(/(h)/g,'hello there',1)).equal(7);
+			(doc.checkString(/(h)/g,'hello there',1)).should.equal(7);
 		});
 
 		it('correctly does not treat the beginning of the offset string as the beginning of the line', function() {
-			expect(doc.checkString(/^ello/g,'hello there',1)).equal(-1);
+			(doc.checkString(/^ello/g,'hello there',1)).should.equal(-1);
 		});
 
 		describe('doc.checkString backwards', function() {
 
 			it('can work backwards', function() {
-				expect(doc.checkString(/(a)/g,'a b',1,true)).equal(0);
+				(doc.checkString(/(a)/g,'a b',1,true)).should.equal(0);
 			});
 
 			it('ignores the a match that is after the offset', function() {
-				expect(doc.checkString(/(a)/g,'b a',1,true)).equal(-1)
+				(doc.checkString(/(a)/g,'b a',1,true)).should.equal(-1)
 			});
 
 
@@ -209,13 +209,13 @@ describe('Doc', function() {
 		it('returns a string value for the range if it is one line', function() {
 			var range = [{line: 0, char: 0}, { line:0, char: 4}];
 			var text = doc.getRange(range);
-			expect(text).equal('qwer');
+			(text).should.equal('qwer');
 		})
 
 		it('includes a carriage return if it is multiline', function() {
 			var range = [{line: 0, char: 0}, { line:1, char: 2}];
 			var text = doc.getRange(range);
-			expect(text).equal('qwer\nas');
+			(text).should.equal('qwer\nas');
 		})
 
 	})
