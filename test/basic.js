@@ -16,14 +16,14 @@ describe('basic', function() {
 			vim.exec('a');
 			vim.exec('esc');
 			vim.exec('o');
-			expect(vim.curDoc.cursor.line()).equal(1);
+			vim.curDoc.cursor.line().should.equal(1)
 		});
 		it('enters insert mode', function() {
 			vim.exec('i');
 			vim.exec('a');
 			vim.exec('esc');
 			vim.exec('o');
-			expect(vim.modeName).equal('insert');
+			vim.modeName.should.equal('insert');
 		});
 		it('does not carry anything else over', function() {
 			vim.exec('i');
@@ -33,8 +33,7 @@ describe('basic', function() {
 			vim.exec('0');
 			vim.exec('o');
 			vim.exec('c');
-			var text = vim.text();
-			expect(text).equal('ab\nc');	
+			vim.text().should.equal('ab\nc');
 		});
 	});
 
@@ -51,7 +50,7 @@ describe('basic', function() {
 			vim.exec('esc');
 			vim.exec('k');
 			vim.exec('dd');
-			expect(vim.text()).equal('asdf\nasdf');
+			vim.text().should.equal('asdf\nasdf');
 		});
 		it('removes an empty line', function() {
 			vim.exec('i');
@@ -63,8 +62,7 @@ describe('basic', function() {
 			vim.exec('esc');
 			vim.exec('k');
 			vim.exec('dd');
-			expect(vim.text()).equal('a\nb')
-			
+			vim.text().should.equal('a\nb');
 		});
 	});
 
