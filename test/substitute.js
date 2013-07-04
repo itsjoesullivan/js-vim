@@ -40,12 +40,39 @@ describe('substitute', function() {
 		vim.exec(':s/foo/bar/\n');
 		vim.text().should.equal('fie');
 	});
-
+	it('Only does the one line', function() {
+		vim.text('foo\nfoo');
+		vim.exec(':s/foo/bar/g\n');
+		vim.text().should.equal('bar\nfoo');
+	});
 	it('Works globally', function() {
 		vim.text('foo fie foe foo');
 		vim.exec(':s/foo/bar/g\n');
 		vim.text().should.equal('bar fie foe bar');
 	});
-
-
+	it(':s works with %', function() {
+		vim.text('foo\nfoo');
+		vim.exec(':%s/foo/bar/g\n');
+		vim.text().should.equal('bar\nbar');
+	});
+	it('Substitute works with %', function() {
+		vim.text('foo\nfoo');
+		vim.exec(':%s/foo/bar/g\n');
+		vim.text().should.equal('bar\nbar');
+	});
+	it('Works with simple range', function() {
+		vim.text('foo\nfoo\nfoo');
+		vim.exec(':2s/foo/bar/g\n');
+		vim.text().should.equal('foo\nbar\nfoo');
+	});
+	it('Works with $ range', function() {
+		vim.text('foo\nfoo\nfoo');
+		vim.exec(':$s/foo/bar/g\n');
+		vim.text().should.equal('foo\nfoo\nbar');
+	});
+	it('Works with N,$ range', function() {
+		vim.text('foo\nfoo\nfoo\nfoo');
+		vim.exec(':2,$s/foo/bar/g\n');
+		vim.text().should.equal('foo\nbar\nbar\nbar');
+	});
 });
