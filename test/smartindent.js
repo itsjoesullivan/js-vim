@@ -11,7 +11,6 @@ describe('smartindent', function() {
         vim.exec('\nqwer');
         vim.exec('esc');
         vim.text().should.equal('  hello\nqwer');
-
     });
     it('does nothing if prevline does not end with {', function() {
         vim.text('hello');
