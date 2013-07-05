@@ -4,6 +4,15 @@ describe('smartindent', function() {
     beforeEach(function() {
         vim = new Vim();
     });
+    it('is off if explicitly set off', function() {
+        vim.rc.smartindent = false;
+        vim.text('  hello');
+        vim.exec('A');
+        vim.exec('\nqwer');
+        vim.exec('esc');
+        vim.text().should.equal('  hello\nqwer');
+
+    });
     it('does nothing if prevline does not end with {', function() {
         vim.text('hello');
         vim.exec('o');
@@ -47,7 +56,6 @@ describe('smartindent', function() {
         vim.exec(';');
         vim.exec('esc');
         vim.exec('^');
-        console.log(vim.text());
         vim.curDoc.cursor.char().should.equal(0);
     });
 
