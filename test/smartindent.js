@@ -46,6 +46,8 @@ describe('smartindent', function() {
         vim.exec('}');
         vim.exec(';');
         vim.exec('esc');
+        vim.exec('^');
+        console.log(vim.text());
         vim.curDoc.cursor.char().should.equal(0);
     });
 
