@@ -40,4 +40,19 @@ describe('smartindent', function() {
         vim.exec('^');
         vim.curDoc.cursor.char().should.equal(9);
     });
+    it('deindents on a }', function() {
+        vim.exec('i');
+        vim.exec('var x = function() { \n var y = "hi";\n');
+        vim.exec('}');
+        vim.exec(';');
+        vim.exec('esc');
+        vim.curDoc.cursor.char().should.equal(0);
+    });
+
+    it('leaves next line at same level if no action', function() {
+        vim.exec('i');
+        vim.exec('    asdf\nfdsa');
+        vim.text().should.equal('    asdf\n    fdsa');
+    });
+
 });
