@@ -218,6 +218,16 @@ describe('Doc', function() {
 			(text).should.equal('qwer\nas');
 		})
 
-	})
+	});
+
+   describe('doc.addMark', function() {
+       it('adds a mark', function() {
+           doc = new Doc({text: 'asdf'});
+           doc.addMark({
+               line: 0, col: 1, mark: 'a'
+           });
+           doc._lines[0].marks[0].col.should.equal(1);
+       });
+   });
 
 });

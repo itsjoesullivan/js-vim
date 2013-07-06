@@ -109,4 +109,14 @@ describe('delete', function() {
 		});
 	});
 
+    describe('dG', function() {
+        it('deletes til the end', function() {
+            vim.text('asdf\nasdf\nasdf');
+            vim.exec('0');
+            vim.exec('dG');
+            vim.text().should.equal('');
+        });
+    });
+
+
 });
