@@ -52,7 +52,40 @@ describe('marks', function() {
         marks.length.should.equal(1);
         marks[0].col.should.equal(7);
     });
-    it('\'[a-z] moves to that mark', function() {
+    it('handles deletions in the line prior to the actual mark', function() {
+        vim.text('asdf\nasdf')
+        vim.exec('j');
+        vim.exec('$');
+        vim.exec('ma');
+        vim.exec('0');
+        vim.exec('x');
+        vim.exec('`a');
+        vim.curDoc.cursor.char().should.equal(2);
+    });
+    it('handles a join', function() {
+        vim.text('asdf\nasdf');
+        vim.exec('G');
+        vim.exec('ma');
+        vim.exec('k')
+        vim.exec('J');
+        vim.exec('`a');
+        vim.curDoc.cursor.char().should.equal(5);
+    });
+    it('handles moving the mark to a new line', function() {
+        vim.text('asdf\nasdf')
+        vim.exec('j');
+        vim.exec('$');
+       vim.exec('ma');
+        vim.exec('0');
+        vim.exec('i');
+        vim.exec('\b');
+        vim.exec('esc');
+        vim.exec('0');
+        vim.exec('`a');
+        vim.curDoc.cursor.char().should.equal(7);
+    });
+
+    it('\'[a-z] moves to that line', function() {
         vim.text('qwer\nasdf\nzxcv');
         vim.exec('gg');
         vim.exec('ma');
@@ -60,6 +93,18 @@ describe('marks', function() {
         vim.curDoc.cursor.line().should.equal(2);
         vim.exec("'a");
         vim.curDoc.cursor.line().should.equal(0);
+        vim.curDoc.cursor.char().should.equal(0);
+    });
+    it('\'[a-z] moves to that line and character', function() {
+        vim.text('qwer\nasdf\nzxcv');
+        vim.exec('gg');
+        vim.exec('$');
+        vim.exec('ma');
+        vim.exec('G');
+        vim.curDoc.cursor.line().should.equal(2);
+        vim.exec("`a");
+        vim.curDoc.cursor.line().should.equal(0);
+        vim.curDoc.cursor.char().should.equal(3);
     });
 
 });
