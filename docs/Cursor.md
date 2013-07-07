@@ -11,23 +11,20 @@ Get / set the cursor's line number.
 __N.B.__ As everywhere else, line number is zero-indexed.
 
 ####Get
-
 ```javascript
 var line = cursor.line();
 console.log("The current line number is: " + line);
 ```
-
 ####Set
-
 ```javascript
 cursor.line(10);
 ```
-
 ###Cursor.char(charNumber)
 
 Get / set the cursor's character.
 
 __N.B.__ This should be changed to "col"
+
 __N.B.__ As everywhere else, line number is zero-indexed.
 
 ####Get
