@@ -7,9 +7,25 @@ describe('yank', function() {
 	var doc;
 
 	beforeEach(function() {
+        vim = new Vim();
 		doc = new Doc({text:'asdf\nzxcv\nqwer'});
 		vim.curDoc = doc;
-	})
+	});
+
+    it('returns to the beginning of the selection after selecting.', function() {
+       vim.exec('v'); 
+       vim.exec('$');
+       vim.exec('y');
+       vim.curDoc.cursor.col().should.equal(0);
+    });
+
+    it('clears selection', function() {
+       vim.exec('v'); 
+       vim.exec('$');
+       vim.exec('y');
+       vim.curDoc.selection()[0].char.should.equal(0);
+       vim.curDoc.selection()[1].char.should.equal(1);
+    });
 
 	describe('0v$y', function() {
 		it('stores the contents of the line in the register', function() {
@@ -18,7 +34,7 @@ describe('yank', function() {
 			vim.exec('$');
 			vim.exec('y');
 			var reg = vim.register(0);
-			expect(reg).equal('asdf\n');
+			(reg).should.equal('asdf\n');
 		});
 	});
 
@@ -30,15 +46,16 @@ describe('yank', function() {
 			vim.exec('$');
 			vim.exec('y');
 			var reg = vim.register(0);
-			expect(reg).equal('asdf\nzxcv\n');
+			(reg).should.equal('asdf\nzxcv\n');
 		});
 	});
 
 	describe('yy', function() {
-		it('grabs the entire line including an \\n before', function() {
+		it('grabs an array', function() {
 			vim.exec('yy');
 			var reg = vim.register(0);
-			expect(reg).equal('asdf\nzxcv\n')
+			(reg[0]).should.equal('o');
+			(reg[1]).should.equal('asdf');
 		});
 	});
 
