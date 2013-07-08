@@ -131,12 +131,30 @@ describe('Doc', function() {
 	});
 
 	describe('doc.find', function() {
+        var doc;
+        beforeEach(function() {
+            doc = new Doc();
+        });
 		it('finds things', function() {
 			doc = new Doc({text:' hi'});
 			var res = doc.find(/(hi)/g);
 			res.line.should.equal(0);
 			res.char.should.equal(1);
-		})
+		});
+
+        it('works backwards', function() {
+            doc.text('asdf');    
+            doc.cursor.col(3);
+            var found = doc.find(/(a)/g, {backwards: true});
+            found.char.should.equal(0);
+        });
+
+        it('handles ^ backwards', function() {
+            doc.text('a a a a');
+            doc.cursor.col(4);
+            var found = doc.find(/(^a)/g, { backwards:true});
+            found.char.should.equal(0);
+        });
 
 
 	});

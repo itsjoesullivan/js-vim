@@ -52,6 +52,9 @@ describe('parser', function() {
 	});
 
 	describe('^', function() {
+        beforeEach(function() {
+            vim = new Vim();
+        });
 		it('moves to the first non-whitespace character on a line', function() {
 			vim.text('     hi');		
 			vim.exec('^');
@@ -60,11 +63,36 @@ describe('parser', function() {
 
 		it('lands on the first character if the first character is not whitespace', function() {
 			vim.text('hi');
-			vim.curDoc.cursor.line(0);
-			vim.curDoc.cursor.char(0);
 			vim.exec('^');
 			vim.curChar.should.equal('h');
 		});
 
 	});
+
+
+    describe(')', function() {
+        beforeEach(function() {
+            vim = new Vim();
+        });
+        it('goes to beginning of next sentence', function() {
+            vim.text('asdf. asdf. qwer.');
+            vim.exec(')');
+            vim.curDoc.cursor.char().should.equal(6);
+            vim.exec(')');
+            vim.curDoc.cursor.char().should.equal(12);
+        });
+    });
+    describe('(', function() {
+        beforeEach(function() {
+            vim = new Vim();
+        });
+        it('goes to beginning of last sentence', function() {
+            vim.text('asdf. asdf. qwer.');
+            vim.exec('$');
+            vim.exec('(');
+            vim.curDoc.cursor.char().should.equal(6);
+            vim.exec('(');
+            vim.curDoc.cursor.char().should.equal(0);
+        });
+    });
 });
