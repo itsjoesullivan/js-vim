@@ -9,9 +9,9 @@ describe('marks', function() {
         vim.exec('gg');
         vim.exec('0');
       vim.exec('ma');  
-      ('a' in vim.marks).should.equal(true);
-      vim.marks['a'].col.should.equal(0);
-      vim.marks['a'].line.should.equal(0);
+      ('a' in vim.curDoc._marks).should.equal(true);
+      vim.curDoc._marks['a'].col.should.equal(0);
+      vim.curDoc._marks['a'].line.should.equal(0);
       vim.curDoc._lines[0].marks.length.should.equal(1);
     });
 
@@ -23,9 +23,9 @@ describe('marks', function() {
         vim.exec('0');
       vim.exec('ma');  
       vim.exec('x');
-      ('a' in vim.marks).should.equal(true);
-      vim.marks['a'].col.should.equal(0);
-      vim.marks['a'].line.should.equal(0);
+      ('a' in vim.curDoc._marks).should.equal(true);
+      vim.curDoc._marks['a'].col.should.equal(0);
+      vim.curDoc._marks['a'].line.should.equal(0);
     });
     it('getting range doesnt change things', function() {
         vim.text('');
@@ -104,6 +104,15 @@ describe('marks', function() {
         vim.curDoc.cursor.line().should.equal(2);
         vim.exec("`a");
         vim.curDoc.cursor.line().should.equal(0);
+        vim.curDoc.cursor.char().should.equal(3);
+    });
+    it('is replaced by another mark of same name', function() {
+        vim.text('asdf');
+        vim.exec('ma');
+        vim.exec('$');
+        vim.exec('ma');
+        vim.exec('0');
+        vim.exec('`a')
         vim.curDoc.cursor.char().should.equal(3);
     });
 
