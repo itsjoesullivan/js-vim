@@ -32,11 +32,9 @@ describe('Doc.find', function() {
         pos.line.should.equal(1);
     });
     it('works backwards over lines', function() {
-        console.log('this');
         doc.text('asdf\naaa');
         doc.cursor.line(1);
         var pos = doc.find(/(s)/g, { backwards: true } )
-        console.log(pos);
         pos.char.should.equal(1);
         pos.line.should.equal(0);
     });
