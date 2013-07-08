@@ -86,13 +86,54 @@ describe('parser', function() {
         beforeEach(function() {
             vim = new Vim();
         });
-        it('goes to beginning of last sentence', function() {
-            vim.text('asdf. asdf. qwer.');
+        it('goes to beginning of this sentence', function() {
+            vim.text('asdf. xyz. qwer.');
             vim.exec('$');
+            vim.exec('h');
+            vim.exec('(');
+            vim.curDoc.cursor.char().should.equal(11);
+        });
+
+        it('it goes to the previous sentence if at beginning of one', function() {
+            vim.text('asdf. xyz. qwer.');
+            vim.curDoc.cursor.char(11);
             vim.exec('(');
             vim.curDoc.cursor.char().should.equal(6);
+        });
+        it('goes to beginning of line if need be', function() {
+            vim.text('hello\nasdf. xyz. qwer.');
+            vim.curDoc.cursor.line(1);
+            vim.curDoc.cursor.char(6);
             vim.exec('(');
+            vim.curDoc.cursor.line().should.equal(1);
             vim.curDoc.cursor.char().should.equal(0);
+        });
+        it('handles sentences of multiple words', function() {
+            vim.text('hello\nasdf asdf qwer. xyz zxcv qwer. qwer fdsa.');
+            vim.curDoc.cursor.line(1);
+            vim.curDoc.cursor.char(6);
+            vim.exec('(');
+            vim.curDoc.cursor.line().should.equal(1);
+            vim.curDoc.cursor.char().should.equal(0);
+            vim.exec('$');
+            vim.exec('(');
+            vim.curDoc.cursor.char().should.equal(31);
+            vim.exec('(');
+            vim.curDoc.cursor.char().should.equal(16);
+        });
+        it('handles ?', function() {
+            vim.text('asdf? xyz? qwer?');
+            vim.exec('$');
+            vim.exec('h');
+            vim.exec('(');
+            vim.curDoc.cursor.char().should.equal(11);
+        });
+        it('handles !', function() {
+            vim.text('asdf! xyz! qwer!');
+            vim.exec('$');
+            vim.exec('h');
+            vim.exec('(');
+            vim.curDoc.cursor.char().should.equal(11);
         });
     });
 });
