@@ -68,6 +68,13 @@ describe('parser', function() {
 		});
 
 	});
+	describe('g_', function() {
+		it('moves to the last non-whitespace character on the line', function() {
+			vim.text('asdf   ');
+			vim.exec('g_');
+			vim.curChar.should.equal('f');
+		});
+	});
 
 
     describe(')', function() {
