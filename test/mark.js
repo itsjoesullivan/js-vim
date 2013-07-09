@@ -49,8 +49,11 @@ describe('marks', function() {
         vim.exec('e');
         vim.exec('r');
         var marks = vim.curDoc._lines[0].marks;
-        marks.length.should.equal(1);
-        marks[0].col.should.equal(7);
+        var mk;
+        for(var i in marks) {
+            if(marks[i].mark === 'a') mk = marks[i];
+        }
+        mk.col.should.equal(7);
     });
     it('handles deletions in the line prior to the actual mark', function() {
         vim.text('asdf\nasdf')
@@ -116,4 +119,17 @@ describe('marks', function() {
         vim.curDoc.cursor.char().should.equal(3);
     });
 
+});
+
+describe('special marks', function() {
+    beforeEach(function() {
+        vim = new Vim();
+    });
+    it('. returns last edit position', function() {
+        vim.text('asdf\nfdsa');
+        vim.exec('x');
+        vim.exec('j');
+        vim.exec('`.');
+        vim.curDoc.cursor.line().should.equal(0);
+    });
 });
