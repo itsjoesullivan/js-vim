@@ -19,3 +19,17 @@ describe('~', function() {
 		vim.text().should.equal('aSdF');
 	});
 });
+describe('g~', function() {
+	beforeEach(function() {
+		vim = new Vim();
+	});
+	it('works as ~ in visual', function() {
+		vim.text('AsDf');
+		vim.exec('v');
+		vim.exec('l');
+		vim.exec('l');
+		vim.exec('l');
+		vim.exec('~');
+		vim.text().should.equal('aSdF');
+	});
+});
