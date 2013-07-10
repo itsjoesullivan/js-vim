@@ -55,4 +55,15 @@ describe('search', function() {
 			expect(currentChar).equal(5);
 		});
 	})
+	describe('/"a', function() {
+		beforeEach(function() {
+			vim = new Vim();
+		});
+		it('searches from the "a buffer', function() {
+			vim.text('a b c');
+			vim.register('a','b');
+			vim.exec('/"a\n');
+			vim.curChar.should.equal('b');
+		});
+	});
 });
