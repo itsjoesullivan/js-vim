@@ -50,4 +50,22 @@ describe('visual block', function() {
 		vim.exec('esc');
 		vim.text().should.equal('00q0\n00q0');
 	});
+	it('d removes selected text', function() {
+		vim.text('asdf\nfdsa');
+		vim.exec('<C-v>');
+		vim.exec('l');
+		vim.exec('j');
+		vim.exec('d');
+		vim.text().should.equal('df\nsa');
+	});
+	it('c changes text then enters I mode', function() {
+		vim.text('asdf\nfdsa');
+		vim.exec('<C-v>');
+		vim.exec('l');
+		vim.exec('j');
+		vim.exec('c');
+		vim.exec('yo');
+		vim.exec('esc');
+		vim.text().should.equal('yodf\nyosa');
+	});
 });
