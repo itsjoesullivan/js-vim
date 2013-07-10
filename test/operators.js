@@ -29,7 +29,21 @@ describe('g~', function() {
 		vim.exec('l');
 		vim.exec('l');
 		vim.exec('l');
-		vim.exec('~');
+		vim.exec('g~');
 		vim.text().should.equal('aSdF');
+	});
+});
+describe('gu', function() {
+	beforeEach(function() {
+		vim = new Vim();
+	});
+	it('converts to lowercase', function() {
+		vim.text('AsDf');
+		vim.exec('v');
+		vim.exec('l');
+		vim.exec('l');
+		vim.exec('l');
+		vim.exec('gu');
+		vim.text().should.equal('asdf');
 	});
 });
