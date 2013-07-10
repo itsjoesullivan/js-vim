@@ -19,4 +19,15 @@ describe('visual block', function() {
 		vim.exec('esc');
 		vim.text().should.equal('ahellosdf\nfhellodsa');
 	});
+	it('I does not affect blocks it is not covering', function() {
+		vim.text('000000\n00\n000000');
+		vim.exec('3l');
+		vim.exec('<C-v>');
+		vim.exec('j')
+		vim.exec('j')
+		vim.exec('I');
+		vim.exec('x');
+		vim.exec('esc');
+		vim.text().should.equal('000x000\n00\n000x000');
+	});
 });
