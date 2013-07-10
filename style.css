@@ -1,0 +1,56 @@
+
+html, body {
+	margin:0;
+	padding:0;
+	top:0;
+}	
+
+
+#content-src {
+	position:relative;
+	display:none;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.vim-container {
+	border-radius:0px !important;
+	padding:2em;
+}
+
+#content {
+	font-family:monospace;
+	width: 48em;
+	display:block;
+	margin: 1em;
+	padding-bottom: 3em;
+}
+
+#content  li {
+	margin: 1em;
+}
+
+#content li li {
+	margin: 0.2em;
+}
+
+#content li p {
+	margin: 0
+}
+
+#content pre {
+	margin: 0.5em;
+	border-left: 2px solid #ccc;
+	padding-left:1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	overflow:hidden;
+}
+
+#content code {
+	background-color: #eee;
+	overflow:hidden;
+
+}
