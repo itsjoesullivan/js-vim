@@ -68,4 +68,13 @@ describe('visual block', function() {
 		vim.exec('esc');
 		vim.text().should.equal('yodf\nyosa');
 	});
+	it('$ selects the entirety of each line', function() {
+		vim.text('asdf\nasd\nas\na');
+		vim.exec('<C-v>');
+		vim.exec('j');
+		vim.exec('j');
+		vim.exec('j');
+		vim.exec('$');
+		console.log(vim.curDoc.selection());
+	});
 });

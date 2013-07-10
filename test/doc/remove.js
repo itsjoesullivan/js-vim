@@ -25,4 +25,18 @@ describe('Doc.remove', function() {
 		]);
 		doc.text().should.equal('sdf');
 	});
+	it('removing a character beyond the end of the line is the same as removing a carriage return', function() {
+		doc.text('asdf\nfdsa');
+		doc.remove([
+		{
+			line: 0,
+			char: 0
+		},
+		{
+			line: 0,
+			char: 5
+		}
+		]);
+		doc.text().should.equal('fdsa');
+	});
 });
