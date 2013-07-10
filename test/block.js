@@ -30,4 +30,24 @@ describe('visual block', function() {
 		vim.exec('esc');
 		vim.text().should.equal('000x000\n00\n000x000');
 	});
+	it('a carriage return inside an I insertion negates the visual block effect', function() {
+		vim.text('000\n000\n000');
+		vim.exec('<C-v>');
+		vim.exec('j');
+		vim.exec('j');
+		vim.exec('I')
+		vim.exec('a\nb');
+		vim.exec('esc');
+		vim.text().should.equal('a\nb000\n000\n000');
+	});
+	it('A adds text to the end', function() {
+		vim.text('000\n000');
+		vim.exec('l');
+		vim.exec('<C-v>');
+		vim.exec('j');
+		vim.exec('A');
+		vim.exec('q');
+		vim.exec('esc');
+		vim.text().should.equal('00q0\n00q0');
+	});
 });
