@@ -47,3 +47,17 @@ describe('gu', function() {
 		vim.text().should.equal('asdf');
 	});
 });
+describe('gU', function() {
+	beforeEach(function() {
+		vim = new Vim();
+	});
+	it('converts to uppercase', function() {
+		vim.text('AsDf');
+		vim.exec('v');
+		vim.exec('l');
+		vim.exec('l');
+		vim.exec('l');
+		vim.exec('gU');
+		vim.text().should.equal('ASDF');
+	});
+});
