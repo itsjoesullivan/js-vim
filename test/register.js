@@ -65,7 +65,7 @@ describe('registers', function() {
 			vim.exec('"');
 			vim.exec('a');
 			vim.exec('yy');
-			JSON.stringify(vim.register('a')).should.equal(JSON.stringify(['o','hello','esc','0']));
+			JSON.stringify(vim.register('a')).should.equal(JSON.stringify(['o','hello\n','esc','0']));
 		});
 	});
 
@@ -95,6 +95,20 @@ describe('registers', function() {
 		});
 		it('returns "" if path is not a string', function() {
 
+		});
+	});
+
+	describe('".', function() {
+		it('holds the last entered text', function() {
+			vim = new Vim();
+			vim.exec('i');
+			vim.exec('h');
+			vim.exec('e');
+			vim.exec('l');
+			vim.exec('l');
+			vim.exec('o');
+			vim.exec('esc');
+			vim.register('.').should.equal('hello');
 		});
 	});
 });
