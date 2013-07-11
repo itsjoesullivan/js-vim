@@ -4,7 +4,6 @@ describe('search', function() {
 	var vim = new Vim();
 	var expect = require('chai').expect;
 
-
 	var doc;
 
 	beforeEach(function() {
@@ -61,7 +60,7 @@ describe('search', function() {
 			vim = new Vim();
 		});
 		it('searches from the "a buffer', function() {
-			vim.text('a b c d');
+			vim.text('a b c');
 			vim.register('a','b');
 			vim.exec('/"a\n');
 			vim.curChar.should.equal('b');
