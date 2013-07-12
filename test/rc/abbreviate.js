@@ -28,4 +28,14 @@ describe('abbreviate', function() {
 		vim.exec('esc');
 		vim.text().should.equal('function');
 	});
+	it('doesnt go if not all typed in same insert session', function() {
+		vim.rc.abbreviations.funtion = 'function'
+		vim.exec('i');
+		vim.exec('funt');
+		vim.exec('esc');
+		vim.exec('a');
+		vim.exec('ion');
+		vim.exec('esc');
+		vim.text().should.equal('funtion');
+	});
 });
