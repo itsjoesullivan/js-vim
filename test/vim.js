@@ -57,5 +57,10 @@ describe('vim', function() {
 			(typeof vim.curWord).should.equal('string');
 			vim.curWord.should.equal('qwer');
 		});
+		it('handles words in insert mode', function() {
+			vim.exec('i');
+			vim.exec('asdf');
+			vim.curWord.should.equal('asdf');
+		});
 	});
 });
