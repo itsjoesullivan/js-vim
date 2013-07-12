@@ -15,5 +15,17 @@ describe('abbreviate', function() {
 		vim.text().should.equal('function ');
 	});
 	it('fills out abbreviation on enter', function() {
+		vim.rc.abbreviations.funtion = 'function'
+		vim.exec('i');
+		vim.exec('funtion');
+		vim.exec('\n');
+		vim.text().should.equal('function\n');
+	});
+	it('fills out abbreviation on enter', function() {
+		vim.rc.abbreviations.funtion = 'function'
+		vim.exec('i');
+		vim.exec('funtion');
+		vim.exec('esc');
+		vim.text().should.equal('function');
 	});
 });
