@@ -39,3 +39,23 @@ describe('abbreviate', function() {
 		vim.text().should.equal('funtion');
 	});
 });
+describe(':abbreviate', function() {
+	beforeEach(function() {
+		vim = new Vim();
+	});
+	it('adds that abbreviation', function() {
+		vim.exec(':abbreviate asdf fdsa\n');
+		('asdf' in vim.rc.abbreviations).should.equal(true);
+		vim.rc.abbreviations.asdf.should.equal('fdsa');
+	});
+	it('has :ab as an alias', function() {
+		vim.exec(':ab asdf fdsa\n');
+		('asdf' in vim.rc.abbreviations).should.equal(true);
+		vim.rc.abbreviations.asdf.should.equal('fdsa');
+	});
+	it('handles multiple words in rhs', function() {
+		vim.exec(':ab asdf fdsa qwer fdsa\n');
+		('asdf' in vim.rc.abbreviations).should.equal(true);
+		vim.rc.abbreviations.asdf.should.equal('fdsa qwer fdsa');
+	});
+});
