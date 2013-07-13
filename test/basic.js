@@ -11,6 +11,9 @@ describe('basic', function() {
 	});
 
 	describe('o', function() {
+		beforeEach(function() {
+			vim = new Vim();
+		});
 		it('goes to next line', function() {
 			vim.exec('i');
 			vim.exec('a');
@@ -63,6 +66,25 @@ describe('basic', function() {
 			vim.exec('k');
 			vim.exec('dd');
 			vim.text().should.equal('a\nb');
+		});
+		it('goes to the next line even if the next is empty', function() {
+			vim.text('asdf\n\n\nfdsa');
+			vim.exec('o');
+			vim.curDoc.cursor.line().should.equal(1);
+		});
+		it('out of smartindent, goes to the next line even if the current is empty', function() {
+			vim.text('asdf\n\n\nfdsa');
+			vim.rc.smartindent = false;
+			vim.exec('j');
+			vim.exec('o');
+			vim.curDoc.cursor.line().should.equal(2);
+		});
+		it('in smartindent, goes to the next line even if the current is empty', function() {
+			vim.text('asdf\n\n\nfdsa');
+			vim.rc.smartindent = true;
+			vim.exec('j');
+			vim.exec('o');
+			vim.curDoc.cursor.line().should.equal(2);
 		});
 	});
 
