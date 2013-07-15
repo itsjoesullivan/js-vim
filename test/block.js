@@ -83,4 +83,17 @@ describe('visual block', function() {
 		vim.exec('j');
 		vim.exec('$');
 	});
+	it("correctly highlights text when moving left", function() {
+		vim.text('asdf\nfdsa\nqwer');
+		vim.exec('$');
+		vim.exec('<C-v>');
+		vim.exec('j');
+		vim.exec('h');
+		var text = vim.view.getText().substring(6,11);
+		var x = text.substring(3,4);
+		for(var i in x) {
+			console.log(i, x[i], x[i] === i, x[i] = x[i][i]);
+		}
+		console.log(x.selection === x);
+	});
 });
