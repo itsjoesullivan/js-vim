@@ -60,6 +60,7 @@ describe('undo', function() {
 			undo.add('zxcv');
 			undo.add('dfgh');
 			undo.last();
+			undo.last();
 			undo.next().should.equal('dfgh');
 		});
 	});
