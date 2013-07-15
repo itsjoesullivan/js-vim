@@ -59,14 +59,6 @@ describe('view', function() {
 		});
 	});
 
-	describe('renderText', function() {
-		it('sets view.text', function() {
-			vim.text('asdf');
-			view.text = '';
-			view.renderText();
-			expect(view.text).equal('asdf');
-		});
-	});
 
 	describe('getText', function() {
 		it('returns a string', function() {
