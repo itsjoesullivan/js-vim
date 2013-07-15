@@ -27,8 +27,8 @@ describe('parseRange', function() {
 	});
 	it('accepts number as that line number', function() {
 		var range = parseRange('12',doc);
-		range[0].should.equal(12);
-		range[1].should.equal(12);
+		range[0].should.equal(11);
+		range[1].should.equal(11);
 	});
 	it('accepts $ as last', function() {
 		var range = parseRange('$',doc);
@@ -37,11 +37,11 @@ describe('parseRange', function() {
 	});
 	it('handles commas basically', function() {
 		var range = parseRange('1,1',doc);
-		range[0].should.equal(1);
-		range[1].should.equal(1);
+		range[0].should.equal(0);
+		range[1].should.equal(0);
 	});
-	it('handles 0,$', function() {
-		var range = parseRange('0,$',doc);
+	it('handles 1,$', function() {
+		var range = parseRange('1,$',doc);
 		range[0].should.equal(0);
 		range[1].should.equal(19);
 	});

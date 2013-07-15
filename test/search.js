@@ -1,7 +1,4 @@
-describe('search', function() {
-
-	var Vim = require('../index');
-	var vim = new Vim();
+describe('search', function() { var Vim = require('../index'); var vim = new Vim();
 	var expect = require('chai').expect;
 
 	var doc;
@@ -24,8 +21,13 @@ describe('search', function() {
 			expect(doc.cursor.line()).equal(1)
 		});
 		it('distinguishes non-alpha characters as independent words', function() {
-			vim.new();
-			var doc = vim.curDoc;
+			vim = new Vim();
+			vim.curDoc = doc;
+			doc.cursor.position({
+				line: 0,
+				col: 0,
+				char: 0
+			});
 			doc.text('h-i ;\n.');
 			vim.exec('w');
 			expect(doc.cursor.char()).equal(1);

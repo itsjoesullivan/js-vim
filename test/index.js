@@ -200,7 +200,7 @@ describe('modes', function() {
 
 		describe('w', function() {
 			it('moves to the next word', function() {
-				vim.new();
+				vim = new Vim();
 				vim.curDoc.text('hello there thar');
 				vim.exec('w');
 				expect(vim.cursor().char()).equal(6);

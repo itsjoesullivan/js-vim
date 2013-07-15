@@ -62,4 +62,9 @@ describe('Doc.find', function() {
 		doc.cursor.char(3);
 		var pos = doc.find(/(\w)(?:$|\W)/g, { inclusive: true } );
 	});
+	it('does not identify current character as match if inclusive: false', function() {
+		doc.text('asdf');
+		var pos = doc.find(/(\w)/g);
+		pos.char.should.equal(1);
+	});
 });
