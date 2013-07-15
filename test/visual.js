@@ -24,7 +24,8 @@ describe('visual', function() {
 		describe('y', function() {
 			it('stores the selection in register 0', function() {
 				vim.exec('y');
-				expect(vim.register(0)).equal('zxcv\nq');
+				console.log(vim.register(0));
+				expect(vim.register(0).toString()).equal('zxcv\nq');
 			});
 		});
 

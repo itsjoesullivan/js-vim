@@ -54,8 +54,7 @@ describe('yank', function() {
 		it('grabs an array', function() {
 			vim.exec('yy');
 			var reg = vim.register(0);
-			(reg[0]).should.equal('o');
-			(reg[1]).should.equal('asdf');
+			reg[0].should.equal('o');
 		});
 	});
 
