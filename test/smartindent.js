@@ -43,9 +43,8 @@ describe('smartindent', function() {
     });
     it('indents twice', function() {
         vim.exec('i');
-        vim.exec('var x = function() { \n var y = function() {\nvar z;'); 
-        vim.exec('esc');
-        vim.exec('^');
+        vim.exec('var x = function() { \n var y = function() {'); 
+		vim.exec('\nvar z');
         vim.curDoc.cursor.char().should.equal(9);
     });
     it('deindents on a }', function() {
