@@ -61,11 +61,11 @@ describe('search', function() { var Vim = require('../index'); var vim = new Vim
 		beforeEach(function() {
 			vim = new Vim();
 		});
-		it('searches from the "a buffer', function() {
+		it('searches from the "a register', function() {
 			vim.text('a b c');
 			vim.register('a','b');
 			vim.exec('/"a\n');
-			vim.curChar.should.equal('b');
+			vim.curWord.should.equal('b');
 		});
 	});
 });
