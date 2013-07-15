@@ -89,6 +89,15 @@ describe('view', function() {
 			expect(text.length).equal(view.lines);
 		});
 	});
+	describe('visibleLines', function() {
+		it('returns a range of line # visible', function() {
+			vim = new Vim();
+			vim.view.lines = 3;
+			var ct = 0;
+			while(ct++ < 100) { vim.exec('i'); vim.exec('asdf'); vim.exec('esc'); vim.exec('j'); } 
+			console.log(vim.view.visibleLines());
+		});
+	});
 
 	describe('diffLine', function() {
 		it('returns an empty array if identical', function() {
