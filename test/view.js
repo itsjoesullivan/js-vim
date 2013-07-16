@@ -39,6 +39,7 @@ describe('view', function() {
 	describe('status', function() {
 		it('reads "-- INSERT --" if in insert mode', function() {
 			vim.exec('i');
+			vim.view.color = false;
 			expect(view.status).equal('-- INSERT --');
 		});
 		it('reads "" if in command mode with an empty buffer', function() {
@@ -77,10 +78,11 @@ describe('view', function() {
 		});
 		it('Runs a gutter with 7 characters by default', function() {
 			vim.exec('i');
+			vim.view.color = false
 			vim.exec('asdf');
 			var text = view.getText();
 			var line = text.split('\n')[0]
-			expect(line).equal('     1 asdf')
+			expect(line).equal('    1 asdf ')
 		});
 	});
 	describe('getArray', function() {
