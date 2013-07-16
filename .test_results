@@ -1,0 +1,279 @@
+
+    basic o goes to next line: [2K[0G  ․ basic o goes to next line: 5ms
+    basic o enters insert mode: [2K[0G  ․ basic o enters insert mode: 5ms
+    basic o does not carry anything else over: [2K[0G  ․ basic o does not carry anything else over: 4ms
+    basic dd removes the line: [2K[0G  ․ basic dd removes the line: 12ms
+    basic dd removes an empty line: [2K[0G  ․ basic dd removes an empty line: 7ms
+    basic dd goes to the next line even if the next is empty: [2K[0G  ․ basic dd goes to the next line even if the next is empty: 1ms
+    basic dd out of smartindent, goes to the next line even if the current is empty: [2K[0G  ․ basic dd out of smartindent, goes to the next line even if the current is empty: 2ms
+    basic dd in smartindent, goes to the next line even if the current is empty: [2K[0G  ․ basic dd in smartindent, goes to the next line even if the current is empty: 1ms
+    visual block <C-v> enters visual block mode: [2K[0G  ․ visual block <C-v> enters visual block mode: 0ms
+    visual block I allows inserting text to all lines: [2K[0G  ․ visual block I allows inserting text to all lines: 11ms
+    visual block I does not affect blocks it is not covering: [2K[0G  ․ visual block I does not affect blocks it is not covering: 9ms
+    visual block a carriage return inside an I insertion negates the visual block effect: [2K[0G  ․ visual block a carriage return inside an I insertion negates the visual block effect: 6ms
+    visual block A adds text to the end: [2K[0G  ․ visual block A adds text to the end: 7ms
+    visual block d removes selected text: [2K[0G  ․ visual block d removes selected text: 4ms
+    visual block c changes text then enters I mode: [2K[0G  ․ visual block c changes text then enters I mode: 9ms
+    visual block c handles text of various lengths: [2K[0G  ․ visual block c handles text of various lengths: 3ms
+    visual block $ selects the entirety of each line: [2K[0G  ․ visual block $ selects the entirety of each line: 4ms
+    visual block correctly highlights text when moving left: [2K[0G  ․ visual block correctly highlights text when moving left: 4ms
+    change x erases the word: [2K[0G  ․ change x erases the word: 4ms
+    change x saves the deletion in register: [2K[0G  ․ change x saves the deletion in register: 3ms
+    % works in obvious case: [2K[0G  ․ % works in obvious case: 2ms
+    % finds matching bracket: [2K[0G  ․ % finds matching bracket: 4ms
+    % finds deep nested: [2K[0G  ․ % finds deep nested: 7ms
+    % works for }: [2K[0G  ․ % works for }: 7ms
+    % works for (: [2K[0G  ․ % works for (: 8ms
+    % works for ): [2K[0G  ․ % works for ): 9ms
+    % doesnt barf on nothing: [2K[0G  ․ % doesnt barf on nothing: 1ms
+    % doesnt barf on unclosed: [2K[0G  ․ % doesnt barf on unclosed: 6ms
+    cursor char does not return a character greater than the length of the line: [2K[0G  ․ cursor char does not return a character greater than the length of the line: 1ms
+    cursor char remembers the furthest character it wants to be on: [2K[0G  ․ cursor char remembers the furthest character it wants to be on: 1ms
+    cursor position returns an object with line, char: [2K[0G  ․ cursor position returns an object with line, char: 0ms
+    delete x erases character it is on: [2K[0G  ․ delete x erases character it is on: 2ms
+    delete x erases two characters if selection is first two: [2K[0G  ․ delete x erases two characters if selection is first two: 3ms
+    delete x erases every char if $h used: [2K[0G  ․ delete x erases every char if $h used: 4ms
+    delete x erases entire line if 0$ used: [2K[0G  ․ delete x erases entire line if 0$ used: 3ms
+    delete x accepts {n}x format: [2K[0G  ․ delete x accepts {n}x format: 4ms
+    delete x can erase multiple lines: [2K[0G  ․ delete x can erase multiple lines: 6ms
+    delete d erases two characters if selection is first two: [2K[0G  ․ delete d erases two characters if selection is first two: 2ms
+    delete d erases every char if $h used: [2K[0G  ․ delete d erases every char if $h used: 3ms
+    delete d erases entire line if 0$ used: [2K[0G  ․ delete d erases entire line if 0$ used: 2ms
+    delete d can erase multiple lines: [2K[0G  ․ delete d can erase multiple lines: 3ms
+    delete dd erases an empty line: [2K[0G  ․ delete dd erases an empty line: 2ms
+    delete dG deletes til the end: [2K[0G  ․ delete dG deletes til the end: 2ms
+    Doc doc has cursor: [2K[0G  ․ Doc doc has cursor: 0ms
+    Doc doc.text returns the text of the doc: [2K[0G  ․ Doc doc.text returns the text of the doc: 0ms
+    Doc doc.text Sets the value if handed a string: [2K[0G  ․ Doc doc.text Sets the value if handed a string: 0ms
+    Doc doc.text Handed an array of two numbers. returns the contents bounded by those lines: [2K[0G  ․ Doc doc.text Handed an array of two numbers. returns the contents bounded by those lines: 0ms
+    Doc doc.insert exists: [2K[0G  ․ Doc doc.insert exists: 0ms
+    Doc doc.insert can insert a character: [2K[0G  ․ Doc doc.insert can insert a character: 0ms
+    Doc doc.insert given multiple characters they are each inserted.: [2K[0G  ․ Doc doc.insert given multiple characters they are each inserted.: 0ms
+    Doc doc.remove throws on bad range: [2K[0G  ․ Doc doc.remove throws on bad range: 0ms
+    Doc doc.remove fires change event on text change: [2K[0G  ․ Doc doc.remove fires change event on text change: 0ms
+    Doc doc.remove can remove a character: [2K[0G  ․ Doc doc.remove can remove a character: 0ms
+    Doc doc.remove can remove more than one character: [2K[0G  ․ Doc doc.remove can remove more than one character: 0ms
+    Doc doc.remove can remove across lines: [2K[0G  ․ Doc doc.remove can remove across lines: 0ms
+    Doc doc.remove can delete a line: [2K[0G  ․ Doc doc.remove can delete a line: 0ms
+    Doc doc.remove can remove, delete a line, and remove: [2K[0G  ․ Doc doc.remove can remove, delete a line, and remove: 0ms
+    Doc doc.find finds things: [2K[0G  ․ Doc doc.find finds things: 0ms
+    Doc doc.find works backwards: [2K[0G  ․ Doc doc.find works backwards: 0ms
+    Doc doc.find handles ^ backwards: [2K[0G  ․ Doc doc.find handles ^ backwards: 0ms
+    Doc doc.checkString exists: [2K[0G  ․ Doc doc.checkString exists: 0ms
+    Doc doc.checkString returns -1 when no match: [2K[0G  ․ Doc doc.checkString returns -1 when no match: 0ms
+    Doc doc.checkString returns 0 when found at zero: [2K[0G  ․ Doc doc.checkString returns 0 when found at zero: 0ms
+    Doc doc.checkString returns 1 when found at 1: [2K[0G  ․ Doc doc.checkString returns 1 when found at 1: 0ms
+    Doc doc.checkString returns null when present in line but not after offset: [2K[0G  ․ Doc doc.checkString returns null when present in line but not after offset: 0ms
+    Doc doc.checkString returns correct line when present in line before and after the offset: [2K[0G  ․ Doc doc.checkString returns correct line when present in line before and after the offset: 0ms
+    Doc doc.checkString returns correct line when present in line before and after the offset: [2K[0G  ․ Doc doc.checkString returns correct line when present in line before and after the offset: 0ms
+    Doc doc.checkString correctly does not treat the beginning of the offset string as the beginning of the line: [2K[0G  ․ Doc doc.checkString correctly does not treat the beginning of the offset string as the beginning of the line: 0ms
+    Doc doc.checkString doc.checkString backwards can work backwards: [2K[0G  ․ Doc doc.checkString doc.checkString backwards can work backwards: 0ms
+    Doc doc.checkString doc.checkString backwards ignores the a match that is after the offset: [2K[0G  ․ Doc doc.checkString doc.checkString backwards ignores the a match that is after the offset: 0ms
+    Doc doc.getRange returns a string value for the range if it is one line: [2K[0G  ․ Doc doc.getRange returns a string value for the range if it is one line: 0ms
+    Doc doc.getRange includes a carriage return if it is multiline: [2K[0G  ․ Doc doc.getRange includes a carriage return if it is multiline: 0ms
+    Doc doc.addMark adds a mark: [2K[0G  ․ Doc doc.addMark adds a mark: 0ms
+    parseRange exists: [2K[0G  ․ parseRange exists: 0ms
+    parseRange accepts % as all: [2K[0G  ․ parseRange accepts % as all: 1ms
+    parseRange accepts empty string as current: [2K[0G  ․ parseRange accepts empty string as current: 0ms
+    parseRange accepts . as current: [2K[0G  ․ parseRange accepts . as current: 0ms
+    parseRange accepts number as that line number: [2K[0G  ․ parseRange accepts number as that line number: 0ms
+    parseRange accepts $ as last: [2K[0G  ․ parseRange accepts $ as last: 0ms
+    parseRange handles commas basically: [2K[0G  ․ parseRange handles commas basically: 0ms
+    parseRange handles 1,$: [2K[0G  ․ parseRange handles 1,$: 0ms
+    parseRange handles .,.+1: [2K[0G  ․ parseRange handles .,.+1: 0ms
+    parseRange handles .-1,.+7: [2K[0G  ․ parseRange handles .-1,.+7: 0ms
+    vim has Doc property: [2K[0G  ․ vim has Doc property: 1ms
+    Cursor exists: [2K[0G  ․ Cursor exists: 0ms
+    Cursor fires change event on line change: [2K[0G  ․ Cursor fires change event on line change: 0ms
+    Cursor fires change event on char change: [2K[0G  ․ Cursor fires change event on char change: 0ms
+    Cursor has _line and _char: [2K[0G  ․ Cursor has _line and _char: 0ms
+    Cursor Cursor.line sets and gets line: [2K[0G  ․ Cursor Cursor.line sets and gets line: 0ms
+    Cursor Cursor.char sets and gets char: [2K[0G  ․ Cursor Cursor.char sets and gets char: 0ms
+    vim.exec exists: [2K[0G  ․ vim.exec exists: 0ms
+    vim.exec executes basic: [2K[0G  ․ vim.exec executes basic: 1ms
+    modes command i moves to insert mode: [2K[0G  ․ modes command i moves to insert mode: 0ms
+    modes command s moves to insert mode: [2K[0G  ․ modes command s moves to insert mode: 1ms
+    modes command S moves to insert mode: [2K[0G  ․ modes command S moves to insert mode: 0ms
+    modes command h moves the cursor left: [2K[0G  ․ modes command h moves the cursor left: 0ms
+    modes command h stays at zero if already at zero: [2K[0G  ․ modes command h stays at zero if already at zero: 0ms
+    modes command l moves the cursor right: [2K[0G  ․ modes command l moves the cursor right: 0ms
+    modes command l stays at end of line if already there: [2K[0G  ․ modes command l stays at end of line if already there: 1ms
+    modes command j moves the cursor down: [2K[0G  ․ modes command j moves the cursor down: 0ms
+    modes command j stays at last line if already there: [2K[0G  ․ modes command j stays at last line if already there: 1ms
+    modes command k moves the cursor up: [2K[0G  ․ modes command k moves the cursor up: 0ms
+    modes command k stays at zero if already there: [2K[0G  ․ modes command k stays at zero if already there: 0ms
+    modes command {n}(h|j|k|l) does j multiple times: [2K[0G  ․ modes command {n}(h|j|k|l) does j multiple times: 1ms
+    modes command {n}(h|j|k|l) does l multiple times: [2K[0G  ․ modes command {n}(h|j|k|l) does l multiple times: 0ms
+    modes command $ moves to the end of the line: [2K[0G  ․ modes command $ moves to the end of the line: 1ms
+    modes command w moves to the next word: [2K[0G  ․ modes command w moves to the next word: 2ms
+    modes command w moves thence to the third: [2K[0G  ․ modes command w moves thence to the third: 0ms
+    modes command w moves to line two when necessary: [2K[0G  ․ modes command w moves to line two when necessary: 1ms
+    modes command o creates a new line under current line and moves to insert mode: [2K[0G  ․ modes command o creates a new line under current line and moves to insert mode: 2ms
+    modes command x deletes the character: [2K[0G  ․ modes command x deletes the character: 3ms
+    modes command x doesn't have a problem if the line is empty: [2K[0G  ․ modes command x doesn't have a problem if the line is empty: NaNms
+    modes command ^ moves to the first non-blank character in the line: [2K[0G  ․ modes command ^ moves to the first non-blank character in the line: 1ms
+    modes insert inserts text: [2K[0G  ․ modes insert inserts text: 2ms
+    f{m} finds the next m: [2K[0G  ․ f{m} finds the next m: 1ms
+    {n}f{m} searches for the nth occurence of m: [2K[0G  ․ {n}f{m} searches for the nth occurence of m: 1ms
+    search looks for the phrase: [2K[0G  ․ search looks for the phrase: 0ms
+    search moves to the next instance: [2K[0G  ․ search moves to the next instance: 0ms
+    mode:visual is entered from command by pressing v: [2K[0G  ․ mode:visual is entered from command by pressing v: 0ms
+    mode:visual sets selection: [2K[0G  ․ mode:visual sets selection: 1ms
+    mode:visual accepts multiple motions without resetting: [2K[0G  ․ mode:visual accepts multiple motions without resetting: 2ms
+    mode:visual clears selection to cursor on esc: [2K[0G  ․ mode:visual clears selection to cursor on esc: 3ms
+    mode:visual performs yank when y hit in visual mode: [2K[0G  ․ mode:visual performs yank when y hit in visual mode: 1ms
+    motion, general accepts return on empty file: [2K[0G  ․ motion, general accepts return on empty file: 1ms
+    insert i gets us to insert mode: [2K[0G  ․ insert i gets us to insert mode: 1ms
+    insert <char> adds that character: [2K[0G  ․ insert <char> adds that character: 1ms
+    insert \n creates a new line: [2K[0G  ․ insert \n creates a new line: 2ms
+    insert typing seems to work can handle five characters including a newline: [2K[0G  ․ insert typing seems to work can handle five characters including a newline: 3ms
+    macro q records the keystrokes into the register: [2K[0G  ․ macro q records the keystrokes into the register: 3ms
+    macro @ plays back the recorded keystrokes: [2K[0G  ․ macro @ plays back the recorded keystrokes: 4ms
+    marks m[a-z] marks the bit.: [2K[0G  ․ marks m[a-z] marks the bit.: 2ms
+    marks deleting over a mark removes it: [2K[0G  ․ marks deleting over a mark removes it: 3ms
+    marks getting range doesnt change things: [2K[0G  ․ marks getting range doesnt change things: 0ms
+    marks typing before a mark moves it forward: [2K[0G  ․ marks typing before a mark moves it forward: 5ms
+    marks handles deletions in the line prior to the actual mark: [2K[0G  ․ marks handles deletions in the line prior to the actual mark: 3ms
+    marks handles a join: [2K[0G  ․ marks handles a join: 10ms
+    marks handles moving the mark to a new line: [2K[0G  ․ marks handles moving the mark to a new line: 13ms
+    marks '[a-z] moves to that line: [2K[0G  ․ marks '[a-z] moves to that line: 3ms
+    marks '[a-z] moves to that line and character: [2K[0G  ․ marks '[a-z] moves to that line and character: 1ms
+    marks is replaced by another mark of same name: [2K[0G  ․ marks is replaced by another mark of same name: 2ms
+    special marks . returns last edit position: [2K[0G  ․ special marks . returns last edit position: 2ms
+    mark exists: [2K[0G  ․ mark exists: 0ms
+    mark returns a stringy thing: [2K[0G  ․ mark returns a stringy thing: 0ms
+    mark passing it a mark will yield that mark back: [2K[0G  ․ mark passing it a mark will yield that mark back: 0ms
+    mark creating a substring will pass the mark correctly: [2K[0G  ․ mark creating a substring will pass the mark correctly: 0ms
+    mark creating a concat that will retain its own marks: [2K[0G  ․ mark creating a concat that will retain its own marks: 0ms
+    mark creating a concat that will absorb other marks: [2K[0G  ․ mark creating a concat that will absorb other marks: 1ms
+    mark works for three layers: [2K[0G  ․ mark works for three layers: 0ms
+    mark handles nonmarks: [2K[0G  ․ mark handles nonmarks: 0ms
+    mark handles substringing itself: [2K[0G  ․ mark handles substringing itself: 0ms
+    mark handles substring, new text, substring concat'd: [2K[0G  ․ mark handles substring, new text, substring concat'd: 0ms
+    mark doesnt mind empty string starting things off: [2K[0G  ․ mark doesnt mind empty string starting things off: 0ms
+    parser fa moves cursor : [2K[0G  ․ parser fa moves cursor : 1ms
+    parser fa performs search {motion} {count} times: [2K[0G  ․ parser fa performs search {motion} {count} times: 1ms
+    parser W moves to next Word: [2K[0G  ․ parser W moves to next Word: 0ms
+    parser W checks for first word on the line: [2K[0G  ․ parser W checks for first word on the line: 1ms
+    parser ^ moves to the first non-whitespace character on a line: [2K[0G  ․ parser ^ moves to the first non-whitespace character on a line: 1ms
+    parser ^ lands on the first character if the first character is not whitespace: [2K[0G  ․ parser ^ lands on the first character if the first character is not whitespace: 0ms
+    parser g_ moves to the last non-whitespace character on the line: [2K[0G  ․ parser g_ moves to the last non-whitespace character on the line: 1ms
+    parser ) goes to beginning of next sentence: [2K[0G  ․ parser ) goes to beginning of next sentence: 0ms
+    parser ( goes to beginning of this sentence: [2K[0G  ․ parser ( goes to beginning of this sentence: 1ms
+    parser ( it goes to the previous sentence if at beginning of one: [2K[0G  ․ parser ( it goes to the previous sentence if at beginning of one: 0ms
+    parser ( goes to beginning of line if need be: [2K[0G  ․ parser ( goes to beginning of line if need be: 1ms
+    parser ( handles sentences of multiple words: [2K[0G  ․ parser ( handles sentences of multiple words: 1ms
+    parser ( handles ?: [2K[0G  ․ parser ( handles ?: 1ms
+    parser ( handles !: [2K[0G  ․ parser ( handles !: 1ms
+    vim.notify exists: [2K[0G  ․ vim.notify exists: 0ms
+    vim.notify sets vim.view.status: [2K[0G  ․ vim.notify sets vim.view.status: 0ms
+    ~ switches the case: [2K[0G  ․ ~ switches the case: 4ms
+    ~ does so in visual mode: [2K[0G  ․ ~ does so in visual mode: 7ms
+    g~ works as ~ in visual: [2K[0G  ․ g~ works as ~ in visual: 7ms
+    gu converts to lowercase: [2K[0G  ․ gu converts to lowercase: 6ms
+    gU converts to uppercase: [2K[0G  ․ gU converts to uppercase: 9ms
+    parser {count}{motion} performs simple {motion} {count} times: [2K[0G  ․ parser {count}{motion} performs simple {motion} {count} times: 2ms
+    parser {count}{motion} performs search {motion} {count} times: [2K[0G  ․ parser {count}{motion} performs search {motion} {count} times: 1ms
+    survive i enters insert mode: [2K[0G  ․ survive i enters insert mode: 0ms
+    survive x deletes current character: [2K[0G  ․ survive x deletes current character: 4ms
+    survive dd delete and copy current line: [2K[0G  ․ survive dd delete and copy current line: 10ms
+    vi" changes the selection to what is inside the nearest two quotation marks: [2K[0G  ․ vi" changes the selection to what is inside the nearest two quotation marks: 9ms
+    paste p inserts the contents of the first register after the cursor: [2K[0G  ․ paste p inserts the contents of the first register after the cursor: 2ms
+    paste P inserts the contents of the first register at the cursor: [2K[0G  ․ paste P inserts the contents of the first register at the cursor: 3ms
+    registers vim.register exists: [2K[0G  ․ registers vim.register exists: 0ms
+    registers vim.register sets a val if given two args: [2K[0G  ․ registers vim.register sets a val if given two args: 0ms
+    registers vim.register returns an empty string for an empty register: [2K[0G  ․ registers vim.register returns an empty string for an empty register: 0ms
+    registers vim.register returns the register for a nonempty register: [2K[0G  ․ registers vim.register returns the register for a nonempty register: 0ms
+    registers vim.register % returns the filename: [2K[0G  ․ registers vim.register % returns the filename: 0ms
+    registers "ayy places the first line into the "a" register: [2K[0G  ․ registers "ayy places the first line into the "a" register: 3ms
+    registers "ap puts the contents of register "a" after the cursor: [2K[0G  ․ registers "ap puts the contents of register "a" after the cursor: 5ms
+    registers "% retrieves the filename: [2K[0G  ․ registers "% retrieves the filename: 3ms
+    registers "% returns "" if no path specified: [2K[0G  ․ registers "% returns "" if no path specified: 0ms
+    registers "% returns "" if path is not a string: [2K[0G  ․ registers "% returns "" if path is not a string: 0ms
+    registers ". holds the last entered text: [2K[0G  ․ registers ". holds the last entered text: 4ms
+    issues 37 "O" not working correctly.: [2K[0G  ․ issues 37 "O" not working correctly.: 2ms
+    search w can move cursor to the next word: [2K[0G  ․ search w can move cursor to the next word: 0ms
+    search w catches words at beginning of line: [2K[0G  ․ search w catches words at beginning of line: 0ms
+    search w distinguishes non-alpha characters as independent words: [2K[0G  ․ search w distinguishes non-alpha characters as independent words: 1ms
+    search b moves cursor to the previous word: [2K[0G  ․ search b moves cursor to the previous word: 0ms
+    search b moves cursor back two if called twice: [2K[0G  ․ search b moves cursor back two if called twice: 0ms
+    search /"a searches from the "a register: [2K[0G  ․ search /"a searches from the "a register: 0ms
+    smartindent is off if explicitly set off: [2K[0G  ․ smartindent is off if explicitly set off: 3ms
+    smartindent does nothing if prevline does not end with {: [2K[0G  ․ smartindent does nothing if prevline does not end with {: 2ms
+    smartindent does something if prevline does end with a {: [2K[0G  ․ smartindent does something if prevline does end with a {: 7ms
+    smartindent only indents if that is the end of the line: [2K[0G  ․ smartindent only indents if that is the end of the line: 7ms
+    smartindent indents if theres a comment afterwards in // form: [2K[0G  ․ smartindent indents if theres a comment afterwards in // form: 11ms
+    smartindent indents if theres a complete comment afterwards in /* */ form: [2K[0G  ․ smartindent indents if theres a complete comment afterwards in /* */ form: 10ms
+    smartindent indents twice: [2K[0G  ․ smartindent indents twice: 17ms
+    smartindent deindents on a }: [2K[0G  ․ smartindent deindents on a }: 19ms
+    smartindent leaves next line at same level if no action: [2K[0G  ․ smartindent leaves next line at same level if no action: 6ms
+    substitute substitutes one word at beginning of sentence: [2K[0G  ․ substitute substitutes one word at beginning of sentence: 4ms
+    substitute substitutes one word not at beginning of sentence: [2K[0G  ․ substitute substitutes one word not at beginning of sentence: 4ms
+    substitute does not encroach into other words or characters: [2K[0G  ․ substitute does not encroach into other words or characters: 4ms
+    substitute works with :s: [2K[0G  ․ substitute works with :s: 3ms
+    substitute Works locally: [2K[0G  ․ substitute Works locally: 4ms
+    substitute Handles extra slash: [2K[0G  ․ substitute Handles extra slash: 4ms
+    substitute Handles no match: [2K[0G  ․ substitute Handles no match: 1ms
+    substitute Only does the one line: [2K[0G  ․ substitute Only does the one line: 4ms
+    substitute Works globally: [2K[0G  ․ substitute Works globally: 7ms
+    substitute :s works with %: [2K[0G  ․ substitute :s works with %: 9ms
+    substitute Substitute works with %: [2K[0G  ․ substitute Substitute works with %: 8ms
+    substitute Works with simple range: [2K[0G  ․ substitute Works with simple range: 4ms
+    substitute Works with $ range: [2K[0G  ․ substitute Works with $ range: 4ms
+    substitute Works with N,$ range: [2K[0G  ․ substitute Works with N,$ range: 12ms
+    undo will delete a general insertion: [2K[0G  ․ undo will delete a general insertion: 5ms
+    undo will erase two general insertions if triggered twice: [2K[0G  ․ undo will erase two general insertions if triggered twice: 3ms
+    undo will reverse a single x deletion: [2K[0G  ․ undo will reverse a single x deletion: 5ms
+    undo will reverse 2x: [2K[0G  ․ undo will reverse 2x: 7ms
+    undo moves cursor to where it was at beginning of undone write: [2K[0G  ․ undo moves cursor to where it was at beginning of undone write: 7ms
+    undo moves cursor to where it was at beginning of undone write: [2K[0G  ․ undo moves cursor to where it was at beginning of undone write: 7ms
+    undo exists: [2K[0G  ․ undo exists: 0ms
+    undo _history is array: [2K[0G  ․ undo _history is array: 0ms
+    undo position is zero: [2K[0G  ․ undo position is zero: 0ms
+    undo add increments position: [2K[0G  ․ undo add increments position: 0ms
+    undo add adds first argument to _history: [2K[0G  ․ undo add adds first argument to _history: 0ms
+    undo get retrieves a specific state and sets the position to that index: [2K[0G  ․ undo get retrieves a specific state and sets the position to that index: 0ms
+    undo last retrieves the previous state: [2K[0G  ․ undo last retrieves the previous state: 0ms
+    undo next retrieves the next state: [2K[0G  ․ undo next retrieves the next state: 0ms
+    view exists: [2K[0G  ․ view exists: 0ms
+    view has on and trigger methods: [2K[0G  ․ view has on and trigger methods: 0ms
+    view has on and trigger methods: [2K[0G  ․ view has on and trigger methods: 0ms
+    view defaults to 24 lines, 80 columns: [2K[0G  ․ view defaults to 24 lines, 80 columns: 0ms
+    view triggers change on vim.change: [2K[0G  ․ view triggers change on vim.change: 0ms
+    view status reads "-- INSERT --" if in insert mode: [2K[0G  ․ view status reads "-- INSERT --" if in insert mode: 1ms
+    view status reads "" if in command mode with an empty buffer: [2K[0G  ․ view status reads "" if in command mode with an empty buffer: 0ms
+    view status reads ":" if : pressed: [2K[0G  ․ view status reads ":" if : pressed: 0ms
+    view status reads "/" if : pressed: [2K[0G  ․ view status reads "/" if : pressed: 0ms
+    view status reads "?" if : pressed: [2K[0G  ․ view status reads "?" if : pressed: 0ms
+    view getText returns a string: [2K[0G  ․ view getText returns a string: 0ms
+    view getText includes status if there is one: [2K[0G  ․ view getText includes status if there is one: 0ms
+    view getText returns a string with view.lines lines: [2K[0G  ․ view getText returns a string with view.lines lines: 0ms
+    view getText Runs a gutter with 7 characters by default: [2K[0G  ․ view getText Runs a gutter with 7 characters by default: 1ms
+    view getArray returns an array of view.lines length: [2K[0G  ․ view getArray returns an array of view.lines length: 0ms
+    view visibleLines returns a range of line # visible: [2K[0G  ․ view visibleLines returns a range of line # visible: 271ms
+    view diffLine returns an empty array if identical: [2K[0G  ․ view diffLine returns an empty array if identical: 0ms
+    view diffLine returns an array with length > 0 if not: [2K[0G  ․ view diffLine returns an array with length > 0 if not: 0ms
+    view diffLine an individual diff has contents that equal what the new characters should be: [2K[0G  ․ view diffLine an individual diff has contents that equal what the new characters should be: 0ms
+    view diffLine There can be multiple diffs within one line: [2K[0G  ․ view diffLine There can be multiple diffs within one line: 0ms
+    vim exists: [2K[0G  ․ vim exists: 0ms
+    vim .curChar exists: [2K[0G  ․ vim .curChar exists: 2ms
+    vim .curWord exists: [2K[0G  ․ vim .curWord exists: 0ms
+    vim .curWord handles asdf: [2K[0G  ․ vim .curWord handles asdf: 1ms
+    vim .curWord handles asdf fdsa: [2K[0G  ․ vim .curWord handles asdf fdsa: 3ms
+    vim .curWord handles asdf q[w]er fdsa: [2K[0G  ․ vim .curWord handles asdf q[w]er fdsa: 5ms
+    vim .curWord handles asdf [q]wer fdsa: [2K[0G  ․ vim .curWord handles asdf [q]wer fdsa: 5ms
+    vim .curWord handles words in insert mode: [2K[0G  ․ vim .curWord handles words in insert mode: 1ms
+    visual operators starts in visual: [2K[0G  ․ visual operators starts in visual: 0ms
+    visual operators selects text correctly when moving backwards: [2K[0G  ․ visual operators selects text correctly when moving backwards: 2ms
+    visual operators y stores the selection in register 0: [2K[0G  ․ visual operators y stores the selection in register 0: 0ms
+    visual operators d deletes the selection: [2K[0G  ․ visual operators d deletes the selection: 1ms
+    visual operators c ends up in insert mode: [2K[0G  ․ visual operators c ends up in insert mode: 2ms
+    visual operators > indents all the selected lines: [2K[0G  ․ visual operators > indents all the selected lines: 4ms
+    yank returns to the beginning of the selection after selecting.: [2K[0G  ․ yank returns to the beginning of the selection after selecting.: 2ms
+    yank clears selection: [2K[0G  ․ yank clears selection: 2ms
+    yank 0v$y stores the contents of the line in the register: [2K[0G  ․ yank 0v$y stores the contents of the line in the register: 1ms
+    yank 0vj$y stores the contents of the two lines in the register: [2K[0G  ․ yank 0vj$y stores the contents of the two lines in the register: 2ms
+    yank yy grabs an array: [2K[0G  ․ yank yy grabs an array: 2ms
+
+  275 tests complete (1 seconds)
+
