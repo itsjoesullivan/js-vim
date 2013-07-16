@@ -1,5 +1,7 @@
 #js-vim
 
+![Build status](https://api.travis-ci.org/itsjoesullivan/js-vim.png)
+
 A javascript implementation of the popular vi clone.
 
 ##Why bother?
