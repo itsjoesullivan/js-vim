@@ -9,6 +9,7 @@
   "dependencies": {
     "diff_match_patch": "0.1.1",
 	"js-vim-command": "*",
+	"get-set": "*",
 	"mauve": "*",
 	"underscore": "1.4.4"
   },
