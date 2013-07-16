@@ -97,7 +97,6 @@ describe('view', function() {
 			vim.view.lines = 3;
 			var ct = 0;
 			while(ct++ < 100) { vim.exec('i'); vim.exec('asdf'); vim.exec('esc'); vim.exec('j'); } 
-			console.log(vim.view.visibleLines());
 		});
 	});
 

@@ -24,7 +24,7 @@ describe('search', function() { var Vim = require('../index'); var vim = new Vim
 			vim = new Vim();
 			vim.text('hello-there');
 			vim.exec('w');
-			expect(doc.cursor.char()).equal(5);
+			expect(vim.curDoc.cursor.char()).equal(5);
 		});
 
 	});
