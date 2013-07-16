@@ -38,8 +38,8 @@ describe('view', function() {
 
 	describe('status', function() {
 		it('reads "-- INSERT --" if in insert mode', function() {
-			vim.exec('i');
 			vim.view.color = false;
+			vim.exec('i');
 			expect(view.status).equal('-- INSERT --');
 		});
 		it('reads "" if in command mode with an empty buffer', function() {

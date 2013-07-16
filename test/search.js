@@ -22,22 +22,9 @@ describe('search', function() { var Vim = require('../index'); var vim = new Vim
 		});
 		it('distinguishes non-alpha characters as independent words', function() {
 			vim = new Vim();
-			vim.curDoc = doc;
-			doc.cursor.position({
-				line: 0,
-				col: 0,
-				char: 0
-			});
-			doc.text('h-i ;\n.');
+			vim.text('hello-there');
 			vim.exec('w');
-			expect(doc.cursor.char()).equal(1);
-			vim.exec('w');
-			expect(doc.cursor.char()).equal(2);
-			vim.exec('w');
-			expect(doc.cursor.char()).equal(4);
-			vim.exec('w');
-			expect(doc.cursor.char()).equal(0);
-			expect(doc.cursor.line()).equal(1);
+			expect(doc.cursor.char()).equal(5);
 		});
 
 	});
