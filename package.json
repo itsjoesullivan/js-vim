@@ -13,6 +13,7 @@
 	"underscore": "1.4.4"
   },
   "devDependencies": {
+	  	"mocha": "*",
 		"chai": "1.6.1"
 	},
   "scripts": {
