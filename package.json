@@ -19,7 +19,7 @@
 		"chai": "1.6.1"
 	},
   "scripts": {
-    "test": "mocha -r should"
+    "test": "mocha -r should -R min"
   },
   "repository": {
     "type": "git",
