@@ -4,15 +4,15 @@ describe('visual block', function() {
 	beforeEach(function() {
 		vim = new Vim();
 	});
-	it('<C-v> enters visual block mode', function() {
-		vim.exec('<C-v>');
+	it('<Ctrl-v> enters visual block mode', function() {
+		vim.exec('<Ctrl-v>');
 		vim.submode.should.equal('block');
 	});
 	it('I allows inserting text to all lines', function() {
 		vim.text('asdf\nfdsa');
 		vim.exec('l');
 		vim.curDoc.cursor.char().should.equal(1);
-		vim.exec('<C-v>');
+		vim.exec('<Ctrl-v>');
 		vim.exec('j');
 		vim.exec('I');
 		vim.exec('hello');
@@ -22,7 +22,7 @@ describe('visual block', function() {
 	it('I does not affect blocks it is not covering', function() {
 		vim.text('000000\n00\n000000');
 		vim.exec('3l');
-		vim.exec('<C-v>');
+		vim.exec('<Ctrl-v>');
 		vim.exec('j')
 		vim.exec('j')
 		vim.exec('I');
@@ -32,7 +32,7 @@ describe('visual block', function() {
 	});
 	it('a carriage return inside an I insertion negates the visual block effect', function() {
 		vim.text('000\n000\n000');
-		vim.exec('<C-v>');
+		vim.exec('<Ctrl-v>');
 		vim.exec('j');
 		vim.exec('j');
 		vim.exec('I')
@@ -43,7 +43,7 @@ describe('visual block', function() {
 	it('A adds text to the end', function() {
 		vim.text('000\n000');
 		vim.exec('l');
-		vim.exec('<C-v>');
+		vim.exec('<Ctrl-v>');
 		vim.exec('j');
 		vim.exec('A');
 		vim.exec('q');
@@ -52,7 +52,7 @@ describe('visual block', function() {
 	});
 	it('d removes selected text', function() {
 		vim.text('asdf\nfdsa');
-		vim.exec('<C-v>');
+		vim.exec('<Ctrl-v>');
 		vim.exec('l');
 		vim.exec('j');
 		vim.exec('d');
@@ -60,7 +60,7 @@ describe('visual block', function() {
 	});
 	it('c changes text then enters I mode', function() {
 		vim.text('asdf\nfdsa');
-		vim.exec('<C-v>');
+		vim.exec('<Ctrl-v>');
 		vim.exec('l');
 		vim.exec('j');
 		vim.exec('c');
@@ -71,13 +71,13 @@ describe('visual block', function() {
 	it('c handles text of various lengths', function() {
 		vim.text('asdf\nf');
 		vim.exec('$');
-		vim.exec("<C-v>");
+		vim.exec("<Ctrl-v>");
 		vim.exec('j');
 		vim.exec('c');
 	});
 	it('$ selects the entirety of each line', function() {
 		vim.text('asdf\nasd\nas\na');
-		vim.exec('<C-v>');
+		vim.exec('<Ctrl-v>');
 		vim.exec('j');
 		vim.exec('j');
 		vim.exec('j');
@@ -86,7 +86,7 @@ describe('visual block', function() {
 	it("correctly highlights text when moving left", function() {
 		vim.text('asdf\nfdsa\nqwer');
 		vim.exec('$');
-		vim.exec('<C-v>');
+		vim.exec('<Ctrl-v>');
 		vim.exec('j');
 		vim.exec('h');
 		var text = vim.view.getText().substring(6,11);
