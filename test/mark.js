@@ -98,6 +98,17 @@ describe('marks', function() {
         vim.curDoc.cursor.line().should.equal(0);
         vim.curDoc.cursor.char().should.equal(0);
     });
+    it('\'[a-z] moves to the beginning of that line', function() {
+        vim.text('qwer\nasdf\nzxcv');
+        vim.exec('gg');
+        vim.exec('ma');
+        vim.exec('G');
+		vim.exec('$');
+        vim.curDoc.cursor.line().should.equal(2);
+        vim.exec("'a");
+        vim.curDoc.cursor.line().should.equal(0);
+        vim.curDoc.cursor.char().should.equal(0);
+    });
     it('\'[a-z] moves to that line and character', function() {
         vim.text('qwer\nasdf\nzxcv');
         vim.exec('gg');
