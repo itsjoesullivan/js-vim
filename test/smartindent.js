@@ -45,6 +45,8 @@ describe('smartindent', function() {
         vim.exec('i');
         vim.exec('var x = function() { \n var y = function() {'); 
 		vim.exec('\nvar z');
+		vim.exec('esc');
+		vim.exec('^');
         vim.curDoc.cursor.char().should.equal(9);
     });
     it('deindents on a }', function() {
