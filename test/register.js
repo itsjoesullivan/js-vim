@@ -111,4 +111,17 @@ describe('registers', function() {
 			vim.register('.').should.equal('hello');
 		});
 	});
+
+	describe('"_', function() {
+		it('ignores a yank', function() {
+			vim.text('fdsa');
+			vim.exec('0');
+			vim.exec('ye');
+			vim.text('asdf');
+			vim.exec('"_');
+			vim.exec('0');
+			vim.exec('ye');
+			vim.register(0).should.equal('fdsa');
+		});
+	});
 });
