@@ -124,4 +124,19 @@ describe('registers', function() {
 			vim.register(0).should.equal('fdsa');
 		});
 	});
+
+	describe('"-', function() {
+		it('captures small deletes ( <= one line)', function() {
+			vim.text('asdf');
+			vim.exec('x');
+			vim.register('-').should.equal('a');
+		});
+		it('works as pasting', function() {
+			vim.text('1234');
+			vim.exec('x');
+			vim.exec('"-');
+			vim.exec('p');
+			vim.text().should.equal('2134');
+		});
+	});
 });
