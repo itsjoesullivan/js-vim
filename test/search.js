@@ -55,4 +55,12 @@ describe('search', function() { var Vim = require('../index'); var vim = new Vim
 			vim.curWord.should.equal('b');
 		});
 	});
+	describe('/\\n', function() {
+		it('repeats last search', function() {
+			vim.text('a a a a');
+			vim.exec('/a\n');
+			vim.exec('/\n');
+			vim.curDoc.cursor.char().should.equal(4);
+		});
+	});
 });

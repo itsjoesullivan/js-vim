@@ -143,4 +143,18 @@ describe('parser', function() {
             vim.curDoc.cursor.char().should.equal(11);
         });
     });
+	/*
+	describe('{n}|', function() {
+		it('moves to that position', function() {
+			vim.text('asdf');
+			vim.exec('3|');
+			vim.curDoc.cursor.char().should.equal(2);
+		});
+		it('is caught by d3|', function() {
+			vim.text('asdf');
+			vim.exec('d3|');
+			vim.text().should.equal('df');
+		});
+	});
+	*/
 });
