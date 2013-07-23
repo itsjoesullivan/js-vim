@@ -5,9 +5,9 @@
     "passes": 312,
     "pending": 0,
     "failures": 0,
-    "start": "2013-07-23T00:38:25.991Z",
-    "end": "2013-07-23T00:38:27.087Z",
-    "duration": 1096
+    "start": "2013-07-23T00:39:37.502Z",
+    "end": "2013-07-23T00:39:38.586Z",
+    "duration": 1084
   },
   "tests": [
     {
@@ -18,7 +18,7 @@
     {
       "title": "enters insert mode",
       "fullTitle": "basic o enters insert mode",
-      "duration": 4
+      "duration": 5
     },
     {
       "title": "does not carry anything else over",
@@ -28,7 +28,7 @@
     {
       "title": "removes the line",
       "fullTitle": "basic dd removes the line",
-      "duration": 12
+      "duration": 13
     },
     {
       "title": "removes an empty line",
@@ -53,7 +53,7 @@
     {
       "title": "<Ctrl-v> enters visual block mode",
       "fullTitle": "visual block <Ctrl-v> enters visual block mode",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "I allows inserting text to all lines",
@@ -68,7 +68,7 @@
     {
       "title": "a carriage return inside an I insertion negates the visual block effect",
       "fullTitle": "visual block a carriage return inside an I insertion negates the visual block effect",
-      "duration": 9
+      "duration": 8
     },
     {
       "title": "A adds text to the end",
@@ -83,7 +83,7 @@
     {
       "title": "c changes text then enters I mode",
       "fullTitle": "visual block c changes text then enters I mode",
-      "duration": 10
+      "duration": 9
     },
     {
       "title": "c handles text of various lengths",
@@ -103,12 +103,12 @@
     {
       "title": "erases the word",
       "fullTitle": "change x erases the word",
-      "duration": 5
+      "duration": 4
     },
     {
       "title": "saves the deletion in register",
       "fullTitle": "change x saves the deletion in register",
-      "duration": 4
+      "duration": 5
     },
     {
       "title": "works in obvious case",
@@ -133,7 +133,7 @@
     {
       "title": "works for (",
       "fullTitle": "% works for (",
-      "duration": 8
+      "duration": 9
     },
     {
       "title": "works for )",
@@ -143,7 +143,7 @@
     {
       "title": "doesnt barf on nothing",
       "fullTitle": "% doesnt barf on nothing",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "doesnt barf on unclosed",
@@ -153,7 +153,7 @@
     {
       "title": "does not return a character greater than the length of the line",
       "fullTitle": "cursor char does not return a character greater than the length of the line",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "remembers the furthest character it wants to be on",
@@ -178,17 +178,17 @@
     {
       "title": "erases every char if $h used",
       "fullTitle": "delete x erases every char if $h used",
-      "duration": 4
+      "duration": 3
     },
     {
       "title": "erases entire line if 0$ used",
       "fullTitle": "delete x erases entire line if 0$ used",
-      "duration": 4
+      "duration": 3
     },
     {
       "title": "accepts {n}x format",
       "fullTitle": "delete x accepts {n}x format",
-      "duration": 5
+      "duration": 4
     },
     {
       "title": "can erase multiple lines",
@@ -198,22 +198,22 @@
     {
       "title": "erases two characters if selection is first two",
       "fullTitle": "delete d erases two characters if selection is first two",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "erases every char if $h used",
       "fullTitle": "delete d erases every char if $h used",
-      "duration": 3
+      "duration": 2
     },
     {
       "title": "erases entire line if 0$ used",
       "fullTitle": "delete d erases entire line if 0$ used",
-      "duration": 1
+      "duration": 2
     },
     {
       "title": "can erase multiple lines",
       "fullTitle": "delete d can erase multiple lines",
-      "duration": 3
+      "duration": 4
     },
     {
       "title": "erases an empty line",
@@ -333,7 +333,7 @@
     {
       "title": "given multiple characters they are each inserted.",
       "fullTitle": "Doc doc.insert given multiple characters they are each inserted.",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "throws on bad range",
@@ -458,7 +458,7 @@
     {
       "title": "accepts % as all",
       "fullTitle": "parseRange accepts % as all",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "accepts empty string as current",
@@ -543,17 +543,17 @@
     {
       "title": "executes basic",
       "fullTitle": "vim.exec executes basic",
-      "duration": 0
-    },
-    {
-      "title": "moves to insert mode",
-      "fullTitle": "modes command i moves to insert mode",
       "duration": 1
     },
     {
       "title": "moves to insert mode",
-      "fullTitle": "modes command s moves to insert mode",
+      "fullTitle": "modes command i moves to insert mode",
       "duration": 0
+    },
+    {
+      "title": "moves to insert mode",
+      "fullTitle": "modes command s moves to insert mode",
+      "duration": 1
     },
     {
       "title": "moves to insert mode",
@@ -593,12 +593,12 @@
     {
       "title": "moves the cursor up",
       "fullTitle": "modes command k moves the cursor up",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "stays at zero if already there",
       "fullTitle": "modes command k stays at zero if already there",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "does j multiple times",
@@ -618,7 +618,7 @@
     {
       "title": "moves to the next word",
       "fullTitle": "modes command w moves to the next word",
-      "duration": 3
+      "duration": 2
     },
     {
       "title": "moves thence to the third",
@@ -633,12 +633,12 @@
     {
       "title": "creates a new line under current line and moves to insert mode",
       "fullTitle": "modes command o creates a new line under current line and moves to insert mode",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "deletes the character",
       "fullTitle": "modes command x deletes the character",
-      "duration": 1
+      "duration": 2
     },
     {
       "title": "doesn't have a problem if the line is empty",
@@ -647,7 +647,7 @@
     {
       "title": "moves to the first non-blank character in the line",
       "fullTitle": "modes command ^ moves to the first non-blank character in the line",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "inserts text",
@@ -667,17 +667,17 @@
     {
       "title": "looks for the phrase",
       "fullTitle": "search looks for the phrase",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "moves to the next instance",
       "fullTitle": "search moves to the next instance",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "is entered from command by pressing v",
       "fullTitle": "mode:visual is entered from command by pressing v",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "sets selection",
@@ -692,12 +692,12 @@
     {
       "title": "clears selection to cursor on esc",
       "fullTitle": "mode:visual clears selection to cursor on esc",
-      "duration": 3
+      "duration": 5
     },
     {
       "title": "performs yank when y hit in visual mode",
       "fullTitle": "mode:visual performs yank when y hit in visual mode",
-      "duration": 1
+      "duration": 4
     },
     {
       "title": "accepts return on empty file",
@@ -727,7 +727,7 @@
     {
       "title": "does",
       "fullTitle": "y in visual mode should end up in command mode does",
-      "duration": 2
+      "duration": 3
     },
     {
       "title": "sets selection",
@@ -747,12 +747,12 @@
     {
       "title": "gets position",
       "fullTitle": "#66: cursor.col acts as setter / getter for column index gets position",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "if space at end of line",
       "fullTitle": "#67: ve should select to the end of the word if space at end of line",
-      "duration": 3
+      "duration": 4
     },
     {
       "title": "if second word of three",
@@ -762,7 +762,7 @@
     {
       "title": "if only word on line",
       "fullTitle": "#67: ve should select to the end of the word if only word on line",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "records the keystrokes into the register",
@@ -772,7 +772,7 @@
     {
       "title": "plays back the recorded keystrokes",
       "fullTitle": "macro @ plays back the recorded keystrokes",
-      "duration": 5
+      "duration": 6
     },
     {
       "title": "m[a-z] marks the bit.",
@@ -782,7 +782,7 @@
     {
       "title": "deleting over a mark removes it",
       "fullTitle": "marks deleting over a mark removes it",
-      "duration": 3
+      "duration": 4
     },
     {
       "title": "getting range doesnt change things",
@@ -797,7 +797,7 @@
     {
       "title": "handles deletions in the line prior to the actual mark",
       "fullTitle": "marks handles deletions in the line prior to the actual mark",
-      "duration": 4
+      "duration": 3
     },
     {
       "title": "handles a join",
@@ -812,7 +812,7 @@
     {
       "title": "'[a-z] moves to that line",
       "fullTitle": "marks '[a-z] moves to that line",
-      "duration": 1
+      "duration": 2
     },
     {
       "title": "'[a-z] moves to the beginning of that line",
@@ -822,7 +822,7 @@
     {
       "title": "'[a-z] moves to that line and character",
       "fullTitle": "marks '[a-z] moves to that line and character",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "is replaced by another mark of same name",
@@ -832,7 +832,7 @@
     {
       "title": ". returns last edit position",
       "fullTitle": "special marks . returns last edit position",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "exists",
@@ -852,7 +852,7 @@
     {
       "title": "creating a substring will pass the mark correctly",
       "fullTitle": "mark creating a substring will pass the mark correctly",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "creating a concat that will retain its own marks",
@@ -877,7 +877,7 @@
     {
       "title": "handles substringing itself",
       "fullTitle": "mark handles substringing itself",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "handles substring, new text, substring concat'd",
@@ -892,32 +892,32 @@
     {
       "title": "moves cursor ",
       "fullTitle": "parser fa moves cursor ",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "performs search {motion} {count} times",
       "fullTitle": "parser fa performs search {motion} {count} times",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "moves to next Word",
       "fullTitle": "parser W moves to next Word",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "checks for first word on the line",
       "fullTitle": "parser W checks for first word on the line",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "moves to the first non-whitespace character on a line",
       "fullTitle": "parser ^ moves to the first non-whitespace character on a line",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "lands on the first character if the first character is not whitespace",
       "fullTitle": "parser ^ lands on the first character if the first character is not whitespace",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "moves to the last non-whitespace character on the line",
@@ -927,7 +927,7 @@
     {
       "title": "goes to beginning of next sentence",
       "fullTitle": "parser ) goes to beginning of next sentence",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "goes to beginning of this sentence",
@@ -937,7 +937,7 @@
     {
       "title": "it goes to the previous sentence if at beginning of one",
       "fullTitle": "parser ( it goes to the previous sentence if at beginning of one",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "goes to beginning of line if need be",
@@ -947,17 +947,17 @@
     {
       "title": "handles sentences of multiple words",
       "fullTitle": "parser ( handles sentences of multiple words",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "handles ?",
       "fullTitle": "parser ( handles ?",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "handles !",
       "fullTitle": "parser ( handles !",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "exists",
@@ -967,17 +967,17 @@
     {
       "title": "sets vim.view.status",
       "fullTitle": "vim.notify sets vim.view.status",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "switches the case",
       "fullTitle": "~ switches the case",
-      "duration": 4
+      "duration": 3
     },
     {
       "title": "does so in visual mode",
       "fullTitle": "~ does so in visual mode",
-      "duration": 8
+      "duration": 7
     },
     {
       "title": "works as ~ in visual",
@@ -987,17 +987,17 @@
     {
       "title": "converts to lowercase",
       "fullTitle": "gu converts to lowercase",
-      "duration": 8
+      "duration": 7
     },
     {
       "title": "converts to uppercase",
       "fullTitle": "gU converts to uppercase",
-      "duration": 7
+      "duration": 6
     },
     {
       "title": "performs simple {motion} {count} times",
       "fullTitle": "parser {count}{motion} performs simple {motion} {count} times",
-      "duration": 2
+      "duration": 3
     },
     {
       "title": "performs search {motion} {count} times",
@@ -1022,7 +1022,7 @@
     {
       "title": "changes the selection to what is inside the nearest two quotation marks",
       "fullTitle": "vi\" changes the selection to what is inside the nearest two quotation marks",
-      "duration": 7
+      "duration": 6
     },
     {
       "title": "inserts the contents of the first register after the cursor",
@@ -1032,7 +1032,7 @@
     {
       "title": "inserts the contents of the first register at the cursor",
       "fullTitle": "paste P inserts the contents of the first register at the cursor",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "has an rc object",
@@ -1042,12 +1042,12 @@
     {
       "title": "fills out abbreviations on space",
       "fullTitle": "abbreviate fills out abbreviations on space",
-      "duration": 4
+      "duration": 3
     },
     {
       "title": "fills out abbreviation on enter",
       "fullTitle": "abbreviate fills out abbreviation on enter",
-      "duration": 4
+      "duration": 6
     },
     {
       "title": "fills out abbreviation on enter",
@@ -1112,7 +1112,7 @@
     {
       "title": "retrieves the filename",
       "fullTitle": "registers \"% retrieves the filename",
-      "duration": 4
+      "duration": 5
     },
     {
       "title": "returns \"\" if no path specified",
@@ -1127,7 +1127,7 @@
     {
       "title": "holds the last entered text",
       "fullTitle": "registers \". holds the last entered text",
-      "duration": 2
+      "duration": 3
     },
     {
       "title": "ignores a yank",
@@ -1152,7 +1152,7 @@
     {
       "title": "can move cursor to the next word",
       "fullTitle": "search w can move cursor to the next word",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "catches words at beginning of line",
@@ -1197,7 +1197,7 @@
     {
       "title": "does nothing if prevline does not end with {",
       "fullTitle": "smartindent does nothing if prevline does not end with {",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "does something if prevline does end with a {",
@@ -1227,7 +1227,7 @@
     {
       "title": "deindents on a }",
       "fullTitle": "smartindent deindents on a }",
-      "duration": 22
+      "duration": 20
     },
     {
       "title": "leaves next line at same level if no action",
@@ -1242,7 +1242,7 @@
     {
       "title": "substitutes one word not at beginning of sentence",
       "fullTitle": "substitute substitutes one word not at beginning of sentence",
-      "duration": 4
+      "duration": 3
     },
     {
       "title": "does not encroach into other words or characters",
@@ -1262,17 +1262,17 @@
     {
       "title": "Handles extra slash",
       "fullTitle": "substitute Handles extra slash",
-      "duration": 3
+      "duration": 4
     },
     {
       "title": "Handles no match",
       "fullTitle": "substitute Handles no match",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "Only does the one line",
       "fullTitle": "substitute Only does the one line",
-      "duration": 4
+      "duration": 5
     },
     {
       "title": "Works globally",
@@ -1287,7 +1287,7 @@
     {
       "title": "Substitute works with %",
       "fullTitle": "substitute Substitute works with %",
-      "duration": 10
+      "duration": 11
     },
     {
       "title": "Works with simple range",
@@ -1302,12 +1302,12 @@
     {
       "title": "Works with N,$ range",
       "fullTitle": "substitute Works with N,$ range",
-      "duration": 20
+      "duration": 21
     },
     {
       "title": "will delete a general insertion",
       "fullTitle": "undo will delete a general insertion",
-      "duration": 5
+      "duration": 6
     },
     {
       "title": "will erase two general insertions if triggered twice",
@@ -1327,7 +1327,7 @@
     {
       "title": "moves cursor to where it was at beginning of undone write",
       "fullTitle": "undo moves cursor to where it was at beginning of undone write",
-      "duration": 5
+      "duration": 4
     },
     {
       "title": "moves cursor to where it was at beginning of undone write",
@@ -1377,7 +1377,7 @@
     {
       "title": "exists",
       "fullTitle": "view exists",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "has on and trigger methods",
@@ -1407,7 +1407,7 @@
     {
       "title": "reads \"\" if in command mode with an empty buffer",
       "fullTitle": "view status reads \"\" if in command mode with an empty buffer",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "reads \":\" if : pressed",
@@ -1422,7 +1422,7 @@
     {
       "title": "reads \"?\" if : pressed",
       "fullTitle": "view status reads \"?\" if : pressed",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "returns a string",
@@ -1432,7 +1432,7 @@
     {
       "title": "includes status if there is one",
       "fullTitle": "view getText includes status if there is one",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "returns a string with view.lines lines",
@@ -1452,7 +1452,7 @@
     {
       "title": "returns a range of line # visible",
       "fullTitle": "view visibleLines returns a range of line # visible",
-      "duration": 290
+      "duration": 277
     },
     {
       "title": "returns an empty array if identical",
@@ -1522,7 +1522,7 @@
     {
       "title": "selects text correctly when moving backwards",
       "fullTitle": "visual operators selects text correctly when moving backwards",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "stores the selection in register 0",
@@ -1532,22 +1532,22 @@
     {
       "title": "deletes the selection",
       "fullTitle": "visual operators d deletes the selection",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "ends up in insert mode",
       "fullTitle": "visual operators c ends up in insert mode",
-      "duration": 1
+      "duration": 2
     },
     {
       "title": "indents all the selected lines",
       "fullTitle": "visual operators > indents all the selected lines",
-      "duration": 5
+      "duration": 4
     },
     {
       "title": "returns to the beginning of the selection after selecting.",
       "fullTitle": "yank returns to the beginning of the selection after selecting.",
-      "duration": 1
+      "duration": 2
     },
     {
       "title": "clears selection",
@@ -1580,7 +1580,7 @@
     {
       "title": "enters insert mode",
       "fullTitle": "basic o enters insert mode",
-      "duration": 4
+      "duration": 5
     },
     {
       "title": "does not carry anything else over",
@@ -1590,7 +1590,7 @@
     {
       "title": "removes the line",
       "fullTitle": "basic dd removes the line",
-      "duration": 12
+      "duration": 13
     },
     {
       "title": "removes an empty line",
@@ -1615,7 +1615,7 @@
     {
       "title": "<Ctrl-v> enters visual block mode",
       "fullTitle": "visual block <Ctrl-v> enters visual block mode",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "I allows inserting text to all lines",
@@ -1630,7 +1630,7 @@
     {
       "title": "a carriage return inside an I insertion negates the visual block effect",
       "fullTitle": "visual block a carriage return inside an I insertion negates the visual block effect",
-      "duration": 9
+      "duration": 8
     },
     {
       "title": "A adds text to the end",
@@ -1645,7 +1645,7 @@
     {
       "title": "c changes text then enters I mode",
       "fullTitle": "visual block c changes text then enters I mode",
-      "duration": 10
+      "duration": 9
     },
     {
       "title": "c handles text of various lengths",
@@ -1665,12 +1665,12 @@
     {
       "title": "erases the word",
       "fullTitle": "change x erases the word",
-      "duration": 5
+      "duration": 4
     },
     {
       "title": "saves the deletion in register",
       "fullTitle": "change x saves the deletion in register",
-      "duration": 4
+      "duration": 5
     },
     {
       "title": "works in obvious case",
@@ -1695,7 +1695,7 @@
     {
       "title": "works for (",
       "fullTitle": "% works for (",
-      "duration": 8
+      "duration": 9
     },
     {
       "title": "works for )",
@@ -1705,7 +1705,7 @@
     {
       "title": "doesnt barf on nothing",
       "fullTitle": "% doesnt barf on nothing",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "doesnt barf on unclosed",
@@ -1715,7 +1715,7 @@
     {
       "title": "does not return a character greater than the length of the line",
       "fullTitle": "cursor char does not return a character greater than the length of the line",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "remembers the furthest character it wants to be on",
@@ -1740,17 +1740,17 @@
     {
       "title": "erases every char if $h used",
       "fullTitle": "delete x erases every char if $h used",
-      "duration": 4
+      "duration": 3
     },
     {
       "title": "erases entire line if 0$ used",
       "fullTitle": "delete x erases entire line if 0$ used",
-      "duration": 4
+      "duration": 3
     },
     {
       "title": "accepts {n}x format",
       "fullTitle": "delete x accepts {n}x format",
-      "duration": 5
+      "duration": 4
     },
     {
       "title": "can erase multiple lines",
@@ -1760,22 +1760,22 @@
     {
       "title": "erases two characters if selection is first two",
       "fullTitle": "delete d erases two characters if selection is first two",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "erases every char if $h used",
       "fullTitle": "delete d erases every char if $h used",
-      "duration": 3
+      "duration": 2
     },
     {
       "title": "erases entire line if 0$ used",
       "fullTitle": "delete d erases entire line if 0$ used",
-      "duration": 1
+      "duration": 2
     },
     {
       "title": "can erase multiple lines",
       "fullTitle": "delete d can erase multiple lines",
-      "duration": 3
+      "duration": 4
     },
     {
       "title": "erases an empty line",
@@ -1895,7 +1895,7 @@
     {
       "title": "given multiple characters they are each inserted.",
       "fullTitle": "Doc doc.insert given multiple characters they are each inserted.",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "throws on bad range",
@@ -2020,7 +2020,7 @@
     {
       "title": "accepts % as all",
       "fullTitle": "parseRange accepts % as all",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "accepts empty string as current",
@@ -2105,17 +2105,17 @@
     {
       "title": "executes basic",
       "fullTitle": "vim.exec executes basic",
-      "duration": 0
-    },
-    {
-      "title": "moves to insert mode",
-      "fullTitle": "modes command i moves to insert mode",
       "duration": 1
     },
     {
       "title": "moves to insert mode",
-      "fullTitle": "modes command s moves to insert mode",
+      "fullTitle": "modes command i moves to insert mode",
       "duration": 0
+    },
+    {
+      "title": "moves to insert mode",
+      "fullTitle": "modes command s moves to insert mode",
+      "duration": 1
     },
     {
       "title": "moves to insert mode",
@@ -2155,12 +2155,12 @@
     {
       "title": "moves the cursor up",
       "fullTitle": "modes command k moves the cursor up",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "stays at zero if already there",
       "fullTitle": "modes command k stays at zero if already there",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "does j multiple times",
@@ -2180,7 +2180,7 @@
     {
       "title": "moves to the next word",
       "fullTitle": "modes command w moves to the next word",
-      "duration": 3
+      "duration": 2
     },
     {
       "title": "moves thence to the third",
@@ -2195,12 +2195,12 @@
     {
       "title": "creates a new line under current line and moves to insert mode",
       "fullTitle": "modes command o creates a new line under current line and moves to insert mode",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "deletes the character",
       "fullTitle": "modes command x deletes the character",
-      "duration": 1
+      "duration": 2
     },
     {
       "title": "doesn't have a problem if the line is empty",
@@ -2209,7 +2209,7 @@
     {
       "title": "moves to the first non-blank character in the line",
       "fullTitle": "modes command ^ moves to the first non-blank character in the line",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "inserts text",
@@ -2229,17 +2229,17 @@
     {
       "title": "looks for the phrase",
       "fullTitle": "search looks for the phrase",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "moves to the next instance",
       "fullTitle": "search moves to the next instance",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "is entered from command by pressing v",
       "fullTitle": "mode:visual is entered from command by pressing v",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "sets selection",
@@ -2254,12 +2254,12 @@
     {
       "title": "clears selection to cursor on esc",
       "fullTitle": "mode:visual clears selection to cursor on esc",
-      "duration": 3
+      "duration": 5
     },
     {
       "title": "performs yank when y hit in visual mode",
       "fullTitle": "mode:visual performs yank when y hit in visual mode",
-      "duration": 1
+      "duration": 4
     },
     {
       "title": "accepts return on empty file",
@@ -2289,7 +2289,7 @@
     {
       "title": "does",
       "fullTitle": "y in visual mode should end up in command mode does",
-      "duration": 2
+      "duration": 3
     },
     {
       "title": "sets selection",
@@ -2309,12 +2309,12 @@
     {
       "title": "gets position",
       "fullTitle": "#66: cursor.col acts as setter / getter for column index gets position",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "if space at end of line",
       "fullTitle": "#67: ve should select to the end of the word if space at end of line",
-      "duration": 3
+      "duration": 4
     },
     {
       "title": "if second word of three",
@@ -2324,7 +2324,7 @@
     {
       "title": "if only word on line",
       "fullTitle": "#67: ve should select to the end of the word if only word on line",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "records the keystrokes into the register",
@@ -2334,7 +2334,7 @@
     {
       "title": "plays back the recorded keystrokes",
       "fullTitle": "macro @ plays back the recorded keystrokes",
-      "duration": 5
+      "duration": 6
     },
     {
       "title": "m[a-z] marks the bit.",
@@ -2344,7 +2344,7 @@
     {
       "title": "deleting over a mark removes it",
       "fullTitle": "marks deleting over a mark removes it",
-      "duration": 3
+      "duration": 4
     },
     {
       "title": "getting range doesnt change things",
@@ -2359,7 +2359,7 @@
     {
       "title": "handles deletions in the line prior to the actual mark",
       "fullTitle": "marks handles deletions in the line prior to the actual mark",
-      "duration": 4
+      "duration": 3
     },
     {
       "title": "handles a join",
@@ -2374,7 +2374,7 @@
     {
       "title": "'[a-z] moves to that line",
       "fullTitle": "marks '[a-z] moves to that line",
-      "duration": 1
+      "duration": 2
     },
     {
       "title": "'[a-z] moves to the beginning of that line",
@@ -2384,7 +2384,7 @@
     {
       "title": "'[a-z] moves to that line and character",
       "fullTitle": "marks '[a-z] moves to that line and character",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "is replaced by another mark of same name",
@@ -2394,7 +2394,7 @@
     {
       "title": ". returns last edit position",
       "fullTitle": "special marks . returns last edit position",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "exists",
@@ -2414,7 +2414,7 @@
     {
       "title": "creating a substring will pass the mark correctly",
       "fullTitle": "mark creating a substring will pass the mark correctly",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "creating a concat that will retain its own marks",
@@ -2439,7 +2439,7 @@
     {
       "title": "handles substringing itself",
       "fullTitle": "mark handles substringing itself",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "handles substring, new text, substring concat'd",
@@ -2454,32 +2454,32 @@
     {
       "title": "moves cursor ",
       "fullTitle": "parser fa moves cursor ",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "performs search {motion} {count} times",
       "fullTitle": "parser fa performs search {motion} {count} times",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "moves to next Word",
       "fullTitle": "parser W moves to next Word",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "checks for first word on the line",
       "fullTitle": "parser W checks for first word on the line",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "moves to the first non-whitespace character on a line",
       "fullTitle": "parser ^ moves to the first non-whitespace character on a line",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "lands on the first character if the first character is not whitespace",
       "fullTitle": "parser ^ lands on the first character if the first character is not whitespace",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "moves to the last non-whitespace character on the line",
@@ -2489,7 +2489,7 @@
     {
       "title": "goes to beginning of next sentence",
       "fullTitle": "parser ) goes to beginning of next sentence",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "goes to beginning of this sentence",
@@ -2499,7 +2499,7 @@
     {
       "title": "it goes to the previous sentence if at beginning of one",
       "fullTitle": "parser ( it goes to the previous sentence if at beginning of one",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "goes to beginning of line if need be",
@@ -2509,17 +2509,17 @@
     {
       "title": "handles sentences of multiple words",
       "fullTitle": "parser ( handles sentences of multiple words",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "handles ?",
       "fullTitle": "parser ( handles ?",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "handles !",
       "fullTitle": "parser ( handles !",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "exists",
@@ -2529,17 +2529,17 @@
     {
       "title": "sets vim.view.status",
       "fullTitle": "vim.notify sets vim.view.status",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "switches the case",
       "fullTitle": "~ switches the case",
-      "duration": 4
+      "duration": 3
     },
     {
       "title": "does so in visual mode",
       "fullTitle": "~ does so in visual mode",
-      "duration": 8
+      "duration": 7
     },
     {
       "title": "works as ~ in visual",
@@ -2549,17 +2549,17 @@
     {
       "title": "converts to lowercase",
       "fullTitle": "gu converts to lowercase",
-      "duration": 8
+      "duration": 7
     },
     {
       "title": "converts to uppercase",
       "fullTitle": "gU converts to uppercase",
-      "duration": 7
+      "duration": 6
     },
     {
       "title": "performs simple {motion} {count} times",
       "fullTitle": "parser {count}{motion} performs simple {motion} {count} times",
-      "duration": 2
+      "duration": 3
     },
     {
       "title": "performs search {motion} {count} times",
@@ -2584,7 +2584,7 @@
     {
       "title": "changes the selection to what is inside the nearest two quotation marks",
       "fullTitle": "vi\" changes the selection to what is inside the nearest two quotation marks",
-      "duration": 7
+      "duration": 6
     },
     {
       "title": "inserts the contents of the first register after the cursor",
@@ -2594,7 +2594,7 @@
     {
       "title": "inserts the contents of the first register at the cursor",
       "fullTitle": "paste P inserts the contents of the first register at the cursor",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "has an rc object",
@@ -2604,12 +2604,12 @@
     {
       "title": "fills out abbreviations on space",
       "fullTitle": "abbreviate fills out abbreviations on space",
-      "duration": 4
+      "duration": 3
     },
     {
       "title": "fills out abbreviation on enter",
       "fullTitle": "abbreviate fills out abbreviation on enter",
-      "duration": 4
+      "duration": 6
     },
     {
       "title": "fills out abbreviation on enter",
@@ -2674,7 +2674,7 @@
     {
       "title": "retrieves the filename",
       "fullTitle": "registers \"% retrieves the filename",
-      "duration": 4
+      "duration": 5
     },
     {
       "title": "returns \"\" if no path specified",
@@ -2689,7 +2689,7 @@
     {
       "title": "holds the last entered text",
       "fullTitle": "registers \". holds the last entered text",
-      "duration": 2
+      "duration": 3
     },
     {
       "title": "ignores a yank",
@@ -2714,7 +2714,7 @@
     {
       "title": "can move cursor to the next word",
       "fullTitle": "search w can move cursor to the next word",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "catches words at beginning of line",
@@ -2759,7 +2759,7 @@
     {
       "title": "does nothing if prevline does not end with {",
       "fullTitle": "smartindent does nothing if prevline does not end with {",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "does something if prevline does end with a {",
@@ -2789,7 +2789,7 @@
     {
       "title": "deindents on a }",
       "fullTitle": "smartindent deindents on a }",
-      "duration": 22
+      "duration": 20
     },
     {
       "title": "leaves next line at same level if no action",
@@ -2804,7 +2804,7 @@
     {
       "title": "substitutes one word not at beginning of sentence",
       "fullTitle": "substitute substitutes one word not at beginning of sentence",
-      "duration": 4
+      "duration": 3
     },
     {
       "title": "does not encroach into other words or characters",
@@ -2824,17 +2824,17 @@
     {
       "title": "Handles extra slash",
       "fullTitle": "substitute Handles extra slash",
-      "duration": 3
+      "duration": 4
     },
     {
       "title": "Handles no match",
       "fullTitle": "substitute Handles no match",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "Only does the one line",
       "fullTitle": "substitute Only does the one line",
-      "duration": 4
+      "duration": 5
     },
     {
       "title": "Works globally",
@@ -2849,7 +2849,7 @@
     {
       "title": "Substitute works with %",
       "fullTitle": "substitute Substitute works with %",
-      "duration": 10
+      "duration": 11
     },
     {
       "title": "Works with simple range",
@@ -2864,12 +2864,12 @@
     {
       "title": "Works with N,$ range",
       "fullTitle": "substitute Works with N,$ range",
-      "duration": 20
+      "duration": 21
     },
     {
       "title": "will delete a general insertion",
       "fullTitle": "undo will delete a general insertion",
-      "duration": 5
+      "duration": 6
     },
     {
       "title": "will erase two general insertions if triggered twice",
@@ -2889,7 +2889,7 @@
     {
       "title": "moves cursor to where it was at beginning of undone write",
       "fullTitle": "undo moves cursor to where it was at beginning of undone write",
-      "duration": 5
+      "duration": 4
     },
     {
       "title": "moves cursor to where it was at beginning of undone write",
@@ -2939,7 +2939,7 @@
     {
       "title": "exists",
       "fullTitle": "view exists",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "has on and trigger methods",
@@ -2969,7 +2969,7 @@
     {
       "title": "reads \"\" if in command mode with an empty buffer",
       "fullTitle": "view status reads \"\" if in command mode with an empty buffer",
-      "duration": 0
+      "duration": 1
     },
     {
       "title": "reads \":\" if : pressed",
@@ -2984,7 +2984,7 @@
     {
       "title": "reads \"?\" if : pressed",
       "fullTitle": "view status reads \"?\" if : pressed",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "returns a string",
@@ -2994,7 +2994,7 @@
     {
       "title": "includes status if there is one",
       "fullTitle": "view getText includes status if there is one",
-      "duration": 1
+      "duration": 0
     },
     {
       "title": "returns a string with view.lines lines",
@@ -3014,7 +3014,7 @@
     {
       "title": "returns a range of line # visible",
       "fullTitle": "view visibleLines returns a range of line # visible",
-      "duration": 290
+      "duration": 277
     },
     {
       "title": "returns an empty array if identical",
@@ -3084,7 +3084,7 @@
     {
       "title": "selects text correctly when moving backwards",
       "fullTitle": "visual operators selects text correctly when moving backwards",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "stores the selection in register 0",
@@ -3094,22 +3094,22 @@
     {
       "title": "deletes the selection",
       "fullTitle": "visual operators d deletes the selection",
-      "duration": 2
+      "duration": 1
     },
     {
       "title": "ends up in insert mode",
       "fullTitle": "visual operators c ends up in insert mode",
-      "duration": 1
+      "duration": 2
     },
     {
       "title": "indents all the selected lines",
       "fullTitle": "visual operators > indents all the selected lines",
-      "duration": 5
+      "duration": 4
     },
     {
       "title": "returns to the beginning of the selection after selecting.",
       "fullTitle": "yank returns to the beginning of the selection after selecting.",
-      "duration": 1
+      "duration": 2
     },
     {
       "title": "clears selection",
