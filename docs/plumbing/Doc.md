@@ -33,13 +33,13 @@ doc.remove([
 
 ###doc.find(expression, [ options ])
 
-- _expression_ is a RegExp with global flag
-- Optional _options_ is a json object as described below
-
-Returns the position of a match, if there is one:
 ```javascript
 doc.find(/hello/g);
 ```
+
+- _expression_ is a __global__ RegExp with a __capture__ group
+- Optional _options_ is a json object as described below
+- Returns the position of a match, if there is one
 
 ####Options
 
@@ -53,9 +53,6 @@ Options are passed as a json object like:
 	[ offset: {Bool} ]     // Specify precisely where to begin the search; override above options.
 }
 ```
-expression must (1) be global, i.e. /(hello)/g and (2) include a capture... otherwise we don't know what we're looking for.
-
-N.B. The internals for reverse searching are a bit yucky. Possibly there is an elegant solution, but the upshot presently is that you are better off including as much as you're searching for within the first captured group of your regular expression.
 
 ###doc.text([range])
 
