@@ -1,13 +1,8 @@
 #Vim
 
-##initialize
-
 ```javascript
 var vim = new Vim();
 ```
-
-##methods
-
 
 ###exec(command)
 
@@ -45,3 +40,12 @@ vim.addMode('insert', {
 
 Add a specific command, defined as a [commandObj](https://github.com/itsjoesullivan/js-vim/blob/master/docs/plumbing/Types.md#commandobj)
 
+```javascript
+vim.addCommand({
+	mode: 'insert',
+	match: /(.*)/,
+	fn: function(keys) {
+		vim.curDoc.insert(keys);	
+	}
+});
+```
