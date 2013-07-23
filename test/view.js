@@ -92,12 +92,13 @@ describe('view', function() {
 		});
 	});
 	describe('visibleLines', function() {
-		it('returns a range of line # visible', function() {
+/*		it('returns a range of line # visible', function() {
 			vim = new Vim();
 			vim.view.lines = 3;
 			var ct = 0;
 			while(ct++ < 100) { vim.exec('i'); vim.exec('asdf'); vim.exec('esc'); vim.exec('j'); } 
 		});
+*/
 	});
 
 	describe('diffLine', function() {
