@@ -31,7 +31,10 @@ doc.remove([
 ]);
 ```
 
-###doc.find(expression, options)
+###doc.find(expression, [ options ])
+
+- _expression_ is a RegExp with global flag
+- Optional [options] is a json object as described below
 
 Returns the position of a match, if there is one:
 ```javascript
