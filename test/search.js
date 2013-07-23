@@ -63,4 +63,13 @@ describe('search', function() { var Vim = require('../index'); var vim = new Vim
 			vim.curDoc.cursor.char().should.equal(4);
 		});
 	});
+	describe('?\\n', function() {
+		it('repeats last backwards search', function() {
+			vim.text('a a a a');
+			vim.exec('$');
+			vim.exec('?a\n');
+			vim.exec('?\n');
+			vim.curDoc.cursor.char().should.equal(2);
+		});
+	});
 });
