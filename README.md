@@ -1,6 +1,6 @@
 #js-vim
 
-![Build status](https://api.travis-ci.org/itsjoesullivan/js-vim.png)
+![Build status](https://api.travis-ci.org/itsjoesullivan/js-vim.svg)
 
 A javascript implementation of the popular vi clone.
 
